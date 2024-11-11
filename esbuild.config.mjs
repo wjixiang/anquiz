@@ -23,7 +23,7 @@ const context = await esbuild.context({
         copy({
             assets: [{
                 from: ["./dist/*"],
-                to: ["../test-vault/.obsidian/plugins/myplugin"]
+                to: ["../test-vault/.obsidian/plugins/anquiz"]
             }]
         }),
     ],
