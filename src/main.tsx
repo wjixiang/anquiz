@@ -1,5 +1,6 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin } from 'obsidian';
 import { AnquizSettings,DEFAULT_SETTINGS, AnquizSettingTab } from './setting';
+import { AIClient,AIRequest } from './AIClient';
 
 import React from 'react';  
 import { createRoot } from 'react-dom/client';  
@@ -10,14 +11,27 @@ import ReactComponent from './ReactComponent';
 
 export default class Anquiz extends Plugin {
 	settings: AnquizSettings;
+	client:AIClient
 
 	async onload() {
 		await this.loadSettings();
+		this.client = new AIClient(this.settings.api_url,this.settings.api_key)
 
 		// This creates an icon in the left ribbon.
-		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', (evt: MouseEvent) => {
-			// Called when the user clicks the icon.
-			new Notice('This is a notice!');
+		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', async (evt: MouseEvent) => {
+			const requst:AIRequest = {
+				model:"gpt-4o-mini",
+				messages:[{
+					role:"teacher",
+					content:"who are you?"
+				}]
+			}
+			const res = async ()=>{ 
+				const res_data = await this.client.callAPI(requst)
+				console.log(res_data)
+				return res_data
+			}
+			new Notice(await res());
 		});
 		// Perform additional things with the ribbon
 		ribbonIconEl.addClass('my-plugin-ribbon-class');
