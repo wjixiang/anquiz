@@ -1,6 +1,10 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin } from 'obsidian';
 import { AnquizSettings,DEFAULT_SETTINGS, AnquizSettingTab } from './setting';
 
+import React from 'react';  
+import { createRoot } from 'react-dom/client';  
+import ReactComponent from './ReactComponent';
+
 // Remember to rename these classes and interfaces!
 
 
@@ -92,7 +96,12 @@ class SampleModal extends Modal {
 
 	onOpen() {
 		const {contentEl} = this;
-		contentEl.setText('Woah!');
+		contentEl.setText('hello!');
+		const rootdiv = contentEl.createDiv()
+		console.log(rootdiv.innerHTML)
+		const root = createRoot(rootdiv);  
+		console.log(rootdiv.innerHTML)
+		root.render(<ReactComponent />);  
 	}
 
 	onClose() {

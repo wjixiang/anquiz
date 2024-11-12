@@ -17,7 +17,7 @@ const context = await esbuild.context({
 	banner: {
 		js: banner,
 	},
-	entryPoints: ["./src/main.ts"],
+	entryPoints: ["./src/main.tsx"],
 	bundle: true,
     plugins: [
         copy({
