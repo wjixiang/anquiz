@@ -3,8 +3,9 @@ import { quiz_yaml_template } from "./prompt/quiz_template_prompt"
 import mode_dict from "./prompt/mode_prompt"
 import { AIRequest, message } from './AIClient';
 import { parse } from "yaml"
-import { quizMode } from "./interface/quizInterface";
+import { quizMode,quiz_A1,QA_single} from "./interface/quizInterface";
 import { SingleChoiceQuizSchema } from "./typecheck/quizcheck";
+import Quiz from "./quiz";
 
 
 interface note{
@@ -37,8 +38,11 @@ export default class QuizGenerator{
 		try{
 			SingleChoiceQuizSchema.parse(raw_quiz)
 			console.log("quiz format validated")
-			const res = raw_quiz
-			return res
+			const quiz_data = this.dock_to_quiz_interface(convert_req.target_mode,raw_quiz)
+			// const res = raw_quiz
+			if(typeof quiz_data != "undefined"){
+				return new Quiz(quiz_data)
+			}
 		}catch(error){
 			console.log("Validate AI-generated quiz failed:",error)
 		}
@@ -66,7 +70,23 @@ export default class QuizGenerator{
 		return messages
 	}
 
-	dock_to_quiz_interface(mode:quizMode){
+	dock_to_quiz_interface(mode:quizMode,qa_data:QA_single){
+		switch(mode){
+			case "A1":
+				return this.fine_A1(qa_data)
+		}
+	}
 
+	fine_A1(qa_data:QA_single):quiz_A1{
+		return {
+			qa:qa_data,
+			class: "",
+			mode: "A1",
+			tag: [],
+			links: [],
+			disc: "",
+			source: null,
+			unit: null
+		}
 	}
 }

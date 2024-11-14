@@ -14,7 +14,9 @@ export default class Quiz {
     private generateView(): React.FC {  
         switch (this.data.mode) {  
             case "A1":  
+				return this.renderSingleQuestionQuiz();  	
             case "A2":  
+				return this.renderSingleQuestionQuiz();  
             case "X":  
                 return this.renderSingleQuestionQuiz();  
             case "A3":  
@@ -27,13 +29,31 @@ export default class Quiz {
         }  
     }  
 
-    private renderSingleQuestionQuiz(): React.FC {  
+	private renderSingleQuestionQuiz(): React.FC {  
         return () => {  
             const [selectedOption, setSelectedOption] = useState<string | null>(null);  
+            const [isSubmitted, setIsSubmitted] = useState(false);  
+            const [isCorrect, setIsCorrect] = useState<boolean | null>(null);  
             const quizData = this.data as quiztemplate.quiz_A1 | quiztemplate.quiz_A2 | quiztemplate.quiz_X;  
 
             const handleOptionSelect = (option: string) => {  
-                setSelectedOption(option);  
+                if (!isSubmitted) {  
+                    setSelectedOption(option);  
+                }  
+            };  
+
+            const handleSubmit = () => {  
+                if (selectedOption) {  
+                    setIsSubmitted(true);  
+                    // 假设答案存储在 quizData.qa.answer 中  
+                    setIsCorrect(selectedOption === quizData.qa.answer);  
+                }  
+            };  
+
+            const handleReset = () => {  
+                setSelectedOption(null);  
+                setIsSubmitted(false);  
+                setIsCorrect(null);  
             };  
 
             return (  
@@ -41,34 +61,90 @@ export default class Quiz {
                     <h2>{quizData.class}</h2>  
                     <p>{quizData.qa.question}</p>  
                     <div className="options">  
-                        {quizData.qa.option.map((option, index) => (  
+                        {quizData.qa.options.map((option, index) => ( 
                             <button   
                                 key={index}  
                                 onClick={() => handleOptionSelect(option)}  
-                                className={selectedOption === option ? 'selected' : ''}  
+                                className={`  
+                                    ${selectedOption === option ? 'selected' : ''}  
+                                    ${isSubmitted && selectedOption === option   
+                                        ? (isCorrect ? 'correct' : 'incorrect')   
+                                        : ''}  
+                                `}  
+                                disabled={isSubmitted}  
                             >  
                                 {option}  
                             </button>  
                         ))}  
                     </div>  
+                    
+                    {!isSubmitted && selectedOption && (  
+                        <button   
+                            onClick={handleSubmit}   
+                            className="submit-btn"  
+                        >  
+                            提交答案  
+                        </button>  
+                    )}  
+
+                    {isSubmitted && (  
+                        <div className="result-section">  
+                            <p className={isCorrect ? 'text-green-500' : 'text-red-500'}>  
+                                {isCorrect ? '回答正确！' : '回答错误'}  
+                            </p>  
+                            {!isCorrect && (  
+                                <p>正确答案是：{quizData.qa.answer}</p>  
+                            )}  
+                            <button   
+                                onClick={handleReset}   
+                                className="reset-btn"  
+                            >  
+                                重新答题  
+                            </button>  
+                        </div>  
+                    )}  
+                    
                     {quizData.disc && <p className="description">{quizData.disc}</p>}  
                     {quizData.source && <p className="source">来源：{quizData.source}</p>}  
                 </div>  
             );  
         };  
     }  
+ 
 
-    private renderA3Quiz(): React.FC {  
+	private renderA3Quiz(): React.FC {  
         return () => {  
             const [selectedOptions, setSelectedOptions] = useState<{[key: number]: string}>({});  
+            const [isSubmitted, setIsSubmitted] = useState(false);  
+            const [correctness, setCorrectness] = useState<{[key: number]: boolean}>({});  
             const quizData = this.data as quiztemplate.quiz_A3;  
 
             const handleOptionSelect = (subIndex: number, option: string) => {  
-                setSelectedOptions(prev => ({  
-                    ...prev,  
-                    [subIndex]: option  
-                }));  
+                if (!isSubmitted) {  
+                    setSelectedOptions(prev => ({  
+                        ...prev,  
+                        [subIndex]: option  
+                    }));  
+                }  
             };  
+
+            const handleSubmit = () => {  
+                const newCorrectness: {[key: number]: boolean} = {};  
+                quizData.qa.subQA.forEach((subQuiz, index) => {  
+                    newCorrectness[index] = selectedOptions[index] === subQuiz.answer;  
+                });  
+                setCorrectness(newCorrectness);  
+                setIsSubmitted(true);  
+            };  
+
+            const handleReset = () => {  
+                setSelectedOptions({});  
+                setIsSubmitted(false);  
+                setCorrectness({});  
+            };  
+
+            const allCorrect = isSubmitted &&   
+                Object.values(correctness).every(correct => correct);  
 
             return (  
                 <div className="quiz-container">  
@@ -79,19 +155,54 @@ export default class Quiz {
                             <div key={index} className="sub-question">  
                                 <p>{subQuiz.question}</p>  
                                 <div className="options">  
-                                    {subQuiz.option.map((option, optionIndex) => (  
+                                    {subQuiz.options.map((option, optionIndex) => (  
                                         <button   
                                             key={optionIndex}  
                                             onClick={() => handleOptionSelect(index, option)}  
-                                            className={selectedOptions[index] === option ? 'selected' : ''}  
+                                            className={`  
+                                                ${selectedOptions[index] === option ? 'selected' : ''}  
+                                                ${isSubmitted && selectedOptions[index] === option   
+                                                    ? (correctness[index] ? 'correct' : 'incorrect')   
+                                                    : ''}  
+                                            `}  
+                                            disabled={isSubmitted}  
                                         >  
                                             {option}  
                                         </button>  
                                     ))}  
                                 </div>  
+                                {isSubmitted && !correctness[index] && (  
+                                    <p className="text-red-500">  
+                                        正确答案是：{subQuiz.answer}  
+                                    </p>  
+                                )}  
                             </div>  
                         ))}  
                     </div>  
+
+                    {!isSubmitted && Object.keys(selectedOptions).length === quizData.qa.subQA.length && (  
+                        <button   
+                            onClick={handleSubmit}   
+                            className="submit-btn"  
+                        >  
+                            提交答案  
+                        </button>  
+                    )}  
+
+                    {isSubmitted && (  
+                        <div className="result-section">  
+                            <p className={allCorrect ? 'text-green-500' : 'text-red-500'}>  
+                                {allCorrect ? '全部回答正确！' : '部分或全部回答错误'}  
+                            </p>  
+                            <button   
+                                onClick={handleReset}   
+                                className="reset-btn"  
+                            >  
+                                重新答题  
+                            </button>  
+                        </div>  
+                    )}  
+                    
                     {quizData.disc && <p className="description">{quizData.disc}</p>}  
                     {quizData.source && <p className="source">来源：{quizData.source}</p>}  
                 </div>  

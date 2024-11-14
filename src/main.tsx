@@ -4,6 +4,7 @@ import { AIClient } from './AIClient';
 
 import QuizGenerator from './quizgenerator';
 import { quizGenerateReq } from './quizgenerator';
+import Quiz from './quiz';
 
 import React from 'react';  
 import { createRoot } from 'react-dom/client';  
@@ -35,8 +36,12 @@ export default class Anquiz extends Plugin {
 					}
 				}
 
-				const new_quzi = new QuizGenerator(this).single_note_to_quiz(testreq)
-				console.log(await new_quzi)
+				const new_quzi = await new QuizGenerator(this).single_note_to_quiz(testreq)
+
+				if(typeof new_quzi != 'undefined'){
+					new QuizModal(this.app,new_quzi).open()
+				}
+				// console.log(new_quzi)
 			}
 
 		});
@@ -123,6 +128,29 @@ class SampleModal extends Modal {
 		const root = createRoot(rootdiv);  
 		console.log(rootdiv.innerHTML)
 		root.render(<ReactComponent />);  
+	}
+
+	onClose() {
+		const {contentEl} = this;
+		contentEl.empty();
+	}
+}
+
+class QuizModal extends Modal {
+	quiz:Quiz
+	constructor(app: App,quiz_componant:Quiz) {
+		super(app);
+		this.quiz = quiz_componant
+	}
+
+	onOpen() {
+		const {contentEl} = this;
+		contentEl.setText('hello!');
+		const rootdiv = contentEl.createDiv()
+		console.log(rootdiv.innerHTML)
+		const root = createRoot(rootdiv);  
+		console.log(rootdiv.innerHTML)
+		root.render(<this.quiz.view />);  
 	}
 
 	onClose() {

@@ -1,8 +1,9 @@
-interface QA_single{
+export interface QA_single{
 	question:string,
-	option:string[],
+	options:string[],
 	answer: quizMode
 }
+
 
 export type quiz_format = quiz_A1|quiz_A2|quiz_A3|quiz_B|quiz_E|quiz_X
 export type quizMode = "A1"|"A2"|"A3"|"B"|"X"|"E"
