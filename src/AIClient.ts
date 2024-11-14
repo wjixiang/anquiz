@@ -1,8 +1,13 @@
 import axios from 'axios';  
 
+export interface message{
+	role: string;
+	content: string;
+}
+
 export interface AIRequest {  
     model: string;  
-    messages: Array<{ role: string; content: string }>;  
+    messages: message[]
 }  
 
 export class AIClient {  

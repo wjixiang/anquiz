@@ -1,6 +1,9 @@
-import { App, Editor, MarkdownView, Modal, Notice, Plugin } from 'obsidian';
+import { App, Editor, MarkdownView, Modal, Plugin } from 'obsidian';
 import { AnquizSettings,DEFAULT_SETTINGS, AnquizSettingTab } from './setting';
-import { AIClient,AIRequest } from './AIClient';
+import { AIClient } from './AIClient';
+
+import QuizGenerator from './quizgenerator';
+import { quizGenerateReq } from './quizgenerator';
 
 import React from 'react';  
 import { createRoot } from 'react-dom/client';  
@@ -17,21 +20,25 @@ export default class Anquiz extends Plugin {
 		await this.loadSettings();
 		this.client = new AIClient(this.settings.api_url,this.settings.api_key)
 
+
 		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', async (evt: MouseEvent) => {
-			const requst:AIRequest = {
-				model:"gpt-4o-mini",
-				messages:[{
-					role:"teacher",
-					content:"who are you?"
-				}]
+
+			const currentFile = this.app.workspace.getActiveFile()
+			if(currentFile!=null){
+				
+				const testreq: quizGenerateReq = {
+					target_mode:"A1",
+					source_note:{
+						title: currentFile.basename,
+						content: await this.app.vault.read(currentFile)
+					}
+				}
+
+				const new_quzi = new QuizGenerator(this).single_note_to_quiz(testreq)
+				console.log(await new_quzi)
 			}
-			const res = async ()=>{ 
-				const res_data = await this.client.callAPI(requst)
-				console.log(res_data)
-				return res_data
-			}
-			new Notice(await res());
+
 		});
 		// Perform additional things with the ribbon
 		ribbonIconEl.addClass('my-plugin-ribbon-class');
