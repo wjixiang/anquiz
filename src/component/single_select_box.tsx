@@ -1,4 +1,5 @@
 import React, { Component } from "react";  
+import { CheckIcon, XIcon } from 'lucide-react'; // 使用 lucide-react 图标库  
 
 type optionID = "A" | "B" | "C" | "D" | "E"  
 
@@ -6,7 +7,6 @@ interface SingleSelectBoxProps {
     groupid: string,  
     optionid: optionID,  
     text: string,  
-    // 新增属性  
     isSelected?: boolean,  
     isCorrect?: boolean,  
     onSelect?: (optionid: optionID) => void,  
@@ -19,7 +19,6 @@ interface SingleSelectBoxState {
 }  
 
 export default class SingleSelectBox extends Component<SingleSelectBoxProps, SingleSelectBoxState> {  
-    // 默认构造函数  
     constructor(props: SingleSelectBoxProps) {  
         super(props);  
         this.state = {  
@@ -28,7 +27,6 @@ export default class SingleSelectBox extends Component<SingleSelectBoxProps, Sin
         };  
     }  
 
-    // 组件更新时同步外部传入的选中状态  
     componentDidUpdate(prevProps: SingleSelectBoxProps) {  
         if (prevProps.isSelected !== this.props.isSelected) {  
             this.setState({  
@@ -36,7 +34,6 @@ export default class SingleSelectBox extends Component<SingleSelectBoxProps, Sin
             });  
         }  
 
-        // 同步正确性状态  
         if (this.props.isCorrect !== undefined) {  
             this.setState({  
                 status: this.props.isCorrect ? "correct" : "wrong"  
@@ -44,58 +41,86 @@ export default class SingleSelectBox extends Component<SingleSelectBoxProps, Sin
         }  
     }  
 
-    // 处理点击事件  
     handleClick = () => {  
         const { disabled, onSelect, optionid } = this.props;  
 
-        // 如果被禁用，不响应点击  
         if (disabled) return;  
 
-        // 调用外部传入的选择处理函数  
         if (onSelect) {  
             onSelect(optionid);  
         }  
 
-        // 更新本地状态（如果没有外部控制）  
         this.setState(prevState => ({  
             checked: !prevState.checked  
         }));  
     }  
 
-    // 渲染方法  
-    render() {  
-        const { optionid, text } = this.props;  
-        const { checked, status } = this.state;  
-
-        // 根据状态确定样式类  
-        const getClassName = () => {  
-            let baseClass = "single-select-box";  
-            
-            if (this.props.disabled) {  
-                baseClass += " disabled";  
-            }  
-
-            if (checked) {  
-                baseClass += " selected";  
-            }  
-
-            if (status === "correct") {  
-                baseClass += " correct";  
-            } else if (status === "wrong") {  
-                baseClass += " wrong";  
-            }  
-
-            return baseClass;  
+    renderStatusIcon() {  
+        const { status } = this.state;  
+        
+        // 根据状态渲染不同的图标和颜色  
+        switch (status) {  
+            case "correct":  
+                return (  
+                    <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">  
+                        <CheckIcon className="text-white w-5 h-5" />  
+                    </div>  
+                );  
+            case "wrong":  
+                return (  
+                    <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center">  
+                        <XIcon className="text-white w-5 h-5" />  
+                    </div>  
+                );  
+            default:  
+                return (  
+                    <div className={`  
+                        w-8 h-8 rounded-full   
+                        ${this.state.checked ? 'bg-blue-500' : 'bg-gray-300'}  
+                        flex items-center justify-center  
+                    `}>  
+                        {this.state.checked && (  
+                            <span className="text-white text-sm">✓</span>  
+                        )}  
+                    </div>  
+                );  
         }  
+    }  
+
+    render() {  
+        const { optionid, text, disabled } = this.props;  
+        const { checked, status } = this.state;  
 
         return (  
             <div   
-                className={`${getClassName()} border-l-2 border-green-50 m-2 p-2`}   
+                className={`  
+                    flex items-center   
+                    border rounded-lg   
+                    m-2 p-2   
+                    transition-all duration-300   
+                    ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:bg-blue-500'}  
+                    ${checked ? 'border-blue-500' : 'border-gray-300'}  
+                    ${status === 'correct' ? 'border-green-500' : ''}  
+                    ${status === 'wrong' ? 'border-red-500' : ''}  
+                `}  
                 onClick={this.handleClick}  
-				id={optionid}
-            >   
-                <div className="option-text">{text}</div>  
+                id={optionid}  
+            >  
+                {/* 左侧状态图标 */}  
+                <div className="mr-4">  
+                    {this.renderStatusIcon()}  
+                </div>  
+
+                {/* 选项文本 */}  
+                <div className={`  
+                    flex-grow   
+                    ${checked ? 'font-semibold' : 'font-normal'}  
+                    ${status === 'correct' ? 'text-green-700' : ''}  
+                    ${status === 'wrong' ? 'text-red-700' : ''}  
+                `}>  
+                    {text}  
+                </div>  
             </div>  
         );  
     }  
-}  
+}
