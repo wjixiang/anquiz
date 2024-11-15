@@ -1,7 +1,9 @@
+type optionID = "A" | "B" | "C" | "D" | "E" 
+
 export interface QA_single{
 	question:string,
 	options:string[],
-	answer: quizMode
+	answer: optionID
 }
 
 

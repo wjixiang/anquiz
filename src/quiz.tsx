@@ -35,10 +35,10 @@ export default class Quiz {
 		return () => {  
 			const [selectedOption, setSelectedOption] = useState<string | null>(null);  
 			const [isSubmitted, setIsSubmitted] = useState(false);  
-			const [isCorrect, setIsCorrect] = useState<boolean | null>(null);  
+			const [IsCorrect, setIsCorrect] = useState<boolean | undefined>(undefined);  
 			const quizData = this.data as quiztemplate.quiz_A1 | quiztemplate.quiz_A2 | quiztemplate.quiz_X;  
 	
-			const handleOptionSelect = (option: string) => {  
+			const handleOptionSelect = (option: optionID) => {  
 				if (!isSubmitted) {  
 					setSelectedOption(option);  
 				}  
@@ -46,16 +46,22 @@ export default class Quiz {
 	
 			const handleSubmit = () => {  
 				if (selectedOption) {  
+					const correctOptionId = mapOptionToId(quizData.qa.answer);  
+					const isCorrect = selectedOption === correctOptionId;  
+			
+					console.log('选择的答案:', selectedOption);  
+					console.log('正确答案:', correctOptionId);  
+					console.log('是否正确:', isCorrect);  
+			
 					setIsSubmitted(true);  
-					// 假设答案存储在 quizData.qa.answer 中  
-					setIsCorrect(selectedOption === quizData.qa.answer);  
-				}  
+					setIsCorrect(isCorrect);  
+				}
 			};  
 	
 			const handleReset = () => {  
 				setSelectedOption(null);  
 				setIsSubmitted(false);  
-				setIsCorrect(null);  
+				setIsCorrect(undefined);  
 			};  
 	
 			// 将选项映射到 optionID  
@@ -64,7 +70,8 @@ export default class Quiz {
 					[quizData.qa.options[0]]: 'A',  
 					[quizData.qa.options[1]]: 'B',  
 					[quizData.qa.options[2]]: 'C',  
-					[quizData.qa.options[3]]: 'D',  
+					[quizData.qa.options[3]]: 'D',
+					[quizData.qa.options[4]]: 'E',  
 				};  
 				return optionMap[option] || 'A';  
 			};  
@@ -80,9 +87,9 @@ export default class Quiz {
 								groupid="quiz-group"  
 								optionid={mapOptionToId(option)}  
 								text={option}  
-								onSelect={() => handleOptionSelect(option)}  
+								onSelect={() => handleOptionSelect(mapOptionToId(option))}  
 								isSelected={selectedOption === option}  
-								isCorrect={isSubmitted ? (option === quizData.qa.answer) : undefined}  
+								isCorrect={IsCorrect}  
 								disabled={isSubmitted}  
 							/>  
 						))}  
@@ -99,10 +106,10 @@ export default class Quiz {
 	
 					{isSubmitted && (  
 						<div className="result-section">  
-							<p className={isCorrect ? 'text-green-500' : 'text-red-500'}>  
-								{isCorrect ? '回答正确！' : '回答错误'}  
+							<p className={IsCorrect ? 'text-green-500' : 'text-red-500'}>  
+								{IsCorrect ? '回答正确！' : '回答错误'}  
 							</p>  
-							{!isCorrect && (  
+							{!IsCorrect && (  
 								<p>正确答案是：{quizData.qa.answer}</p>  
 							)}  
 							<button   
