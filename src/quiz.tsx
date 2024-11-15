@@ -89,7 +89,7 @@ export default class Quiz {
 								text={option}  
 								onSelect={() => handleOptionSelect(mapOptionToId(option))}  
 								isSelected={selectedOption === mapOptionToId(option)}  // 修改这里  
-								isCorrect={IsCorrect}  // 修改这里  
+								isCorrect={quizData.qa.answer===selectedOption}  // 修改这里  
 								disabled={isSubmitted}  
 							/>  
 						))}  
