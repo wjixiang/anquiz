@@ -567,10 +567,6 @@ video {
   border-color: rgb(240 253 244 / var(--tw-border-opacity));
 }
 
-.p-2 {
-  padding: 0.5rem;
-}
-
 .text-green-500 {
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));

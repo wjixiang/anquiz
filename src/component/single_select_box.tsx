@@ -90,10 +90,10 @@ export default class SingleSelectBox extends Component<SingleSelectBoxProps, Sin
 
         return (  
             <div   
-                className={getClassName()}   
+                className={`${getClassName()} border-l-2 border-green-50 m-2 p-2`}   
                 onClick={this.handleClick}  
-            >  
-                <div className="option-id">{optionid}</div>  
+				id={optionid}
+            >   
                 <div className="option-text">{text}</div>  
             </div>  
         );  

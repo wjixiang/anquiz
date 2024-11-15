@@ -1,6 +1,8 @@
 import React, { useState } from 'react';  
 import * as quiztemplate from './interface/quizInterface';
+import SingleSelectBox from './component/single_select_box';
 
+type optionID = "A" | "B" | "C" | "D" | "E"  
 
 export default class Quiz {  
     data: quiztemplate.quiz_format;  
@@ -30,86 +32,94 @@ export default class Quiz {
     }  
 
 	private renderSingleQuestionQuiz(): React.FC {  
-        return () => {  
-            const [selectedOption, setSelectedOption] = useState<string | null>(null);  
-            const [isSubmitted, setIsSubmitted] = useState(false);  
-            const [isCorrect, setIsCorrect] = useState<boolean | null>(null);  
-            const quizData = this.data as quiztemplate.quiz_A1 | quiztemplate.quiz_A2 | quiztemplate.quiz_X;  
-
-            const handleOptionSelect = (option: string) => {  
-                if (!isSubmitted) {  
-                    setSelectedOption(option);  
-                }  
-            };  
-
-            const handleSubmit = () => {  
-                if (selectedOption) {  
-                    setIsSubmitted(true);  
-                    // 假设答案存储在 quizData.qa.answer 中  
-                    setIsCorrect(selectedOption === quizData.qa.answer);  
-                }  
-            };  
-
-            const handleReset = () => {  
-                setSelectedOption(null);  
-                setIsSubmitted(false);  
-                setIsCorrect(null);  
-            };  
-
-            return (  
-                <div className="quiz-container">  
-                    <h2>{quizData.class}</h2>  
-                    <p>{quizData.qa.question}</p>  
-                    <div className="options">  
-                        {quizData.qa.options.map((option, index) => ( 
-                            <button   
-                                key={index}  
-                                onClick={() => handleOptionSelect(option)}  
-                                className={`  
-                                    ${selectedOption === option ? 'selected' : ''}  
-                                    ${isSubmitted && selectedOption === option   
-                                        ? (isCorrect ? 'correct' : 'incorrect')   
-                                        : ''}  
-                                `}  
-                                disabled={isSubmitted}  
-                            >  
-                                {option}  
-                            </button>  
-                        ))}  
-                    </div>  
-                    
-                    {!isSubmitted && selectedOption && (  
-                        <button   
-                            onClick={handleSubmit}   
-                            className="submit-btn"  
-                        >  
-                            提交答案  
-                        </button>  
-                    )}  
-
-                    {isSubmitted && (  
-                        <div className="result-section">  
-                            <p className={isCorrect ? 'text-green-500' : 'text-red-500'}>  
-                                {isCorrect ? '回答正确！' : '回答错误'}  
-                            </p>  
-                            {!isCorrect && (  
-                                <p>正确答案是：{quizData.qa.answer}</p>  
-                            )}  
-                            <button   
-                                onClick={handleReset}   
-                                className="reset-btn"  
-                            >  
-                                重新答题  
-                            </button>  
-                        </div>  
-                    )}  
-                    
-                    {quizData.disc && <p className="description">{quizData.disc}</p>}  
-                    {quizData.source && <p className="source">来源：{quizData.source}</p>}  
-                </div>  
-            );  
-        };  
-    }  
+		return () => {  
+			const [selectedOption, setSelectedOption] = useState<string | null>(null);  
+			const [isSubmitted, setIsSubmitted] = useState(false);  
+			const [isCorrect, setIsCorrect] = useState<boolean | null>(null);  
+			const quizData = this.data as quiztemplate.quiz_A1 | quiztemplate.quiz_A2 | quiztemplate.quiz_X;  
+	
+			const handleOptionSelect = (option: string) => {  
+				if (!isSubmitted) {  
+					setSelectedOption(option);  
+				}  
+			};  
+	
+			const handleSubmit = () => {  
+				if (selectedOption) {  
+					setIsSubmitted(true);  
+					// 假设答案存储在 quizData.qa.answer 中  
+					setIsCorrect(selectedOption === quizData.qa.answer);  
+				}  
+			};  
+	
+			const handleReset = () => {  
+				setSelectedOption(null);  
+				setIsSubmitted(false);  
+				setIsCorrect(null);  
+			};  
+	
+			// 将选项映射到 optionID  
+			const mapOptionToId = (option: string): optionID => {  
+				const optionMap: {[key: string]: optionID} = {  
+					[quizData.qa.options[0]]: 'A',  
+					[quizData.qa.options[1]]: 'B',  
+					[quizData.qa.options[2]]: 'C',  
+					[quizData.qa.options[3]]: 'D',  
+				};  
+				return optionMap[option] || 'A';  
+			};  
+	
+			return (  
+				<div className="quiz-container">  
+					<h2>{quizData.class}</h2>  
+					<p>{quizData.qa.question}</p>  
+					<div className="options">  
+						{quizData.qa.options.map((option, index) => (   
+							<SingleSelectBox  
+								key={index}  
+								groupid="quiz-group"  
+								optionid={mapOptionToId(option)}  
+								text={option}  
+								onSelect={() => handleOptionSelect(option)}  
+								isSelected={selectedOption === option}  
+								isCorrect={isSubmitted ? (option === quizData.qa.answer) : undefined}  
+								disabled={isSubmitted}  
+							/>  
+						))}  
+					</div>  
+					
+					{!isSubmitted && selectedOption && (  
+						<button   
+							onClick={handleSubmit}   
+							className="submit-btn"  
+						>  
+							提交答案  
+						</button>  
+					)}  
+	
+					{isSubmitted && (  
+						<div className="result-section">  
+							<p className={isCorrect ? 'text-green-500' : 'text-red-500'}>  
+								{isCorrect ? '回答正确！' : '回答错误'}  
+							</p>  
+							{!isCorrect && (  
+								<p>正确答案是：{quizData.qa.answer}</p>  
+							)}  
+							<button   
+								onClick={handleReset}   
+								className="reset-btn"  
+							>  
+								重新答题  
+							</button>  
+						</div>  
+					)}  
+					
+					{quizData.disc && <p className="description">{quizData.disc}</p>}  
+					{quizData.source && <p className="source">来源：{quizData.source}</p>}  
+				</div>  
+			);  
+		};  
+	}  
  
 
 	private renderA3Quiz(): React.FC {  
