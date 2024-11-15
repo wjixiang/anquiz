@@ -51,6 +51,8 @@ export default class QuizGenerator{
 	add_message(convert_req:quizGenerateReq,messages:message[]):message[]{
 		const config = [
 			"你是一个临床医学试题生成器，严格根据所输入的内容出题，所有的回复必须是严格的yaml格式，并严格按照所给出的yaml模板返回结果，中除了yaml文本以外不要有其他任何内容，包括代码块",
+			"若有双*标记加粗内容，则为出题重点",
+			"避免重复: 从参考笔记中完全随机选择出题重点",
 			"你要生成的题型是：" + mode_dict[convert_req.target_mode],
 			"每次生成的题目个数：1",
 			`yaml模板：\n${quiz_yaml_template[convert_req.target_mode]}\n`,

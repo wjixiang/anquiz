@@ -36,7 +36,7 @@ export default class SingleSelectBox extends Component<SingleSelectBoxProps, Sin
             newState.checked = nextProps.isSelected;  
         }  
 
-        if (nextProps.isCorrect !== undefined && nextProps.isCorrect !== (prevState.status === 'correct')) {  
+        if (nextProps.isCorrect !== undefined) {  
 			console.log(nextProps.isCorrect)
             newState.status = nextProps.isCorrect ? "correct" : "wrong";  
         }   

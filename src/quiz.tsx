@@ -35,7 +35,7 @@ export default class Quiz {
 		return () => {  
 			const [selectedOption, setSelectedOption] = useState<string | null>(null);  
 			const [isSubmitted, setIsSubmitted] = useState(false);  
-			const [, setIsCorrect] = useState<boolean | undefined>(undefined);  
+			const [isCorrect, setIsCorrect] = useState<boolean | undefined>(undefined);  
 			const quizData = this.data as quiztemplate.quiz_A1 | quiztemplate.quiz_A2 | quiztemplate.quiz_X;  
 	
 			const handleOptionSelect = (option: optionID) => {  
@@ -54,7 +54,8 @@ export default class Quiz {
 					console.log('是否正确:', isCorrect);  
 			
 					setIsSubmitted(true);  
-					setIsCorrect(isCorrect); 				}  
+					setIsCorrect(isCorrect); 				
+				}  
 			};  
 	
 			const handleReset = () => {  
@@ -131,8 +132,8 @@ export default class Quiz {
 	
 					{isSubmitted && (  
 						<div className="result-section">  
-							<p className={selectedOption === mapOptionToId(quizData.qa.answer) ? 'text-green-500' : 'text-red-500'}>  
-								{selectedOption === mapOptionToId(quizData.qa.answer) ? '回答正确！' : '回答错误'}  
+							<p className={isCorrect ? 'text-green-500' : 'text-red-500'}>  
+								{isCorrect ? '回答正确！' : '回答错误'}  
 							</p>  
 							{selectedOption !== mapOptionToId(quizData.qa.answer) && (  
 								<p>正确答案是：{quizData.qa.answer}</p>  
