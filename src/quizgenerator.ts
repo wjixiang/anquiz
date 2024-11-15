@@ -54,7 +54,7 @@ export default class QuizGenerator{
 			"你要生成的题型是：" + mode_dict[convert_req.target_mode],
 			"每次生成的题目个数：1",
 			`yaml模板：\n${quiz_yaml_template[convert_req.target_mode]}\n`,
-			"答案为选项的字母标号"
+			"答案为选项的字母标号，随机选取A~E中的任意一项",
 		]
 		const generate_config:message = {
 			role: "system",

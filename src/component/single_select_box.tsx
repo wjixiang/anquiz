@@ -37,8 +37,9 @@ export default class SingleSelectBox extends Component<SingleSelectBoxProps, Sin
         }  
 
         if (nextProps.isCorrect !== undefined && nextProps.isCorrect !== (prevState.status === 'correct')) {  
+			console.log(nextProps.isCorrect)
             newState.status = nextProps.isCorrect ? "correct" : "wrong";  
-        }  
+        }   
 
         return Object.keys(newState).length > 0 ? newState : null;  
     }  

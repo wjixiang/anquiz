@@ -35,7 +35,7 @@ export default class Quiz {
 		return () => {  
 			const [selectedOption, setSelectedOption] = useState<string | null>(null);  
 			const [isSubmitted, setIsSubmitted] = useState(false);  
-			const [IsCorrect, setIsCorrect] = useState<boolean | undefined>(undefined);  
+			const [, setIsCorrect] = useState<boolean | undefined>(undefined);  
 			const quizData = this.data as quiztemplate.quiz_A1 | quiztemplate.quiz_A2 | quiztemplate.quiz_X;  
 	
 			const handleOptionSelect = (option: optionID) => {  
@@ -54,14 +54,12 @@ export default class Quiz {
 					console.log('是否正确:', isCorrect);  
 			
 					setIsSubmitted(true);  
-					setIsCorrect(isCorrect);  
-				}
+					setIsCorrect(isCorrect); 				}  
 			};  
 	
 			const handleReset = () => {  
 				setSelectedOption(null);  
 				setIsSubmitted(false);  
-				setIsCorrect(undefined);  
 			};  
 	
 			// 将选项映射到 optionID  
@@ -70,12 +68,37 @@ export default class Quiz {
 					[quizData.qa.options[0]]: 'A',  
 					[quizData.qa.options[1]]: 'B',  
 					[quizData.qa.options[2]]: 'C',  
-					[quizData.qa.options[3]]: 'D',
+					[quizData.qa.options[3]]: 'D',  
 					[quizData.qa.options[4]]: 'E',  
 				};  
 				return optionMap[option] || 'A';  
 			};  
+
 	
+			// 判断单个选项是否正确  
+			const isOptionCorrect = (option: string) => {  
+				const correctOption = quizData.qa.answer;  
+				const currentOptionId = option;  
+
+				// console.log(correctOption,currentOptionId)
+				return isSubmitted && (  
+					(selectedOption === currentOptionId && currentOptionId === correctOption) || // 选中且正确  
+					(selectedOption !== correctOption && currentOptionId === correctOption) // 未选中但是正确答案  
+				);  
+			};  
+	
+			// 判断单个选项是否错误  
+			const isOptionWrong = (option: string) => {  
+				const correctOption = quizData.qa.answer;  
+				const currentOptionId = option;  
+				const status = isSubmitted && (  
+					(selectedOption === currentOptionId && currentOptionId !== correctOption) // 选中但错误  
+				)
+
+				console.log(correctOption,currentOptionId,status ? "选中 but 错误":"其他")
+				return status;  
+			};  
+		
 			return (  
 				<div className="quiz-container">  
 					<h2>{quizData.class}</h2>  
@@ -88,8 +111,10 @@ export default class Quiz {
 								optionid={mapOptionToId(option)}  
 								text={option}  
 								onSelect={() => handleOptionSelect(mapOptionToId(option))}  
-								isSelected={selectedOption === mapOptionToId(option)}  // 修改这里  
-								isCorrect={quizData.qa.answer===selectedOption}  // 修改这里  
+								isSelected={selectedOption === mapOptionToId(option)}  
+								isCorrect={isOptionCorrect(mapOptionToId(option)) ? true :   
+										isOptionWrong(mapOptionToId(option)) ? false :   
+										undefined}  
 								disabled={isSubmitted}  
 							/>  
 						))}  
@@ -106,10 +131,10 @@ export default class Quiz {
 	
 					{isSubmitted && (  
 						<div className="result-section">  
-							<p className={IsCorrect ? 'text-green-500' : 'text-red-500'}>  
-								{IsCorrect ? '回答正确！' : '回答错误'}  
+							<p className={selectedOption === mapOptionToId(quizData.qa.answer) ? 'text-green-500' : 'text-red-500'}>  
+								{selectedOption === mapOptionToId(quizData.qa.answer) ? '回答正确！' : '回答错误'}  
 							</p>  
-							{!IsCorrect && (  
+							{selectedOption !== mapOptionToId(quizData.qa.answer) && (  
 								<p>正确答案是：{quizData.qa.answer}</p>  
 							)}  
 							<button   
