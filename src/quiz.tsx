@@ -46,11 +46,11 @@ export default class Quiz {
 	
 			const handleSubmit = () => {  
 				if (selectedOption) {  
-					const correctOptionId = mapOptionToId(quizData.qa.answer);  
-					const isCorrect = selectedOption === correctOptionId;  
+					const correctOption = quizData.qa.answer;  
+					const isCorrect = selectedOption === correctOption;  
 			
 					console.log('选择的答案:', selectedOption);  
-					console.log('正确答案:', correctOptionId);  
+					console.log('正确答案:', correctOption);  
 					console.log('是否正确:', isCorrect);  
 			
 					setIsSubmitted(true);  
@@ -88,8 +88,8 @@ export default class Quiz {
 								optionid={mapOptionToId(option)}  
 								text={option}  
 								onSelect={() => handleOptionSelect(mapOptionToId(option))}  
-								isSelected={selectedOption === option}  
-								isCorrect={IsCorrect}  
+								isSelected={selectedOption === mapOptionToId(option)}  // 修改这里  
+								isCorrect={IsCorrect}  // 修改这里  
 								disabled={isSubmitted}  
 							/>  
 						))}  
@@ -190,7 +190,7 @@ export default class Quiz {
                                 </div>  
                                 {isSubmitted && !correctness[index] && (  
                                     <p className="text-red-500">  
-                                        正确答案是：{subQuiz.answer}  
+                                        正确答案是：{quizData.qa.mainQ}  
                                     </p>  
                                 )}  
                             </div>  

@@ -145,7 +145,6 @@ class QuizModal extends Modal {
 
 	onOpen() {
 		const {contentEl} = this;
-		contentEl.setText('hello!');
 		const rootdiv = contentEl.createDiv()
 		console.log(rootdiv.innerHTML)
 		const root = createRoot(rootdiv);  

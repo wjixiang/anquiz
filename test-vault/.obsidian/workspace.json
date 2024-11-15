@@ -49,8 +49,7 @@
               "title": "自然流产的临床类型"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -192,10 +191,10 @@
       "anquiz:Sample Plugin": false
     }
   },
-  "active": "33c150409a6fea07",
+  "active": "5950a9777bfe78d3",
   "lastOpenFiles": [
-    "胎儿窘迫的诊断.md",
     "自然流产的临床类型.md",
+    "胎儿窘迫的诊断.md",
     "头癣的类型及判断.md"
   ]
 }

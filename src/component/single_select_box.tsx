@@ -1,5 +1,5 @@
 import React, { Component } from "react";  
-import { CheckIcon, XIcon } from 'lucide-react'; // 使用 lucide-react 图标库  
+import { CheckIcon, XIcon } from 'lucide-react';  
 
 type optionID = "A" | "B" | "C" | "D" | "E"  
 
@@ -8,7 +8,7 @@ interface SingleSelectBoxProps {
     optionid: optionID,  
     text: string,  
     isSelected?: boolean,  
-    isCorrect?: boolean,  
+    isCorrect?: boolean | undefined,  
     onSelect?: (optionid: optionID) => void,  
     disabled?: boolean  
 }  
@@ -27,18 +27,20 @@ export default class SingleSelectBox extends Component<SingleSelectBoxProps, Sin
         };  
     }  
 
-    componentDidUpdate(prevProps: SingleSelectBoxProps) {  
-        if (prevProps.isSelected !== this.props.isSelected) {  
-            this.setState({  
-                checked: !!this.props.isSelected  
-            });  
+    // 使用 static getDerivedStateFromProps 替代 componentDidUpdate  
+    static getDerivedStateFromProps(nextProps: SingleSelectBoxProps, prevState: SingleSelectBoxState) {  
+        const newState: Partial<SingleSelectBoxState> = {};  
+
+        // 只在 props 实际变化时更新状态  
+        if (nextProps.isSelected !== undefined && nextProps.isSelected !== prevState.checked) {  
+            newState.checked = nextProps.isSelected;  
         }  
 
-        if (this.props.isCorrect !== undefined) {  
-            this.setState({  
-                status: this.props.isCorrect ? "correct" : "wrong"  
-            });  
+        if (nextProps.isCorrect !== undefined && nextProps.isCorrect !== (prevState.status === 'correct')) {  
+            newState.status = nextProps.isCorrect ? "correct" : "wrong";  
         }  
+
+        return Object.keys(newState).length > 0 ? newState : null;  
     }  
 
     handleClick = () => {  
@@ -50,15 +52,15 @@ export default class SingleSelectBox extends Component<SingleSelectBoxProps, Sin
             onSelect(optionid);  
         }  
 
-        this.setState(prevState => ({  
-            checked: !prevState.checked  
-        }));  
+        // 移除本地状态切换，交由父组件控制  
+        // this.setState(prevState => ({  
+        //     checked: !prevState.checked  
+        // }));  
     }  
 
     renderStatusIcon() {  
         const { status } = this.state;  
         
-        // 根据状态渲染不同的图标和颜色  
         switch (status) {  
             case "correct":  
                 return (  
@@ -106,12 +108,10 @@ export default class SingleSelectBox extends Component<SingleSelectBoxProps, Sin
                 onClick={this.handleClick}  
                 id={optionid}  
             >  
-                {/* 左侧状态图标 */}  
                 <div className="mr-4">  
                     {this.renderStatusIcon()}  
                 </div>  
 
-                {/* 选项文本 */}  
                 <div className={`  
                     flex-grow   
                     ${checked ? 'font-semibold' : 'font-normal'}  
