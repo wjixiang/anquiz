@@ -9,7 +9,6 @@ import Quiz from "./component/quiz";
 import { AIClient } from "./AIClient";
 import { normalizePath } from 'obsidian';
 import { v4 } from 'uuid';
-import { QAMode } from './interface/quizInterface';
 
 
 
@@ -55,7 +54,7 @@ export default class QuizGenerator{
 			console.log("Validate AI-generated quiz failed:",error)
 		}
 
-		const quiz_data:quizinterface.quizModel<> = 
+		const quiz_data = this.createQuizData(raw_quiz,convert_req.target_mode,convert_req.source_note.title)
 
 		//const quiz_data = this.dock_to_quiz_interface(convert_req.target_mode,raw_quiz,convert_req.source_note.title)
 		// const res = raw_quiz
@@ -90,6 +89,24 @@ export default class QuizGenerator{
 		})
 
 		return messages
+	}
+
+	createQuizData<T extends quizinterface.quizMode,Y extends quizinterface.QAMode>(
+		qaData: Y,
+		quizMode: T,
+		linkID: string //will be replaced in future
+	): quizinterface.quizModel<T,Y>{
+		return {
+			id:v4(),
+			subject:"",
+			unit:"",
+			mode:quizMode,
+			tags:["AIquiz"],
+			links:[linkID], //temporary
+			disc: "",
+			records: [""], //temporary
+			qa: qaData
+		}
 	}
 
 	// dock_to_quiz_interface(mode:quizinterface.quizMode,qa_data:quizinterface.QA_single,link_title:string){

@@ -2,7 +2,7 @@ type optionID = "A" | "B" | "C" | "D" | "E"
 
 export interface quizModel<T extends quizMode,Y extends QAMode> {
 	id: string,
-	subjest: string,
+	subject: string,
 	unit:string,
 	mode:T,
 	tags: string[],

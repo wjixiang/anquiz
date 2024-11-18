@@ -10,6 +10,7 @@ import Quiz from './component/quiz';
 
 import React from 'react';  
 import { createRoot } from 'react-dom/client';  
+import * as quizinterface from './interface/quizInterface'
 
 // Remember to rename these classes and interfaces!
 
@@ -145,9 +146,9 @@ class SampleModal extends Modal {
 	}
 }
 
-class QuizModal extends Modal {
-	quiz:Quiz
-	constructor(app: App,quiz_componant:Quiz) {
+class QuizModal<T extends quizinterface.quizMode,Y extends quizinterface.QAMode> extends Modal {
+	quiz:Quiz<T,Y>
+	constructor(app: App,quiz_componant:Quiz<T,Y>) {
 		super(app);
 		this.quiz = quiz_componant
 	}
