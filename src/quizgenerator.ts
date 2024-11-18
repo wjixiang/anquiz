@@ -1,11 +1,16 @@
-import Anquiz from "./main"
+import Anquiz from './main';
 import { quiz_yaml_template } from "./prompt/quiz_template_prompt"
 import mode_dict from "./prompt/mode_prompt"
 import { AIRequest, message } from './AIClient';
 import { parse } from "yaml"
-import { quizMode,quiz_A1,QA_single} from "./interface/quizInterface";
+import * as quizinterface from "./interface/quizInterface"
 import { SingleChoiceQuizSchema } from "./typecheck/quizcheck";
-import Quiz from "./quiz";
+import Quiz from "./component/quiz";
+import { AIClient } from "./AIClient";
+import { normalizePath } from 'obsidian';
+import { v4 } from 'uuid';
+import { QAMode } from './interface/quizInterface';
+
 
 
 interface note{
@@ -13,14 +18,18 @@ interface note{
 	content:string
 }
 
+
 export interface quizGenerateReq{
 	source_note:note,
-	target_mode:quizMode,
+	target_mode:quizinterface.quizMode,
+	save_folder:string
 }
 
 export default class QuizGenerator{
-	app:Anquiz
-	constructor(app:Anquiz){
+	client: AIClient
+	app: Anquiz
+	constructor(client:AIClient,app:Anquiz){
+		this.client = client,
 		this.app = app
 	}
 	async single_note_to_quiz(convert_req:quizGenerateReq){
@@ -33,18 +42,29 @@ export default class QuizGenerator{
 			model:"gpt-4o-mini",
 			messages:new_messges,
 		}
-		const raw_quiz = parse(await this.app.client.callAPI(req))
+		const AI_res = await this.client.callAPI(req)
+		
+		const yaml_format_res = AI_res.replace(/\*/g,"")
+
+		const raw_quiz = parse(yaml_format_res)
 		
 		try{
 			SingleChoiceQuizSchema.parse(raw_quiz)
 			console.log("quiz format validated")
-			const quiz_data = this.dock_to_quiz_interface(convert_req.target_mode,raw_quiz)
-			// const res = raw_quiz
-			if(typeof quiz_data != "undefined"){
-				return new Quiz(quiz_data)
-			}
 		}catch(error){
 			console.log("Validate AI-generated quiz failed:",error)
+		}
+
+		const quiz_data:quizinterface.quizModel<> = 
+
+		//const quiz_data = this.dock_to_quiz_interface(convert_req.target_mode,raw_quiz,convert_req.source_note.title)
+		// const res = raw_quiz
+		if(typeof quiz_data != "undefined"){
+			console.log(quiz_data)
+
+			await this.save_quiz(quiz_data,this.app.settings.bank_path)
+
+			return new Quiz(quiz_data)
 		}
 	}	
 
@@ -72,23 +92,44 @@ export default class QuizGenerator{
 		return messages
 	}
 
-	dock_to_quiz_interface(mode:quizMode,qa_data:QA_single){
-		switch(mode){
-			case "A1":
-				return this.fine_A1(qa_data)
-		}
-	}
+	// dock_to_quiz_interface(mode:quizinterface.quizMode,qa_data:quizinterface.QA_single,link_title:string){
+	// 	switch(mode){
+	// 		case "A1":
+	// 			return this.fine_A1(qa_data,link_title)
+	// 	}
+	// }
 
-	fine_A1(qa_data:QA_single):quiz_A1{
-		return {
-			qa:qa_data,
-			class: "",
-			mode: "A1",
-			tag: [],
-			links: [],
-			disc: "",
-			source: null,
-			unit: null
-		}
+	// fine_A1<T extends quizinterface.quizMode,Y extends quizinterface.QAMode> (
+	// 	quizMode:T,
+	// 	qa_data:quizinterface.QA_single,
+	// 	link_title:string,
+	// ):quizinterface.quizModel<T,Y> {
+
+
+
+	// 	// return {
+	// 	// 	id: v4(),
+	// 	// 	qa:qa_data,
+	// 	// 	class: "",
+	// 	// 	mode: "A1",
+	// 	// 	tags: ["AIquiz"],
+	// 	// 	links: [link_title],
+	// 	// 	disc: "",
+	// 	// 	source: null,
+	// 	// 	record: [],
+	// 	// 	unit: null
+	// 	// }
+	// }
+
+	async save_quiz<T extends quizinterface.quizMode,Y extends quizinterface.QAMode>(
+		quiz:quizinterface.quizModel<T,Y>,
+		save_folder:string,
+	){
+		const normalized_path = normalizePath(save_folder+"/test.json")
+		const json_content = JSON.stringify(quiz,null,2)
+		console.log(normalized_path)
+		await this.app.app.vault.adapter.write(normalized_path,json_content).then(()=>{
+			console.log("quiz file saved")
+		})
 	}
 }

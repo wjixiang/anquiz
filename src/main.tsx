@@ -1,14 +1,15 @@
 import { App, Editor, MarkdownView, Modal, Plugin } from 'obsidian';
 import { AnquizSettings,DEFAULT_SETTINGS, AnquizSettingTab } from './setting';
+import { normalizePath } from 'obsidian';
+
 import { AIClient } from './AIClient';
 
 import QuizGenerator from './quizgenerator';
 import { quizGenerateReq } from './quizgenerator';
-import Quiz from './quiz';
+import Quiz from './component/quiz';
 
 import React from 'react';  
 import { createRoot } from 'react-dom/client';  
-import ReactComponent from './ReactComponent';
 
 // Remember to rename these classes and interfaces!
 
@@ -19,6 +20,8 @@ export default class Anquiz extends Plugin {
 
 	async onload() {
 		await this.loadSettings();
+		await this.initQuizDB()
+
 		this.client = new AIClient(this.settings.api_url,this.settings.api_key)
 
 
@@ -33,10 +36,11 @@ export default class Anquiz extends Plugin {
 					source_note:{
 						title: currentFile.basename,
 						content: await this.app.vault.read(currentFile)
-					}
+					},
+					save_folder: this.settings.bank_path
 				}
 
-				const new_quzi = await new QuizGenerator(this).single_note_to_quiz(testreq)
+				const new_quzi = await new QuizGenerator(this.client,this).single_note_to_quiz(testreq)
 
 				if(typeof new_quzi != 'undefined'){
 					new QuizModal(this.app,new_quzi).open()
@@ -113,6 +117,13 @@ export default class Anquiz extends Plugin {
 	async saveSettings() {
 		await this.saveData(this.settings);
 	}
+
+	async initQuizDB() {  
+		// check DBFile exist
+		const plugin_root_path = normalizePath(this.app.vault.configDir)
+		console.log("plugin_root_path:",plugin_root_path)
+
+    } 
 }
 
 class SampleModal extends Modal {
@@ -125,9 +136,7 @@ class SampleModal extends Modal {
 		contentEl.setText('hello!');
 		const rootdiv = contentEl.createDiv()
 		console.log(rootdiv.innerHTML)
-		const root = createRoot(rootdiv);  
-		console.log(rootdiv.innerHTML)
-		root.render(<ReactComponent />);  
+		
 	}
 
 	onClose() {
@@ -145,7 +154,9 @@ class QuizModal extends Modal {
 
 	onOpen() {
 		const {contentEl} = this;
-		const rootdiv = contentEl.createDiv()
+		const rootdiv = contentEl.createDiv({
+			cls: "anquiz-scope"
+		})
 		console.log(rootdiv.innerHTML)
 		const root = createRoot(rootdiv);  
 		console.log(rootdiv.innerHTML)

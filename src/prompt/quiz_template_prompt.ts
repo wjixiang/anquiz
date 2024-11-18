@@ -20,7 +20,7 @@ const en:templateOption = {
 }
 
 const zh_cn:templateOption = {
-	"A1": "question: ${试题的问题}\noptions:\n  - A.${选项A}\n  - B.${选项B}\n  - C.${选项C}\n  - D.${选项D}\n  - E.${选项E}\nanswer: ${试题的正确选项}",
+	"A1": "question: ${试题的问题}\noptions:\n  - ${选项A}\n  - ${选项B}\n  - ${选项C}\n  - ${选项D}\n  - ${选项E}\nanswer: ${试题的正确选项}",
 	"A2":"string",
 	"A3":"string",
 	"B":"string",

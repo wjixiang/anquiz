@@ -1,6 +1,6 @@
 import React, { useState } from 'react';  
-import * as quiztemplate from './interface/quizInterface';
-import SingleSelectBox from './component/single_select_box';
+import * as quiztemplate from '../interface/quizInterface';
+import SingleSelectBox from './single_select_box';
 
 type optionID = "A" | "B" | "C" | "D" | "E"  
 
@@ -49,9 +49,9 @@ export default class Quiz {
 					const correctOption = quizData.qa.answer;  
 					const isCorrect = selectedOption === correctOption;  
 			
-					console.log('选择的答案:', selectedOption);  
-					console.log('正确答案:', correctOption);  
-					console.log('是否正确:', isCorrect);  
+					// console.log('select:', selectedOption);  
+					// console.log('answer:', correctOption);  
+					// console.log('right:', isCorrect);  
 			
 					setIsSubmitted(true);  
 					setIsCorrect(isCorrect); 				
@@ -95,8 +95,6 @@ export default class Quiz {
 				const status = isSubmitted && (  
 					(selectedOption === currentOptionId && currentOptionId !== correctOption) // 选中但错误  
 				)
-
-				console.log(correctOption,currentOptionId,status ? "选中 but 错误":"其他")
 				return status;  
 			};  
 		
@@ -132,7 +130,7 @@ export default class Quiz {
 	
 					{isSubmitted && (  
 						<div className="result-section">  
-							<p className={isCorrect ? 'text-green-500' : 'text-red-500'}>  
+							<p className={isCorrect ? 'anquiz-text-green-500' : 'anquiz-text-red-500'}>  
 								{isCorrect ? '回答正确！' : '回答错误'}  
 							</p>  
 							{selectedOption !== mapOptionToId(quizData.qa.answer) && (  
