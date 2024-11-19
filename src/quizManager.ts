@@ -1,60 +1,68 @@
-
-
-import * as quizinterface from './interface/quizInterface';
+import * as quizinterface from './interface/quizInterface';  
 import Datastore from 'nedb-promises';  
-import Anquiz from './main';
-
-
-import { normalizePath } from 'obsidian';
-
+import Anquiz from './main';  
+import { normalizePath } from 'obsidian';  
 
 export class QuizManager {  
     private db: Datastore<quizinterface.quizModel<quizinterface.quizMode,quizinterface.QAMode>>;  
-	private app: Anquiz;
-	private quizDBpath: string;
-	private documentCache: quizinterface.quizModel<quizinterface.quizMode,quizinterface.QAMode>[]
-    constructor(app:Anquiz) {  
-        this.app = app
-		this.quizDBpath = normalizePath(`${this.app.app.vault.configDir}/plugins/${this.app.manifest.id}/quizzes.db`)
-		this.documentCache = []
-       
+    private app: Anquiz;  
+    private quizDBpath: string;  
+
+    constructor(app: Anquiz) {  
+        this.app = app;  
+        this.quizDBpath = normalizePath(`${this.app.app.vault.configDir}/plugins/${this.app.manifest.id}/quizzes.json`);  
     }  
 
-	async init(){
-		if(!await this.app.app.vault.adapter.exists(this.quizDBpath)){
-			console.log("quizDB file not exists, creating")
-			await this.save()
-		}
+    async init() {  
+        // 创建内存数据库实例  
+        this.db = Datastore.create({   
+            inMemoryOnly: true,  
+            timestampData: false   
+        });  
 
-		this.db = Datastore.create({  
-			filename: 'quizzes.db',  
-			autoload: true,
-			timestampData: false 
-		}); 
-	}
+        // 如果文件存在，则从文件加载数据  
+        try {  
+            if (await this.app.app.vault.adapter.exists(this.quizDBpath)) {  
+                const data = await this.app.app.vault.adapter.read(this.quizDBpath);  
+                const records = JSON.parse(data);  
+                // 将数据加载到内存数据库  
+                for (const record of records) {  
+                    await this.db.insert(record);  
+                }  
+                console.log("QuizDB loaded from file");  
+            } else {  
+                console.log("QuizDB file not exists, starting with empty database");  
+                await this.save(); // 创建空文件  
+            }  
+        } catch (error) {  
+            console.error("Error loading QuizDB:", error);  
+        }  
+    }  
 
-	async save(){
-		return new Promise((resolve,reject)=>{
-			try {
-				this.app.app.vault.adapter.write(
-					this.quizDBpath,
-					JSON.stringify(this.documentCache,null,2)
-				)
-				console.log("quizDB save completed")
-				resolve(this.documentCache)
-			} catch(error){
-				console.error("quizDB save failed",error)
-				reject(error)
-			}
-		})
-	}
+    async save() {  
+        try {  
+            // 从数据库获取所有文档并直接写入文件  
+            const docs = await this.db.find({});  
+            await this.app.app.vault.adapter.write(  
+                this.quizDBpath,  
+                JSON.stringify(docs, null, 2)  
+            );  
+            console.log("QuizDB save completed");  
+            return docs;  
+        } catch (error) {  
+            console.error("QuizDB save failed", error);  
+            throw error;  
+        }  
+    }  
 
     // 插入新的 Quiz  
     async createQuiz<T extends quizinterface.quizMode, Y extends quizinterface.QAMode>(  
         quiz: quizinterface.quizModel<T, Y>  
     ): Promise<quizinterface.quizModel<T, Y>> {  
-		console.log("create quiz")
-        return await this.db.insert(quiz);  
+        console.log("create quiz");  
+        const newQuiz = await this.db.insert(quiz);  
+        await this.save();  
+        return newQuiz;  
     }  
 
     // 根据 ID 查找 Quiz  
@@ -76,12 +84,16 @@ export class QuizManager {
         id: string,   
         update: Partial<quizinterface.quizModel<T, Y>>  
     ): Promise<number> {  
-        return await this.db.update({ _id: id }, { $set: update });  
+        const result = await this.db.update({ _id: id }, { $set: update });  
+        await this.save();  
+        return result;  
     }  
 
     // 删除 Quiz  
     async deleteQuiz(id: string): Promise<number> {  
-        return await this.db.remove({ id: id },{multi:false});  
+        const result = await this.db.remove({ id: id }, { multi: false });  
+        await this.save();  
+        return result;  
     }  
 
     // 按标签查找  
@@ -90,16 +102,4 @@ export class QuizManager {
     ): Promise<Array<quizinterface.quizModel<T, Y>>> {  
         return await this.db.find({ tags: tag });  
     }  
-
-	// private async ensurePluginDirectoryExists(path: string): Promise<void> {  
-    //     const adapter = this.app.app.vault.adapter;  
-        
-    //     // 检查目录是否存在，不存在则创建  
-    //     if (!(await adapter.exists(path))) {  
-    //         await adapter.mkdir(path);  
-    //     }  
-    // }  
-
-
-
-} 
+}
