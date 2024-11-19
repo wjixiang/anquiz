@@ -62,7 +62,7 @@ export default class QuizGenerator{
 			console.log(quiz_data)
 
 			await this.save_quiz(quiz_data,this.app.settings.bank_path)
-
+			await this.app.quizDB.createQuiz(quiz_data)
 			return new Quiz(quiz_data)
 		}
 	}	
@@ -108,35 +108,6 @@ export default class QuizGenerator{
 			qa: qaData
 		}
 	}
-
-	// dock_to_quiz_interface(mode:quizinterface.quizMode,qa_data:quizinterface.QA_single,link_title:string){
-	// 	switch(mode){
-	// 		case "A1":
-	// 			return this.fine_A1(qa_data,link_title)
-	// 	}
-	// }
-
-	// fine_A1<T extends quizinterface.quizMode,Y extends quizinterface.QAMode> (
-	// 	quizMode:T,
-	// 	qa_data:quizinterface.QA_single,
-	// 	link_title:string,
-	// ):quizinterface.quizModel<T,Y> {
-
-
-
-	// 	// return {
-	// 	// 	id: v4(),
-	// 	// 	qa:qa_data,
-	// 	// 	class: "",
-	// 	// 	mode: "A1",
-	// 	// 	tags: ["AIquiz"],
-	// 	// 	links: [link_title],
-	// 	// 	disc: "",
-	// 	// 	source: null,
-	// 	// 	record: [],
-	// 	// 	unit: null
-	// 	// }
-	// }
 
 	async save_quiz<T extends quizinterface.quizMode,Y extends quizinterface.QAMode>(
 		quiz:quizinterface.quizModel<T,Y>,

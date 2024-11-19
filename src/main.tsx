@@ -11,13 +11,14 @@ import Quiz from './component/quiz';
 import React from 'react';  
 import { createRoot } from 'react-dom/client';  
 import * as quizinterface from './interface/quizInterface'
+import { QuizManager } from './quizManager';
 
-// Remember to rename these classes and interfaces!
 
 
 export default class Anquiz extends Plugin {
 	settings: AnquizSettings;
-	client:AIClient
+	client:AIClient;
+	quizDB: QuizManager
 
 	async onload() {
 		await this.loadSettings();
@@ -123,6 +124,9 @@ export default class Anquiz extends Plugin {
 		// check DBFile exist
 		const plugin_root_path = normalizePath(this.app.vault.configDir)
 		console.log("plugin_root_path:",plugin_root_path)
+
+		this.quizDB = new QuizManager(this)
+		await this.quizDB.init()
 
     } 
 }
