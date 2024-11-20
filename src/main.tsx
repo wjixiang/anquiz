@@ -28,18 +28,14 @@ export default class Anquiz extends Plugin {
 
 
 		// This creates an icon in the left ribbon.
-		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', async (evt: MouseEvent) => {
+		const ribbonIconEl = this.addRibbonIcon('dice', 'random quiz', async (evt: MouseEvent) => {
 
 			const currentFile = this.app.workspace.getActiveFile()
 			if(currentFile!=null){
 				
 				const testreq: quizGenerateReq = {
 					target_mode:"A1",
-					source_note:{
-						title: currentFile.basename,
-						content: await this.app.vault.read(currentFile)
-					},
-					save_folder: this.settings.bank_path
+					source_note: currentFile,
 				}
 
 				const new_quzi = await new QuizGenerator(this.client,this).single_note_to_quiz(testreq)

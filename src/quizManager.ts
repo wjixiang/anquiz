@@ -65,6 +65,12 @@ export class QuizManager {
         return newQuiz;  
     }  
 
+	async findQuizByNoteId<T extends quizinterface.quizMode, Y extends quizinterface.QAMode>(
+		nid: string
+	): Promise<quizinterface.quizModel<T, Y>[] | null>{
+		return this.db.find({ links: { $regex: new RegExp(nid) } })
+	}
+
     // 根据 ID 查找 Quiz  
     async findQuizById<T extends quizinterface.quizMode, Y extends quizinterface.QAMode>(  
         id: string  

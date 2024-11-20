@@ -7,21 +7,15 @@ import * as quizinterface from "./interface/quizInterface"
 import { SingleChoiceQuizSchema } from "./typecheck/quizcheck";
 import Quiz from "./component/quiz";
 import { AIClient } from "./AIClient";
-import { normalizePath } from 'obsidian';
+import { normalizePath, TFile } from 'obsidian';
 import { v4 } from 'uuid';
 
 
 
-interface note{
-	title:string,
-	content:string
-}
-
 
 export interface quizGenerateReq{
-	source_note:note,
+	source_note:TFile,
 	target_mode:quizinterface.quizMode,
-	save_folder:string
 }
 
 export default class QuizGenerator{
@@ -32,21 +26,22 @@ export default class QuizGenerator{
 		this.app = app
 	}
 	async single_note_to_quiz(convert_req:quizGenerateReq){
+		
+
 		const messges = [{
 			role:"system",
 			content:"你是一个临床医学试题生成器，所有的回复必须是严格的yaml格式，并严格按照所给出的yaml模板返回结果，中除了yaml文本以外不要有其他任何内容，包括代码块"
 		}]
-		const new_messges = this.add_message(convert_req,messges)
+		const new_messges = await this.add_message(convert_req,messges)
 		const req:AIRequest={
-			model:"gpt-4o-mini",
+			model:"gpt-4o",
 			messages:new_messges,
 		}
-		const AI_res = await this.client.callAPI(req)
-		
-		const yaml_format_res = AI_res.replace(/\*/g,"")
 
+		const AI_res = await this.client.callAPI(req)
+		const yaml_format_res = AI_res.replace(/\*/g,"")
 		const raw_quiz = parse(yaml_format_res)
-		
+
 		try{
 			SingleChoiceQuizSchema.parse(raw_quiz)
 			console.log("quiz format validated")
@@ -54,7 +49,20 @@ export default class QuizGenerator{
 			console.log("Validate AI-generated quiz failed:",error)
 		}
 
-		const quiz_data = this.createQuizData(raw_quiz,convert_req.target_mode,convert_req.source_note.title)
+		//check note id
+		const nid = await this.app.app.fileManager.processFrontMatter(convert_req.source_note,(frontmatter)=>{
+			const nid = frontmatter['nid']
+			if(typeof nid == "undefined"){
+				frontmatter['nid'] = v4()
+			} 
+		}).then(()=>{
+			const frontmatter = this.app.app.metadataCache.getFileCache(convert_req.source_note)?.frontmatter
+			if(frontmatter){
+				return frontmatter['nid']
+			}
+		})
+		console.log(nid)
+		const quiz_data = this.createQuizData(raw_quiz,convert_req.target_mode,nid)
 
 		//const quiz_data = this.dock_to_quiz_interface(convert_req.target_mode,raw_quiz,convert_req.source_note.title)
 		// const res = raw_quiz
@@ -67,15 +75,43 @@ export default class QuizGenerator{
 		}
 	}	
 
-	add_message(convert_req:quizGenerateReq,messages:message[]):message[]{
+	async get_note_id(note:TFile){
+		const nid = await this.app.app.fileManager.processFrontMatter(note,(frontmatter)=>{
+			const nid = frontmatter['nid']
+			if(typeof nid == "undefined"){
+				frontmatter['nid'] = v4()
+			} 
+		}).then(()=>{
+			const frontmatter = this.app.app.metadataCache.getFileCache(note)?.frontmatter
+			if(frontmatter){
+				return frontmatter['nid']
+			}
+		})
+
+		return nid
+	}
+
+	private async generateDedupePrompt(note:TFile){
+		const nid = await this.get_note_id(note)
+		const historyQuiz = await this.app.quizDB.findQuizByNoteId(nid)
+
+		const prompt = historyQuiz?.map(quiz=>{
+			return JSON.stringify(quiz.qa,null,2)
+		}).join("\n")
+		console.log(prompt)
+	}
+
+	async add_message(convert_req:quizGenerateReq,messages:message[]):Promise<message[]>{
+		
 		const config = [
-			"你是一个临床医学试题生成器，严格根据所输入的内容出题，所有的回复必须是严格的yaml格式，并严格按照所给出的yaml模板返回结果，中除了yaml文本以外不要有其他任何内容，包括代码块",
+			"你是一个临床医学试题生成器，绝对严格根据所输入的内容出题,避免任何的自主内容，所有的回复必须是严格的yaml格式，并严格按照所给出的yaml模板返回结果，中除了yaml文本以外不要有其他任何内容，包括代码块",
 			"若有双*标记加粗内容，则为出题重点",
-			"避免重复: 从参考笔记中完全随机选择出题重点",
+			"所出题目的每一个关键字，以及正确选项中的每一个关键字，都必须是参考笔记中的原词，严格禁忌自主臆想",
 			"你要生成的题型是：" + mode_dict[convert_req.target_mode],
 			"每次生成的题目个数：1",
 			`yaml模板：\n${quiz_yaml_template[convert_req.target_mode]}\n`,
 			"答案为选项的字母标号，随机选取A~E中的任意一项",
+			`避免与以下试题重复：${await this.generateDedupePrompt(convert_req.source_note)}`
 		]
 		const generate_config:message = {
 			role: "system",
@@ -83,9 +119,13 @@ export default class QuizGenerator{
 		}
 
 		messages[0]  = generate_config
+
+		const title = convert_req.source_note.basename
+		const content = this.app.app.vault.read(convert_req.source_note)
+
 		messages.push({	
 			role: "user",
-			content: convert_req.source_note.title+"\n"+convert_req.source_note.content
+			content: title+"\n"+content
 		})
 
 		return messages
@@ -97,7 +137,6 @@ export default class QuizGenerator{
 		linkID: string //will be replaced in future
 	): quizinterface.quizModel<T,Y>{
 		return {
-			id:v4(),
 			subject:"",
 			unit:"",
 			mode:quizMode,

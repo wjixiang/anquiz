@@ -1,6 +1,5 @@
 [
   {
-    "id": "27029c35-9ebd-4e9e-a7bf-ae4ba7ea4f12",
     "subject": "",
     "unit": "",
     "mode": "A1",
@@ -8,23 +7,732 @@
       "AIquiz"
     ],
     "links": [
-      "妊高症的治疗方案选择"
+      1726364863072
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": "抱歉，我无法从\"object Promise\"中提取出题内容。请提供有关头癣的类型及判断的具体信息。",
+    "_id": "0uJ00tvPNGjW9rSX"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      1726364863072
     ],
     "disc": "",
     "records": [
       ""
     ],
     "qa": {
-      "question": "妊高症的治疗方案选择中，当母亲病情稳定且各脏器功能损害不严重、胎儿尚未成熟时，应该采取哪种治疗方案？",
+      "question": "头癣最常见的类型是以下哪一种？",
       "options": [
-        "控制母亲病情、加强母儿监护、促胎肺成熟",
-        "终止妊娠",
-        "解痉、降压、扩容、利尿",
-        "控制抽搐、降压、纠正缺氧和酸中毒、专人特护",
-        "休息镇静、监测母亲血压、尿蛋白及各脏器功能"
+        "白癣",
+        "黑点癣",
+        "黄癣",
+        "脓癣",
+        "红癣"
+      ],
+      "answer": "B"
+    },
+    "_id": "3VV5QzX8jDp8eebH"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的临床类型中，哪一种是指妊娠早期胚胎停止发育但没有排出孕囊的情况？",
+      "options": [
+        "完全性流产",
+        "不全性流产",
+        "习惯性流产",
+        "隐性流产",
+        "自发性流产"
+      ],
+      "answer": "D"
+    },
+    "_id": "6ARlC2VZa4aNhZ9L"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      1726364863072
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "头癣的类型中，哪一种是由犬小孢子菌引起的？",
+      "options": [
+        "黄癣",
+        "白癣",
+        "黑癣",
+        "灰癣",
+        "红斑癣"
       ],
       "answer": "A"
     },
-    "_id": "dU1L8vhacgZC5O3P"
+    "_id": "80Bu9FHGBdzf18TH"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的临床类型不包括以下哪一项？",
+      "options": [
+        "先兆流产",
+        "完全流产",
+        "不全流产",
+        "习惯性流产",
+        "稽留流产"
+      ],
+      "answer": "B"
+    },
+    "_id": "82juTIPOAW6xu4XD"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的临床类型主要包括以下哪一种？",
+      "options": [
+        "完全流产",
+        "不完全流产",
+        "习惯性流产",
+        "先兆流产",
+        "稽留流产"
+      ],
+      "answer": "B"
+    },
+    "_id": "BtIDd0oRN2jDO6LX"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的临床类型中，哪一种是指在妊娠早期发生的自然流产，且通常伴有严重的腹痛和出血？",
+      "options": [
+        "稽留流产",
+        "病理性流产",
+        "自然流产",
+        "急性流产",
+        "临界流产"
+      ],
+      "answer": "D"
+    },
+    "_id": "CIPbP7h9ycCXh9w0"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "385cdb1c-cf64-4ad4-9e50-289cc5349aee"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "妊高症的治疗中，首选的药物是?",
+      "options": [
+        "Amlodipine",
+        "Labetalol",
+        "Captopril",
+        "Nifedipine",
+        "Methyldopa"
+      ],
+      "answer": "B"
+    },
+    "_id": "DFp5jFoUzAjSndZt"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的临床类型有哪些？",
+      "options": [
+        "先兆流产",
+        "难免流产",
+        "完全流产",
+        "不全流产",
+        "稽留流产"
+      ],
+      "answer": "B"
+    },
+    "_id": "ERWYWaGWz42EkXYW"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的临床类型中，以下哪一项属于最常见的类型？",
+      "options": [
+        "急性自然流产",
+        "迟发性自然流产",
+        "完全性流产",
+        "不完全性流产",
+        "反复流产"
+      ],
+      "answer": "C"
+    },
+    "_id": "LqiAIrIlvohF1I2I"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的临床类型不包括以下哪一项？",
+      "options": [
+        "先兆流产",
+        "难免流产",
+        "不全流产",
+        "完全流产",
+        "遗传性流产"
+      ],
+      "answer": "E"
+    },
+    "_id": "PylgmFYMcdwyH65r"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "385cdb1c-cf64-4ad4-9e50-289cc5349aee"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "妊娠高血压综合征（妊高症）的治疗措施中，以下哪项是最适合用于降低血压的药物？",
+      "options": [
+        "硝苯地平",
+        "甲基多巴",
+        "镁离子",
+        "阿司匹林",
+        "氢氯噻嗪"
+      ],
+      "answer": "B"
+    },
+    "_id": "Q1AGu58JHVTAwAeP"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "385cdb1c-cf64-4ad4-9e50-289cc5349aee"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "妊娠高血压综合征治疗方案中，以下哪种药物通常用于降低血压？",
+      "options": [
+        "硝普钠",
+        "硝苯地平",
+        "硫酸镁",
+        "氢氯噻嗪",
+        "呋塞米"
+      ],
+      "answer": "C"
+    },
+    "_id": "QoH28blpZHrABdRr"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      1726364863072
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "头癣主要由哪种真菌引起？",
+      "options": [
+        "犬小孢子菌",
+        "白念珠菌",
+        "黑曲霉",
+        "黄曲霉",
+        "啮小孢子菌"
+      ],
+      "answer": "A"
+    },
+    "_id": "SLLWBEvjUIX2Gtn6"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      1726364863072
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "头癣的主要类型不包括以下哪个选项？",
+      "options": [
+        "皮肤癣菌感染",
+        "毛囊炎",
+        "疣状癣",
+        "脓疱性癣",
+        "头皮白癜风"
+      ],
+      "answer": "B"
+    },
+    "_id": "VIRVFXlMDQzNOZz5"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "385cdb1c-cf64-4ad4-9e50-289cc5349aee"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "在治疗妊高症的过程中，下列哪项为主要治疗方案？",
+      "options": [
+        "低盐饮食和休息",
+        "适当增加运动量",
+        "使用吸氧疗法",
+        "应用降压药物",
+        "实施手术治疗"
+      ],
+      "answer": "D"
+    },
+    "_id": "XBOWz91gNwB9ty5x"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的主要临床类型不包括以下哪一种？",
+      "options": [
+        "完全流产",
+        "不完全流产",
+        "习惯性流产",
+        "生化妊娠",
+        "传染性流产"
+      ],
+      "answer": "D"
+    },
+    "_id": "XyUvCVOWX5HNGr3N"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "385cdb1c-cf64-4ad4-9e50-289cc5349aee"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "妊高症的首选治疗方案是哪种？",
+      "options": [
+        "降压药物",
+        "镇静剂",
+        "钙通道阻滞剂",
+        "安全终止妊娠",
+        "利尿剂"
+      ],
+      "answer": "D"
+    },
+    "_id": "bGvQLrBFZsHj5WQe"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的临床类型不包括以下哪一项？",
+      "options": [
+        "先兆流产",
+        "不完全流产",
+        "完全流产",
+        "迟发流产",
+        "稽留流产"
+      ],
+      "answer": "D"
+    },
+    "_id": "calFKmpdha4p63oQ"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的临床类型不包括以下哪种？",
+      "options": [
+        "完全流产",
+        "不完全流产",
+        "习惯性流产",
+        "生化流产",
+        "早期流产"
+      ],
+      "answer": "D"
+    },
+    "_id": "hM0qFDLA04zD9yB5"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产最常见的临床类型是？",
+      "options": [
+        "难免流产",
+        "不全流产",
+        "先兆流产",
+        "完全流产",
+        "习惯性流产"
+      ],
+      "answer": "B"
+    },
+    "_id": "kY36vqtzx1LaYi6B"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "385cdb1c-cf64-4ad4-9e50-289cc5349aee"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "妊高症患者在中、重度情况下，首选的降压药物是？",
+      "options": [
+        "硝苯地平",
+        "拉贝洛尔",
+        "利尿剂",
+        "美托洛尔",
+        "阿司匹林"
+      ],
+      "answer": "B"
+    },
+    "_id": "orFjuJJkmO2Txk2R"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "385cdb1c-cf64-4ad4-9e50-289cc5349aee"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": "请提供一些参考笔记或信息，我将根据输入的信息生成一题与妊高症治疗方案选择相关的普通单选题。",
+    "_id": "pjU8hPszyao98Bkw"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的临床类型不包括以下哪种？",
+      "options": [
+        "胚胎停育",
+        "先兆流产",
+        "引产流产",
+        "完全流产",
+        "不完全流产"
+      ],
+      "answer": "C"
+    },
+    "_id": "rPrfmSEP1eokrzjh"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "385cdb1c-cf64-4ad4-9e50-289cc5349aee"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "妊高症的治疗方案选择中，以下哪项是最适合的？",
+      "options": [
+        "使用利尿剂",
+        "控制血压",
+        "增加钙摄入",
+        "降低蛋白质摄入",
+        "增加锌摄入"
+      ],
+      "answer": "B"
+    },
+    "_id": "uXoRR8suQ8olPekf"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "385cdb1c-cf64-4ad4-9e50-289cc5349aee"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "选择治疗妊娠高血压综合症的方法包含哪项？",
+      "options": [
+        "降低胆固醇药物",
+        "减少盐的摄入量",
+        "使用硫酸镁控制痉挛",
+        "进行放射治疗",
+        "应用抗高血压药物"
+      ],
+      "answer": "C"
+    },
+    "_id": "xlsk2vepVwdd0Inz"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的临床类型主要包括哪一项？",
+      "options": [
+        "完全流产",
+        "先兆流产",
+        "随机流产",
+        "不全流产",
+        "稽留流产"
+      ],
+      "answer": "A"
+    },
+    "_id": "xrO4jfRXh4Ts8z76"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "385cdb1c-cf64-4ad4-9e50-289cc5349aee"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "妊高症的主要治疗方案是？",
+      "options": [
+        "控制血糖",
+        "严格卧床休息",
+        "降低血压",
+        "增加运动量",
+        "加强胰岛素治疗"
+      ],
+      "answer": "C"
+    },
+    "_id": "yk0UvG52YRXo3BWP"
   }
 ]
