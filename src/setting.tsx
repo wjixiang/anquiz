@@ -6,12 +6,14 @@ export interface AnquizSettings {
 	bank_path: string;
 	api_url: string;
 	api_key: string;
+	card_marking_tag: string;
 }
 
 export const DEFAULT_SETTINGS: AnquizSettings = {
 	bank_path: 'quiz_bank',
 	api_url: 'https://www.gptapi.us/v1/chat/completions',
-	api_key: "sk-0SghhgFMzyNOoRwG981eDcFbEeCa4aEa9c1b831bDc73360b"
+	api_key: "sk-0SghhgFMzyNOoRwG981eDcFbEeCa4aEa9c1b831bDc73360b",
+	card_marking_tag: "card",
 }
 
 
@@ -51,15 +53,26 @@ export class AnquizSettingTab extends PluginSettingTab {
 				await this.plugin.saveSettings();
 			}));
 
-      new Setting(containerEl)
-        .setName('API-KEY')
-        .setDesc("填入API-key")
-        .addText(text => text
-          .setPlaceholder('Enter your api-key')
-          .setValue(this.plugin.settings.api_key)
-          .onChange(async (value) => {
-            this.plugin.settings.api_key = value;
-            await this.plugin.saveSettings();
-          }));
+		new Setting(containerEl)
+			.setName('API-KEY')
+			.setDesc("填入API-key")
+			.addText(text => text
+			.setPlaceholder('Enter your api-key')
+			.setValue(this.plugin.settings.api_key)
+			.onChange(async (value) => {
+				this.plugin.settings.api_key = value;
+				await this.plugin.saveSettings();
+			}));
+
+		new Setting(containerEl)
+		.setName('MarkingTag')
+		.setDesc(locale.card_marking_tag_desc)
+		.addText(text => text
+			.setPlaceholder('such as "flashcard"')
+			.setValue(this.plugin.settings.card_marking_tag)
+			.onChange(async (value) => {
+			this.plugin.settings.card_marking_tag = value;
+			await this.plugin.saveSettings();
+			}));
 	}
 }

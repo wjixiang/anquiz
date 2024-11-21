@@ -9,6 +9,7 @@ import Quiz from "./component/quiz";
 import { AIClient } from "./AIClient";
 import { normalizePath, TFile } from 'obsidian';
 import { v4 } from 'uuid';
+import manager from './noteManager';
 
 
 
@@ -18,12 +19,11 @@ export interface quizGenerateReq{
 	target_mode:quizinterface.quizMode,
 }
 
-export default class QuizGenerator{
+export default class QuizGenerator extends manager{
 	client: AIClient
-	app: Anquiz
 	constructor(client:AIClient,app:Anquiz){
-		this.client = client,
-		this.app = app
+		super(app)
+		this.client = client
 	}
 	async single_note_to_quiz(convert_req:quizGenerateReq){
 		
@@ -50,13 +50,13 @@ export default class QuizGenerator{
 		}
 
 		//check note id
-		const nid = await this.app.app.fileManager.processFrontMatter(convert_req.source_note,(frontmatter)=>{
+		const nid = await this.plugin.app.fileManager.processFrontMatter(convert_req.source_note,(frontmatter)=>{
 			const nid = frontmatter['nid']
 			if(typeof nid == "undefined"){
 				frontmatter['nid'] = v4()
 			} 
 		}).then(()=>{
-			const frontmatter = this.app.app.metadataCache.getFileCache(convert_req.source_note)?.frontmatter
+			const frontmatter = this.plugin.app.metadataCache.getFileCache(convert_req.source_note)?.frontmatter
 			if(frontmatter){
 				return frontmatter['nid']
 			}
@@ -69,36 +69,22 @@ export default class QuizGenerator{
 		if(typeof quiz_data != "undefined"){
 			console.log(quiz_data)
 
-			await this.save_quiz(quiz_data,this.app.settings.bank_path)
-			await this.app.quizDB.createQuiz(quiz_data)
+			await this.save_quiz(quiz_data,this.plugin.settings.bank_path)
+			await this.plugin.quizDB.createQuiz(quiz_data)
 			return new Quiz(quiz_data)
 		}
 	}	
 
-	async get_note_id(note:TFile){
-		const nid = await this.app.app.fileManager.processFrontMatter(note,(frontmatter)=>{
-			const nid = frontmatter['nid']
-			if(typeof nid == "undefined"){
-				frontmatter['nid'] = v4()
-			} 
-		}).then(()=>{
-			const frontmatter = this.app.app.metadataCache.getFileCache(note)?.frontmatter
-			if(frontmatter){
-				return frontmatter['nid']
-			}
-		})
-
-		return nid
-	}
-
 	private async generateDedupePrompt(note:TFile){
 		const nid = await this.get_note_id(note)
-		const historyQuiz = await this.app.quizDB.findQuizByNoteId(nid)
-
-		const prompt = historyQuiz?.map(quiz=>{
-			return JSON.stringify(quiz.qa,null,2)
-		}).join("\n")
-		console.log(prompt)
+		const historyQuiz = await this.plugin.quizDB.findQuizByNoteId(nid)
+		if(historyQuiz){
+			historyQuiz.map(quiz=>{
+				return JSON.stringify(quiz.qa,null,2)
+			}).join("\n")
+		}else{
+			return ""
+		}
 	}
 
 	async add_message(convert_req:quizGenerateReq,messages:message[]):Promise<message[]>{
@@ -121,7 +107,7 @@ export default class QuizGenerator{
 		messages[0]  = generate_config
 
 		const title = convert_req.source_note.basename
-		const content = this.app.app.vault.read(convert_req.source_note)
+		const content = await this.plugin.app.vault.read(convert_req.source_note)
 
 		messages.push({	
 			role: "user",
@@ -155,7 +141,7 @@ export default class QuizGenerator{
 		const normalized_path = normalizePath(save_folder+"/test.json")
 		const json_content = JSON.stringify(quiz,null,2)
 		console.log(normalized_path)
-		await this.app.app.vault.adapter.write(normalized_path,json_content).then(()=>{
+		await this.plugin.app.vault.adapter.write(normalized_path,json_content).then(()=>{
 			console.log("quiz file saved")
 		})
 	}

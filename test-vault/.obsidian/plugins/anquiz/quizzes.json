@@ -30,6 +30,23 @@
     "records": [
       ""
     ],
+    "qa": "抱歉，我无法直接使用“头癣的类型及判断 [object Promise]”来生成题目。如果可以，请提供关于头癣类型和判断的参考内容或关键词，我将基于此生成题目。",
+    "_id": "2kMeTBLwDD81V1Sc"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      1726364863072
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
     "qa": {
       "question": "头癣最常见的类型是以下哪一种？",
       "options": [
@@ -132,6 +149,67 @@
       "AIquiz"
     ],
     "links": [
+      "a98d1c26-126d-41d9-9901-da34fee1314f"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "哪一种情况通常发生在妊娠晚期，并会延续至临产并加重？",
+      "options": [
+        "急性胎儿窘迫",
+        "胎儿肥胖",
+        "慢性胎儿窘迫",
+        "胎盘早剥",
+        "羊水过多"
+      ],
+      "answer": "C"
+    },
+    "_id": "8h6tx0YwQmB6vLma"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "b6ebdeba-3825-4942-9611-d7b6abce2732"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": "请提供具体的耳鼻喉科主题或者知识点以便生成相关试题。",
+    "_id": "92oF60bBpT9Y6prA"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "a98d1c26-126d-41d9-9901-da34fee1314f"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": "抱歉，我不能使用 [object Promise] 成为内容生成题目。请提供关于胎儿窘迫诊断的详细参考资料。",
+    "_id": "AiusWggcCmwVP2m8"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
       "76d981db-7c21-44a2-85fc-95a63eb41eae"
     ],
     "disc": "",
@@ -150,6 +228,33 @@
       "answer": "B"
     },
     "_id": "BtIDd0oRN2jDO6LX"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的哪些临床表现可以达到继续妊娠的条件？",
+      "options": [
+        "难免流产",
+        "不全流产",
+        "先兆流产",
+        "完全流产",
+        "流产合并感染"
+      ],
+      "answer": "C"
+    },
+    "_id": "CDMbDlN4m1JK0PF5"
   },
   {
     "subject": "",
@@ -231,6 +336,94 @@
       "answer": "B"
     },
     "_id": "ERWYWaGWz42EkXYW"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "b6ebdeba-3825-4942-9611-d7b6abce2732"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": "抱歉，我需要具体的参考笔记内容来生成试题。请提供耳鼻喉相关的笔记或知识点。",
+    "_id": "HHit4BqD0xU6Pkfo"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "a98d1c26-126d-41d9-9901-da34fee1314f"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "胎儿窘迫的急性和慢性类型中，常见于分娩期的是哪一种？",
+      "options": [
+        "急性胎儿窘迫",
+        "慢性胎儿窘迫",
+        "未分娩期胎儿窘迫",
+        "产后胎儿窘迫",
+        "分娩后持续窘迫"
+      ],
+      "answer": "A"
+    },
+    "_id": "KmmlMEXEJ4Bonc8E"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "76d981db-7c21-44a2-85fc-95a63eb41eae"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "自然流产的基本类型中，下列哪一项是流产不可避免，并伴有阴道流血量增多和宫颈口扩张？",
+      "options": [
+        "先兆流产",
+        "难免流产",
+        "不全流产",
+        "完全流产",
+        "稽留流产"
+      ],
+      "answer": "B"
+    },
+    "_id": "L8WGOEbr5KbCgS1A"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "b6ebdeba-3825-4942-9611-d7b6abce2732"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": "抱歉，看起来输入信息不够完整，请提供更多关于耳鼻喉的具体主题或内容以生成试题。",
+    "_id": "Lj87YZz6JQJhUp1T"
   },
   {
     "subject": "",
@@ -402,6 +595,60 @@
       "AIquiz"
     ],
     "links": [
+      "a98d1c26-126d-41d9-9901-da34fee1314f"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "诊断某孕妇为急性胎儿窘迫的分娩期表现，下列哪项是值得注意的？",
+      "options": [
+        "胎心率先快后慢",
+        "胎心率持续偏慢",
+        "胎盘灌注不足",
+        "NST无反应型",
+        "妊娠晚期胎心异常"
+      ],
+      "answer": "A"
+    },
+    "_id": "VbBrc8Fa6TIrrCdU"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "a98d1c26-126d-41d9-9901-da34fee1314f"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "根据胎儿窘迫的诊断资料，哪项不属于急性胎儿窘迫的特征？",
+      "options": [
+        "胎心率先快后慢",
+        "胎心率≥160",
+        "胎粪污染",
+        "分娩期出现",
+        "酸中毒，pH<7.2"
+      ],
+      "answer": "B"
+    },
+    "_id": "Ve5OiSZE38m89NBl"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
       "385cdb1c-cf64-4ad4-9e50-289cc5349aee"
     ],
     "disc": "",
@@ -429,6 +676,33 @@
       "AIquiz"
     ],
     "links": [
+      "a98d1c26-126d-41d9-9901-da34fee1314f"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "胎儿窘迫多因何种因素引起？",
+      "options": [
+        "妊娠期高血压疾病",
+        "胎盘早剥",
+        "糖尿病",
+        "过期妊娠",
+        "基线变异≤5次"
+      ],
+      "answer": "B"
+    },
+    "_id": "XkNQCeEm8eWqiNBV"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
       "76d981db-7c21-44a2-85fc-95a63eb41eae"
     ],
     "disc": "",
@@ -447,6 +721,40 @@
       "answer": "D"
     },
     "_id": "XyUvCVOWX5HNGr3N"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "a98d1c26-126d-41d9-9901-da34fee1314f"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": "我无法处理输入的内容\"[object Promise]\"，请提供关于\"胎儿窘迫的诊断\"的参考笔记内容，以便生成相应的试题。",
+    "_id": "ZcVIQUTytM9M0ZQo"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "53c6ef31-c778-4b88-b79a-ba3cb5a612e5"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": "抱歉，我无法处理未定义的信息或不完整的问题内容。请提供具体的参考笔记或相关主题，以便我为您生成相应的试题。",
+    "_id": "bArOIwCgfkXMmN0o"
   },
   {
     "subject": "",
@@ -510,6 +818,60 @@
       "AIquiz"
     ],
     "links": [
+      "a98d1c26-126d-41d9-9901-da34fee1314f"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "胎儿窘迫主要发生在分娩期且病因主要包括脐带异常、胎盘早剥等。这主要描述的是哪种胎儿窘迫？",
+      "options": [
+        "急性胎儿窘迫",
+        "慢性胎儿窘迫",
+        "过期胎儿窘迫",
+        "产前胎儿窘迫",
+        "增强胎儿窘迫"
+      ],
+      "answer": "A"
+    },
+    "_id": "coNQP7NRzCeF0S7a"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "a98d1c26-126d-41d9-9901-da34fee1314f"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "胎儿窘迫诊断中多因妊娠期高血压疾病引起的是下列哪项？",
+      "options": [
+        "急性胎儿窘迫",
+        "慢性胎儿窘迫",
+        "羊水过少",
+        "先兆流产",
+        "胎盘早剥"
+      ],
+      "answer": "B"
+    },
+    "_id": "gl1fW1XFrrCR9l6j"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
       "76d981db-7c21-44a2-85fc-95a63eb41eae"
     ],
     "disc": "",
@@ -537,6 +899,33 @@
       "AIquiz"
     ],
     "links": [
+      "b6ebdeba-3825-4942-9611-d7b6abce2732"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "耳鼻喉科中，咽炎的主要症状是什么？",
+      "options": [
+        "嗓子痛",
+        "听力下降",
+        "眩晕",
+        "流鼻涕",
+        "失声"
+      ],
+      "answer": "A"
+    },
+    "_id": "ilxX35Th3ifUHK6S"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
       "76d981db-7c21-44a2-85fc-95a63eb41eae"
     ],
     "disc": "",
@@ -555,6 +944,33 @@
       "answer": "B"
     },
     "_id": "kY36vqtzx1LaYi6B"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      1726364863072
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "下列哪项是头癣的一种类型？",
+      "options": [
+        "红斑型",
+        "灰癣",
+        "粉刺型",
+        "瘢痕型",
+        "鼻尖型"
+      ],
+      "answer": "B"
+    },
+    "_id": "nUP7SbArEabrxTsa"
   },
   {
     "subject": "",
@@ -626,6 +1042,23 @@
       "answer": "C"
     },
     "_id": "rPrfmSEP1eokrzjh"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "53c6ef31-c778-4b88-b79a-ba3cb5a612e5"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": "很抱歉，没有识别到可以使用的参考笔记内容。请提供相关的参考笔记以便生成题目。",
+    "_id": "smk0sebOf3cEBifE"
   },
   {
     "subject": "",
@@ -734,5 +1167,59 @@
       "answer": "C"
     },
     "_id": "yk0UvG52YRXo3BWP"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "a98d1c26-126d-41d9-9901-da34fee1314f"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "胎儿窘迫多因何种病因导致？",
+      "options": [
+        "妊娠期高血压疾病",
+        "胎盘早剥",
+        "糖尿病",
+        "过期妊娠",
+        "胎盘灌注不足"
+      ],
+      "answer": "B"
+    },
+    "_id": "zRZzHEqHfM8yJ2hK"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
+      "a98d1c26-126d-41d9-9901-da34fee1314f"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "多因脐带异常、胎盘早剥、宫缩过强等引起的胎儿窘迫，其电子胎心监护特征不包括以下哪项？",
+      "options": [
+        "胎心率先快后慢",
+        "频繁变异减速和晚期减速",
+        "正弦波形态的基线变异",
+        "胎心率＜110或＞160",
+        "基线变异≤5次"
+      ],
+      "answer": "D"
+    },
+    "_id": "zx8jDnhh5gUT8dJA"
   }
 ]
