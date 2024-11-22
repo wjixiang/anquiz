@@ -1,59 +1,13 @@
-import * as quizinterface from './interface/quizInterface';  
-import Datastore from 'nedb-promises';  
+import * as quizinterface from './interface/quizInterface';    
 import Anquiz from './main';  
-import { normalizePath } from 'obsidian';  
+import ob_neDB from './Obsidian_nedb';
 
-export class QuizManager {  
-    private db: Datastore<quizinterface.quizModel<quizinterface.quizMode,quizinterface.QAMode>>;  
-    private app: Anquiz;  
-    private quizDBpath: string;  
-
-    constructor(app: Anquiz) {  
-        this.app = app;  
-        this.quizDBpath = normalizePath(`${this.app.app.vault.configDir}/plugins/${this.app.manifest.id}/quizzes.json`);  
+export class QuizManager extends ob_neDB<quizinterface.quizModel<quizinterface.quizMode,quizinterface.QAMode>>{  
+    constructor(plugin: Anquiz) {  
+		super(plugin.app,plugin.manifest,"quizDB")
     }  
 
-    async init() {  
-        // 创建内存数据库实例  
-        this.db = Datastore.create({   
-            inMemoryOnly: true,  
-            timestampData: false   
-        });  
-
-        // 如果文件存在，则从文件加载数据  
-        try {  
-            if (await this.app.app.vault.adapter.exists(this.quizDBpath)) {  
-                const data = await this.app.app.vault.adapter.read(this.quizDBpath);  
-                const records = JSON.parse(data);  
-                // 将数据加载到内存数据库  
-                for (const record of records) {  
-                    await this.db.insert(record);  
-                }  
-                console.log("QuizDB loaded from file");  
-            } else {  
-                console.log("QuizDB file not exists, starting with empty database");  
-                await this.save(); // 创建空文件  
-            }  
-        } catch (error) {  
-            console.error("Error loading QuizDB:", error);  
-        }  
-    }  
-
-    async save() {  
-        try {  
-            // 从数据库获取所有文档并直接写入文件  
-            const docs = await this.db.find({});  
-            await this.app.app.vault.adapter.write(  
-                this.quizDBpath,  
-                JSON.stringify(docs, null, 2)  
-            );  
-            console.log("QuizDB save completed");  
-            return docs;  
-        } catch (error) {  
-            console.error("QuizDB save failed", error);  
-            throw error;  
-        }  
-    }  
+    
 
     // 插入新的 Quiz  
     async createQuiz<T extends quizinterface.quizMode, Y extends quizinterface.QAMode>(  

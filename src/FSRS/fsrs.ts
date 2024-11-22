@@ -1,17 +1,16 @@
 import { TFile } from "obsidian";
 import Anquiz from "src/main";
-import manager from "src/noteManager";
+import manager from "../noteManager";
 import { Card, createEmptyCard, FSRS, FSRSParameters, generatorParameters } from "ts-fsrs";
-import Datastore from "nedb-promises";
 
-interface obCard{
+export interface obCard{
 	nid: string;
 	card: Card;
+	deck: string[];
 }
 
 export default class anquizFSRS extends manager{
 	fsrs: FSRS;
-	db: Datastore<obCard>
 	constructor(plugin:Anquiz){
 		super(plugin)
 		this.fsrs = new FSRS({})
@@ -62,7 +61,7 @@ export default class anquizFSRS extends manager{
 		return newCard
 	}
 
-	private async saveCard(){
-		
+	private async saveCard(card:obCard){
+
 	}
 }
