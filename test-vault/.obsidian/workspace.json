@@ -269,9 +269,19 @@
               "icon": "lucide-file",
               "title": "fsrs-panel"
             }
+          },
+          {
+            "id": "c35f96ec8422e081",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
           }
         ],
-        "currentTab": 7
+        "currentTab": 8
       }
     ],
     "direction": "horizontal",
@@ -288,7 +298,7 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "af0a2cc1c0506eaa",
+  "active": "c35f96ec8422e081",
   "lastOpenFiles": [
     "pifu/头癣的类型及判断.md",
     "头癣的类型及判断.md",
