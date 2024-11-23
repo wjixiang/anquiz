@@ -26,10 +26,12 @@ export default class Anquiz extends Plugin {
 
 	async onload() {
 		await this.loadSettings();
-		await this.initQuizDB()
 
 		this.client = new AIClient(this.settings.api_url,this.settings.api_key)
 		this.fsrs = new anquizFSRS(this)
+
+		await this.initQuizDB()
+		await this.fsrs.db.init()
 
 		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon('dice', 'random quiz', async (evt: MouseEvent) => {

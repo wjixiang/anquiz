@@ -1,7 +1,10 @@
-import { TFile } from "obsidian";
+import { TFile,Notice } from "obsidian";
 import Anquiz from "src/main";
 import manager from "../noteManager";
-import { Card, createEmptyCard, FSRS, FSRSParameters, generatorParameters } from "ts-fsrs";
+import { Card, createEmptyCard, FSRS } from "ts-fsrs";
+import fsrsDB from "./fsrsDB";
+
+
 
 export interface obCard{
 	nid: string;
@@ -11,57 +14,70 @@ export interface obCard{
 
 export default class anquizFSRS extends manager{
 	fsrs: FSRS;
+	db: fsrsDB
 	constructor(plugin:Anquiz){
 		super(plugin)
 		this.fsrs = new FSRS({})
+		this.db = new fsrsDB(plugin)
 	}
 
 	async addCard(file:TFile){
-		const nid = await this.get_note_id(file)
 		const noteStatus = await this.activateNote(file)
 
-		switch (noteStatus){
-			case 0:
-				this.createNewCard(file)
+		if(noteStatus==true){
+			this.createNewCard(file)
+		}else{
+			return;
 		}
 	}
 
-	private async activateNote(file:TFile): Promise<0|1|2|3>{
+	private async activateNote(file:TFile): Promise<boolean>{
 		const frontmatter = this.plugin.app.metadataCache.getFileCache(file)?.frontmatter
 		if(frontmatter){
 			if(frontmatter['FSRS']=="on"){
 				console.log(`FSRS of note ${file.basename} already activated`)
-				return 1
+				new Notice(`FSRS of note ${file.basename} already activated`)
+				return false
 			}else if(frontmatter['FSRS']=="off"){
 				console.log(`FSRS of note ${file.basename} has been disabled`)
-				return 2
+				new Notice(`FSRS of note ${file.basename} has been disabled`)
+				return false
 			}else if(frontmatter['FSRS']== undefined){
 				this.plugin.app.fileManager.processFrontMatter(file,(frontmatter)=>{
 					frontmatter['FSRS'] = "on"
 				})
-				return 0
+				return true
 			}else{
 				console.log(`Abnromal setting of FSRS status: ${file.basename}`)
-				return 3
+				new Notice(`❌error: Abnromal parameter of FSRS status: ${file.basename}`,3000)
+				return false
 			}
 		}else{
 			this.plugin.app.fileManager.processFrontMatter(file,(frontmatter)=>{
 				frontmatter['FSRS'] = "on"
 			})
-			return 0
+			return true
 		}
 	}
 
-	private async createNewCard(file:TFile): Promise<Card>{
-		const newCard = createEmptyCard()
-		const params: FSRSParameters = generatorParameters({
-			maximum_interval: 1000
-		})
+	private async createNewCard(file:TFile): Promise<obCard>{
+		const nid = await this.get_note_id(file)
+		const newCard:obCard = {
+			nid: nid,
+			card: createEmptyCard(),
+			deck: []
+		} 
 		console.log(newCard)
+		try{
+			this.db.saveCard(newCard)
+		}catch(error){
+			console.log(error)
+		}
 		return newCard
 	}
 
-	private async saveCard(card:obCard){
+	// private async addCardToDB(card:obCard){
 
-	}
+	// 	this.db.save()
+	// }
 }

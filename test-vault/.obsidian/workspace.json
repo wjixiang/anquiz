@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "quiz_bank/完全病历作业.md",
+                "file": "头癣的类型及判断.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "完全病历作业"
+              "title": "头癣的类型及判断"
             }
           }
         ],
@@ -248,18 +248,18 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "33c150409a6fea07",
+  "active": "17e4aba944f49583",
   "lastOpenFiles": [
-    "quiz_bank/自然流产的临床类型.md",
-    "quiz_bank/完全病历作业.md",
+    "内科完全病历.md",
     "胎儿窘迫的诊断.md",
+    "皮肤性病学",
+    "quiz_bank/完全病历作业.md",
+    "quiz_bank/自然流产的临床类型.md",
     "耳鼻喉作业.md",
     "头癣的类型及判断.md",
-    "内科完全病历.md",
     "未命名 1.md",
     "妊高症的治疗方案选择.md",
     "quiz_bank/test.json",
-    "未命名",
     "quiz_bank"
   ]
 }
