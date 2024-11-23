@@ -97,7 +97,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "胎儿窘迫的诊断.md",
+                "file": "pifu/胎儿窘迫的诊断.md",
                 "mode": "source",
                 "source": false
               },
@@ -178,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "自然流产的临床类型.md",
+                "file": "pifu/胎儿窘迫的诊断.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -188,7 +188,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "自然流产的临床类型 的反向链接列表"
+              "title": "胎儿窘迫的诊断 的反向链接列表"
             }
           },
           {
@@ -224,18 +224,58 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "自然流产的临床类型.md"
+                "file": "pifu/胎儿窘迫的诊断.md"
               },
               "icon": "lucide-list",
-              "title": "自然流产的临床类型 的大纲"
+              "title": "胎儿窘迫的诊断 的大纲"
+            }
+          },
+          {
+            "id": "e2c8998994ded79e",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "7d3c304275064d75",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "a2d50e7ab01833ca",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "af0a2cc1c0506eaa",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
             }
           }
-        ]
+        ],
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -248,13 +288,14 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "17e4aba944f49583",
+  "active": "af0a2cc1c0506eaa",
   "lastOpenFiles": [
     "pifu/头癣的类型及判断.md",
-    "自然流产的临床类型.md",
+    "头癣的类型及判断.md",
     "pifu/未命名.md",
+    "自然流产的临床类型.md",
     "妊高症的治疗方案选择.md",
-    "胎儿窘迫的诊断.md",
+    "pifu/胎儿窘迫的诊断.md",
     "pifu/耳鼻喉作业.md",
     "quiz_bank/内科完全病历.md",
     "pifu",

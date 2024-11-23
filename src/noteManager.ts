@@ -38,4 +38,25 @@ export default class manager{
 			return nid
 		}
 	}
+
+	async getFileByNid(nid:string):Promise<TFile>{
+		const files = this.plugin.app.vault.getMarkdownFiles()
+		const result: TFile[] = []
+		for(const file of files){
+			const cache = this.plugin.app.metadataCache.getFileCache(file)
+			if(cache?.frontmatter){
+				if(cache.frontmatter['nid']==nid){
+					result.push(file)
+				}
+			}
+		}
+
+		if(result.length == 1){
+			return result[0]
+		}else if(result.length >1){
+			throw new Error(`note corresponding to the nid(${nid}) is not unique`)
+		}else {
+			throw new Error(`note corresponding to the nid(${nid}) not found`)
+		}
+	}
 }

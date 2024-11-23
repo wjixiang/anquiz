@@ -1,4 +1,4 @@
-import { App, Modal, Plugin } from 'obsidian';
+import { App, Modal, Plugin, WorkspaceLeaf } from 'obsidian';
 import { AnquizSettings,DEFAULT_SETTINGS, AnquizSettingTab } from './setting';
 import { normalizePath } from 'obsidian';
 
@@ -15,6 +15,8 @@ import { QuizManager } from './quizManager';
 import anquizFSRS from './FSRS/fsrs';
 import locale from './lang';
 import createCardModal from './component/createCardModal';
+import fsrsView from './FSRS/fsrsUI';
+
 
 
 
@@ -23,6 +25,7 @@ export default class Anquiz extends Plugin {
 	client:AIClient;
 	quizDB: QuizManager;
 	fsrs: anquizFSRS;
+	FSRSPANEL = "fsrs_panel"
 
 	async onload() {
 		await this.loadSettings();
@@ -32,6 +35,13 @@ export default class Anquiz extends Plugin {
 
 		await this.initQuizDB()
 		await this.fsrs.db.init()
+
+		this.registerView(this.FSRSPANEL,(leaf)=>{
+			return new fsrsView(leaf);
+		})
+
+		this.activateFSRSpanel()
+		// new fsrsView()
 
 		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon('dice', 'random quiz', async (evt: MouseEvent) => {
@@ -59,7 +69,6 @@ export default class Anquiz extends Plugin {
 		const statusBarItemEl = this.addStatusBarItem();
 		statusBarItemEl.setText('Status Bar Text');
 
-		// This adds a simple command that can be triggered anywhere
 		this.addCommand({
 			id: 'activate-fsrs-of-current-note',
 			name: locale.activate_fsrs_command,
@@ -75,20 +84,15 @@ export default class Anquiz extends Plugin {
 			id: 'test',
 			name: 'test',
 			callback: async () => {
-				await this.fsrs.db.getCardByNid("2fda651c-4793-4254-bd6b-33692f94dfed")
+				// const testNard = await this.fsrs.db.getCardByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
+				// const testSchedule = await this.fsrs.scheduleFromNow(testNard) 
+				const foundNote = await this.fsrs.getFileByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
+				console.log(foundNote)
 			}
 		});
 
-		// This adds a settings tab so the user can configure various aspects of the plugin
 		this.addSettingTab(new AnquizSettingTab(this.app, this));
 
-		// If the plugin hooks up any global DOM events (on parts of the app that doesn't belong to this plugin)
-		// Using this function will automatically remove the event listener when this plugin is disabled.
-		this.registerDomEvent(document, 'click', (evt: MouseEvent) => {
-			console.log('click', evt);
-		});
-
-		// When registering intervals, this function will automatically clear the interval when the plugin is disabled.
 		this.registerInterval(window.setInterval(() => console.log('setInterval'), 5 * 60 * 1000));
 	}
 
@@ -119,6 +123,26 @@ export default class Anquiz extends Plugin {
 		if(currentFile!=null){
 			this.fsrs.addCard(currentFile)
 		}
+	}
+
+	async activateFSRSpanel() {
+		const { workspace } = this.app;
+
+		let leaf: WorkspaceLeaf | null = null;
+		const leaves = workspace.getLeavesOfType(this.FSRSPANEL);
+
+		if (leaves.length > 0) {
+			// A leaf with our view already exists, use that
+			leaf = leaves[0];
+		} else {
+			// Our view could not be found in the workspace, create a new leaf
+			// in the right sidebar for it
+			leaf = workspace.getRightLeaf(false);
+			await leaf.setViewState({ type:this.FSRSPANEL, active: true });
+		}
+
+		// "Reveal" the leaf in case it is in a collapsed sidebar
+		workspace.revealLeaf(leaf);
 	}
 }
 

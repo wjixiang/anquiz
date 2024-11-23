@@ -77,7 +77,7 @@ export default class anquizFSRS extends manager{
 		return newCard
 	}
 
-	async fsrsScheduler(card:obCard){
+	async scheduleFromNow(card:obCard){
 		const scheduling_cards:RecordLog = this.fsrs.repeat(card.card[card.card.length-1],new Date())
 		// console.log(scheduling_cards)
 		return scheduling_cards
