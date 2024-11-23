@@ -8,7 +8,7 @@ import fsrsDB from "./fsrsDB";
 
 export interface obCard{
 	nid: string;
-	card: Card;
+	card: Card[];
 	deck: string[];
 }
 
@@ -65,7 +65,7 @@ export default class anquizFSRS extends manager{
 		// console.log(nid)
 		const newCard:obCard = {
 			nid: nid,
-			card: createEmptyCard(),
+			card: [createEmptyCard()],
 			deck: []
 		} 
 		console.log(newCard)
@@ -78,8 +78,8 @@ export default class anquizFSRS extends manager{
 	}
 
 	async fsrsScheduler(card:obCard){
-		const scheduling_cards:RecordLog = this.fsrs.repeat(card.card,new Date())
-		console.log(scheduling_cards)
+		const scheduling_cards:RecordLog = this.fsrs.repeat(card.card[card.card.length-1],new Date())
+		// console.log(scheduling_cards)
 		return scheduling_cards
 	}
 

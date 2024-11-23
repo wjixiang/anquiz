@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "自然流产的临床类型.md",
+                "file": "胎儿窘迫的诊断.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "自然流产的临床类型"
+              "title": "胎儿窘迫的诊断"
             }
           }
         ],
@@ -248,9 +248,11 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "33c150409a6fea07",
+  "active": "17e4aba944f49583",
   "lastOpenFiles": [
-    "头癣的类型及判断.md",
+    "pifu/头癣的类型及判断.md",
+    "自然流产的临床类型.md",
+    "pifu/未命名.md",
     "妊高症的治疗方案选择.md",
     "胎儿窘迫的诊断.md",
     "pifu/耳鼻喉作业.md",
@@ -258,7 +260,6 @@
     "pifu",
     "皮肤性病学",
     "quiz_bank/完全病历作业.md",
-    "自然流产的临床类型.md",
     "未命名 1.md",
     "quiz_bank/test.json",
     "quiz_bank"

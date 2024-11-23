@@ -19,14 +19,21 @@ export default class manager{
 	}
 
 	async get_note_id(note:TFile): Promise<string>{
+		console.log("hello")
 		const frontmatter = this.plugin.app.metadataCache.getFileCache(note)?.frontmatter
 
 		if(frontmatter){
 			const nid = frontmatter['nid']
-			console.log(nid)
-			return nid
+			if(nid==undefined){
+				const nid = v4()
+				this.edite_note_id(note,nid)
+				return nid
+			}else{
+				console.log(nid)
+				return nid
+			}
 		}else{
-			const nid = v4()
+			const nid = v4() 
 			this.edite_note_id(note,nid)
 			return nid
 		}

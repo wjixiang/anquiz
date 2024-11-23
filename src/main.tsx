@@ -79,9 +79,6 @@ export default class Anquiz extends Plugin {
 			}
 		});
 
-		// This adds a complex command that can check whether the current state of the app allows execution of the command
-
-
 		// This adds a settings tab so the user can configure various aspects of the plugin
 		this.addSettingTab(new AnquizSettingTab(this.app, this));
 
