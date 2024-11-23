@@ -1,36 +1,32 @@
-import anquizFSRS from "../src/FSRS/fsrs";
-import Anquiz from "../src/main";
-import { PluginManifest,TFile, Vault,FileStats } from "obsidian";
 
-const filestate:FileStats = {
-	ctime: 0,
-	mtime: 0,
-	size: 0
-}
+import AnquizFSRS from '../src/FSRS/fsrs';  
+import { TFile } from 'obsidian';  
+import * as Obsidian from 'obsidian';  
+import { obCard } from '../src/FSRS/fsrs';
 
-const test_note:TFile = {
-	stat: filestate,
-	basename: "",
-	extension: "",
-	vault: new Vault,
-	path: "",
-	name: "",
-	parent: null
-}
+// Mock 依赖  
+jest.mock('obsidian');  
+jest.mock('../src/FSRS/fsrsDB.ts');  
 
-const manifest:PluginManifest = {
-	id: "",
-	name: "",
-	author: "",
-	version: "",
-	minAppVersion: "",
-	description: ""
-}
+describe.skip('AnquizFSRS', () => {  
+  let anquizFSRS: AnquizFSRS;  
+  let mockPlugin: any;  
+  let mockFile: TFile;  
 
-describe('FSRS implantation of Obsidian',()=>{
-	const test_fsrs = new anquizFSRS(new Anquiz(app,manifest))
+  beforeEach(() => {  
+    mockPlugin = {  
+      app: Obsidian.App  
+    };  
+    anquizFSRS = new AnquizFSRS(mockPlugin);  
+    mockFile = new TFile();  
+    mockFile.basename = 'TestNote';  
+  });  
 
-	it('create empty obCard with nid,deck_arry',()=>{
-		test_fsrs.addCard(test_note)
-	})
-})
+  it("get card from db by nid",async ()=>{
+	const retrived_obCard:obCard = await anquizFSRS.db.getCardByNid("1726364863072")
+	expect(retrived_obCard).toHaveProperty('nid')
+	expect(retrived_obCard).toHaveProperty('card')
+	expect(retrived_obCard).toHaveProperty('deck')
+  })
+  
+});

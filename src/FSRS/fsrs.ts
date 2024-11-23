@@ -1,7 +1,7 @@
 import { TFile,Notice } from "obsidian";
 import Anquiz from "src/main";
 import manager from "../noteManager";
-import { Card, createEmptyCard, FSRS } from "ts-fsrs";
+import { Card, createEmptyCard, FSRS, RecordLog } from "ts-fsrs";
 import fsrsDB from "./fsrsDB";
 
 
@@ -74,6 +74,12 @@ export default class anquizFSRS extends manager{
 			console.log(error)
 		}
 		return newCard
+	}
+
+	async fsrsScheduler(card:obCard){
+		const scheduling_cards:RecordLog = this.fsrs.repeat(card.card,new Date())
+		console.log(scheduling_cards)
+		return scheduling_cards
 	}
 
 	// private async addCardToDB(card:obCard){
