@@ -14,7 +14,7 @@ export interface obCard{
 
 export default class anquizFSRS extends manager{
 	fsrs: FSRS;
-	db: fsrsDB
+	db: fsrsDB;
 	constructor(plugin:Anquiz){
 		super(plugin)
 		this.fsrs = new FSRS({})
@@ -62,6 +62,7 @@ export default class anquizFSRS extends manager{
 
 	private async createNewCard(file:TFile): Promise<obCard>{
 		const nid = await this.get_note_id(file)
+		// console.log(nid)
 		const newCard:obCard = {
 			nid: nid,
 			card: createEmptyCard(),

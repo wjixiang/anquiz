@@ -9,19 +9,26 @@ export default class manager{
 		this.plugin = plugin
 	}
 
-	async get_note_id(note:TFile): Promise<string>{
-		const nid = await this.plugin.app.fileManager.processFrontMatter(note,(frontmatter)=>{
-			const nid = frontmatter['nid']
-			if(typeof nid == "undefined"){
-				frontmatter['nid'] = v4()
+	async edite_note_id(note:TFile,nid:string){
+		this.plugin.app.fileManager.processFrontMatter(note,(frontmatter)=>{
+			const file_nid = frontmatter['nid']
+			if(typeof file_nid == "undefined"){
+				frontmatter['nid'] = nid
 			} 
-		}).then(()=>{
-			const frontmatter = this.plugin.app.metadataCache.getFileCache(note)?.frontmatter
-			if(frontmatter){
-				return frontmatter['nid']
-			}
 		})
+	}
 
-		return nid
+	async get_note_id(note:TFile): Promise<string>{
+		const frontmatter = this.plugin.app.metadataCache.getFileCache(note)?.frontmatter
+
+		if(frontmatter){
+			const nid = frontmatter['nid']
+			console.log(nid)
+			return nid
+		}else{
+			const nid = v4()
+			this.edite_note_id(note,nid)
+			return nid
+		}
 	}
 }
