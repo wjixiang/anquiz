@@ -84,10 +84,14 @@ export default class Anquiz extends Plugin {
 			id: 'test',
 			name: 'test',
 			callback: async () => {
-				// const testNard = await this.fsrs.db.getCardByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
-				// const testSchedule = await this.fsrs.scheduleFromNow(testNard) 
-				const foundNote = await this.fsrs.getFileByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
-				console.log(foundNote)
+				const testNard = await this.fsrs.db.getCardByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
+				const testSchedule = await this.fsrs.scheduleFromNow(testNard) 
+				// const foundNote = await this.fsrs.getFileByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
+
+				
+				testNard.card.push(testSchedule['3'].card)
+				
+				this.fsrs.db.replaceCard(testNard)//simulate update card outright
 			}
 		});
 
@@ -117,13 +121,6 @@ export default class Anquiz extends Plugin {
 		await this.quizDB.init()
     } 
 
-	// async addFSRSschedule() {
-	// 	const currentFile = this.app.workspace.getActiveFile()
-	// 	console.log(currentFile)
-	// 	if(currentFile!=null){
-	// 		this.fsrs.addCard(currentFile)
-	// 	}
-	// }
 
 	async activateFSRSpanel() {
 		const { workspace } = this.app;
