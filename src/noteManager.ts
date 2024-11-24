@@ -19,7 +19,6 @@ export default class manager{
 	}
 
 	async get_note_id(note:TFile): Promise<string>{
-		console.log("hello")
 		const frontmatter = this.plugin.app.metadataCache.getFileCache(note)?.frontmatter
 
 		if(frontmatter){

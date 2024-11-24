@@ -22,7 +22,7 @@ import fsrsView from './FSRS/fsrsUI';
 
 export default class Anquiz extends Plugin {
 	settings: AnquizSettings;
-	client:AIClient;
+	client:(api_url:string,api_key:string)=>AIClient;
 	quizDB: QuizManager;
 	fsrs: anquizFSRS;
 	FSRSPANEL = "fsrs_panel"
@@ -30,7 +30,7 @@ export default class Anquiz extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
-		this.client = new AIClient(this.settings.api_url,this.settings.api_key)
+		this.client = (api_url,api_key)=>{return new AIClient(api_url,api_key)}
 		this.fsrs = new anquizFSRS(this)
 
 		await this.initQuizDB()
@@ -53,12 +53,12 @@ export default class Anquiz extends Plugin {
 					source_note: currentFile,
 				}
 
-				const new_quzi = await new QuizGenerator(this.client,this).single_note_to_quiz(testreq)
+				const new_quzi = await new QuizGenerator(this.client(this.settings.api_url,this.settings.api_key),this).single_note_to_quiz(testreq)
 
 				if(typeof new_quzi != 'undefined'){
 					new QuizModal(this.app,new_quzi).open()
 				}
-				// console.log(new_quzi)
+			
 			}
 
 		});
@@ -156,9 +156,7 @@ class QuizModal<T extends quizinterface.quizMode,Y extends quizinterface.QAMode>
 		const rootdiv = contentEl.createDiv({
 			cls: "anquiz-scope"
 		})
-		console.log(rootdiv.innerHTML)
 		const root = createRoot(rootdiv);  
-		console.log(rootdiv.innerHTML)
 		root.render(<this.quiz.view />);  
 	}
 

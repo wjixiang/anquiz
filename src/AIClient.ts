@@ -17,6 +17,7 @@ export class AIClient {
     constructor(apiUrl: string, apiKey: string) {  
         this.apiUrl = apiUrl;  
         this.apiKey = apiKey;  
+
     }  
 
     async callAPI(requestData: AIRequest):Promise<string> {  

@@ -97,16 +97,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pifu/zhenjunb/胎儿窘迫的诊断.md",
+                "file": "quiz_bank/内科完全病历.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "胎儿窘迫的诊断"
+              "title": "内科完全病历"
+            }
+          },
+          {
+            "id": "5839a56111174d64",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "quiz_bank/完全病历作业.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "完全病历作业"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -178,7 +192,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "pifu/zhenjunb/胎儿窘迫的诊断.md",
+                "file": "quiz_bank/内科完全病历.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -188,7 +202,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "胎儿窘迫的诊断 的反向链接列表"
+              "title": "内科完全病历 的反向链接列表"
             }
           },
           {
@@ -224,14 +238,14 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "pifu/zhenjunb/胎儿窘迫的诊断.md"
+                "file": "quiz_bank/完全病历作业.md"
               },
               "icon": "lucide-list",
-              "title": "胎儿窘迫的诊断 的大纲"
+              "title": "完全病历作业 的大纲"
             }
           },
           {
-            "id": "e2c8998994ded79e",
+            "id": "2a9fd89821f70983",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -241,7 +255,7 @@
             }
           },
           {
-            "id": "7d3c304275064d75",
+            "id": "a1cb4a785eaff033",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -251,7 +265,7 @@
             }
           },
           {
-            "id": "a2d50e7ab01833ca",
+            "id": "0a46f92a1253c2ae",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -261,7 +275,7 @@
             }
           },
           {
-            "id": "af0a2cc1c0506eaa",
+            "id": "600596ef10303235",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -271,7 +285,7 @@
             }
           },
           {
-            "id": "c35f96ec8422e081",
+            "id": "1a8ebe216fd8a97a",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -281,7 +295,7 @@
             }
           },
           {
-            "id": "42e520baf666b7fa",
+            "id": "70810a5df4aab1b2",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -291,107 +305,7 @@
             }
           },
           {
-            "id": "f3a18df2719157a6",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "51f7c2f39de7fe6e",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "a8bff5e0b060ef65",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "8d35d1ecab7532d5",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "61aa08ccac50cdcf",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "ebd9e9a4a359dbac",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "1b3cc58864d5bd07",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "a35ef9d16654047f",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "9878eab62f0e6ddf",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "0ab05f6204a1ef43",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "be4ca48650218d07",
+            "id": "001d284f809266e0",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -401,7 +315,7 @@
             }
           }
         ],
-        "currentTab": 20
+        "currentTab": 10
       }
     ],
     "direction": "horizontal",
@@ -418,20 +332,20 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "be4ca48650218d07",
+  "active": "001d284f809266e0",
   "lastOpenFiles": [
-    "pifu/zhenjunb",
+    "妊高症的治疗方案选择.md",
+    "quiz_bank/完全病历作业.md",
+    "quiz_bank/内科完全病历.md",
     "pifu/头癣的类型及判断.md",
+    "pifu/zhenjunb/胎儿窘迫的诊断.md",
+    "pifu/zhenjunb",
     "头癣的类型及判断.md",
     "pifu/未命名.md",
     "自然流产的临床类型.md",
-    "妊高症的治疗方案选择.md",
-    "pifu/zhenjunb/胎儿窘迫的诊断.md",
     "pifu/耳鼻喉作业.md",
-    "quiz_bank/内科完全病历.md",
     "pifu",
     "皮肤性病学",
-    "quiz_bank/完全病历作业.md",
     "未命名 1.md",
     "quiz_bank/test.json",
     "quiz_bank"
