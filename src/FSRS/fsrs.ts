@@ -6,6 +6,7 @@ import fsrsDB from "./fsrsDB";
 
 
 
+
 export interface obCard{
 	nid: string;
 	card: Card[];
@@ -21,15 +22,22 @@ export default class anquizFSRS extends manager{
 		this.db = new fsrsDB(plugin)
 	}
 
-	async addCard(file:TFile){
+	async addCard(file:TFile,path:string){
 		const noteStatus = await this.activateNote(file)
+		const deck = this.pathToDeck(path)
+		console.log(deck)
 
 		if(noteStatus==true){
-			this.createNewCard(file)
+			this.createNewCard(file,deck)
 		}else{
 			return;
 		}
 	}
+
+	private pathToDeck(path:string):string[]{
+		return path.split('/')
+	}
+
 
 	private async activateNote(file:TFile): Promise<boolean>{
 		const frontmatter = this.plugin.app.metadataCache.getFileCache(file)?.frontmatter
@@ -60,13 +68,13 @@ export default class anquizFSRS extends manager{
 		}
 	}
 
-	private async createNewCard(file:TFile): Promise<obCard>{
+	private async createNewCard(file:TFile,deck:string[]): Promise<obCard>{
 		const nid = await this.get_note_id(file)
 		// console.log(nid)
 		const newCard:obCard = {
 			nid: nid,
 			card: [createEmptyCard()],
-			deck: []
+			deck: deck
 		} 
 		console.log(newCard)
 		try{

@@ -106,7 +106,7 @@ export default class createCardModal extends Modal {
 			new Notice(`Note moved to ${this.folderPath}`);  
 
 			//add note to FSRS system
-			this.fsrs.addCard(activeFile)
+			this.fsrs.addCard(activeFile,this.folderPath)
 
 			this.close();  
 		} catch (error) {  

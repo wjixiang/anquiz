@@ -1,5 +1,5 @@
 import Anquiz from "./main";
-import { TFile } from "obsidian";
+import { TFile} from 'obsidian';
 import { v4 } from "uuid";
 
 export default class manager{
@@ -59,4 +59,5 @@ export default class manager{
 			throw new Error(`note corresponding to the nid(${nid}) not found`)
 		}
 	}
+
 }

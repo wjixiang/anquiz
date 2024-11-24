@@ -117,13 +117,13 @@ export default class Anquiz extends Plugin {
 		await this.quizDB.init()
     } 
 
-	async addFSRSschedule() {
-		const currentFile = this.app.workspace.getActiveFile()
-		console.log(currentFile)
-		if(currentFile!=null){
-			this.fsrs.addCard(currentFile)
-		}
-	}
+	// async addFSRSschedule() {
+	// 	const currentFile = this.app.workspace.getActiveFile()
+	// 	console.log(currentFile)
+	// 	if(currentFile!=null){
+	// 		this.fsrs.addCard(currentFile)
+	// 	}
+	// }
 
 	async activateFSRSpanel() {
 		const { workspace } = this.app;
