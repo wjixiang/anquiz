@@ -1,14 +1,14 @@
 import { ItemView, WorkspaceLeaf } from "obsidian";
-import fsrsApp from "./fsrsDeck";
+import fsrsDeck, { deckProps } from "./fsrsDeck";
 import { createRoot } from "react-dom/client";
 import React from "react";
 
 export default class fsrsDeckView extends ItemView{
-	ui:fsrsApp
+	props:deckProps
 
-	constructor(ui: fsrsApp, leaf:WorkspaceLeaf){
+	constructor(props:deckProps, leaf:WorkspaceLeaf){
 		super(leaf);
-		this.ui = ui 
+		this.props = props
 	}  
  
 	getViewType(): string {
@@ -25,7 +25,7 @@ export default class fsrsDeckView extends ItemView{
         const root = createRoot(container);  
         // Render the component properly with its props  
         root.render(
-			React.createElement(fsrsApp,{plugin: this.ui.props.plugin})
+			React.createElement(fsrsDeck,this.props)
 		);  
     }  
 

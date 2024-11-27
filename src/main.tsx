@@ -14,7 +14,8 @@ import { QuizManager } from './quizManager';
 import locale from './lang';
 import createCardModal from './component/createCardModal';
 
-import fsrsApp from './FSRS/fsrsDeck';
+
+import anquizFSRS from './FSRS/fsrs';
 
 
 
@@ -23,19 +24,17 @@ export default class Anquiz extends Plugin {
 	settings: AnquizSettings;
 	client= (api_url:string,api_key:string)=>{return new AIClient(api_url,api_key)}
 	quizDB: QuizManager;
-	fsrsApp: fsrsApp;
+	fsrsApp: anquizFSRS;
 	FSRSPANEL = "fsrs_panel"
 
 	async onload() {
 		await this.loadSettings();
-		this.fsrsApp = new fsrsApp({
-			plugin:this
-		})
+		this.fsrsApp = new anquizFSRS(this)
 		await this.initQuizDB()
-		await this.fsrsApp.init()
+		await this.fsrsApp.db.init()
 
 		this.registerView(this.FSRSPANEL,(leaf)=>{
-			return this.fsrsApp.view(leaf);
+			return this.fsrsApp.deckView(leaf);
 		})
 
 		this.activateFSRSpanel()
@@ -70,7 +69,7 @@ export default class Anquiz extends Plugin {
 			name: locale.activate_fsrs_command,
 			callback: ()=>{
 				this.app.fileManager.getNewFileParent
-				new createCardModal(this.app,this.fsrsApp.api).open()
+				new createCardModal(this.app,this.fsrsApp).open()
 		
 			}
 
@@ -80,14 +79,14 @@ export default class Anquiz extends Plugin {
 			id: 'test',
 			name: 'test',
 			callback: async () => {
-				const testNard = await this.fsrsApp.api.db.getCardByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
-				const testSchedule = await this.fsrsApp.api.scheduleFromNow(testNard) 
+				const testNard = await this.fsrsApp.db.getCardByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
+				const testSchedule = await this.fsrsApp.scheduleFromNow(testNard) 
 				// const foundNote = await this.fsrs.getFileByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
 
 				
 				testNard.card.push(testSchedule['3'].card)
 				
-				this.fsrsApp.api.db.replaceCard(testNard)//simulate update card outright
+				this.fsrsApp.db.replaceCard(testNard)//simulate update card outright
 			}
 		});
 

@@ -1,44 +1,38 @@
+// 重命名后的组件文件，例如 FsrsDeck.tsx  
 import { Component, CSSProperties, ReactNode } from "react";  
+import { TreeNode } from "./component/treeNode";  
 
-import anquizFSRS from "./fsrs";  
-import fsrsView from "./fsrsDeckView";  
-import Anquiz from "src/main";  
-import { WorkspaceLeaf } from 'obsidian';  
-
-interface fsrsAppProps {   
-    plugin: Anquiz  
+interface deckTree {  
+    root: string  
+    leaf: deckTree[] | null  
 }  
 
-interface fsrsAppState {  
+export interface deckProps {  
+    deckTreeList: deckTree[]   
+}  
+
+interface deckState {  
     currentPage: 'Deck' | 'Analysis' | 'Info';  
+    expandedNodes: Set<string>; // to track expanded node  
 }  
 
-export default class fsrsApp extends Component<fsrsAppProps, fsrsAppState> {  
-    api: anquizFSRS;  
-    view = (leaf:WorkspaceLeaf)=>{return new fsrsView(this,leaf)};	  
-
-    constructor(props:fsrsAppProps){  
+export default class FsrsDeck extends Component<deckProps, deckState> {  
+    constructor(props: deckProps) {  
         super(props);  
-		this.state = {  
-			currentPage: 'Deck'  
-		}; 
-        this.api = new anquizFSRS(props.plugin)  
+        this.state = {  
+            currentPage: 'Deck',  
+            expandedNodes: new Set<string>()  
+        };   
+        console.log(this.props.deckTreeList)  
     }  
 
     async componentDidMount() {  
-        // Move initialization logic here  
-        this.init();  
-        // Initial page styles can be set here  
         this.updatePageStyles();  
     }  
 
-    async init(){  
-        await this.api.db.init()  
-    }  
-
-    handlePageChange = (page: 'Deck'|'Analysis'|'Info')=>{  
-		console.log(page)
-        this.setState({currentPage: page}, () => {  
+    handlePageChange = (page: 'Deck' | 'Analysis' | 'Info') => {  
+        console.log(page)  
+        this.setState({ currentPage: page }, () => {  
             this.updatePageStyles()  
         })  
     }  
@@ -46,10 +40,8 @@ export default class fsrsApp extends Component<fsrsAppProps, fsrsAppState> {
     updatePageStyles = () => {  
         const headMenu = document.getElementById('head_menu');  
         if (headMenu) {  
-            // Remove any previous custom classes  
             headMenu.classList.remove('deck-active', 'analysis-active', 'info-active');  
-    
-            // Add class based on current page  
+
             switch (this.state.currentPage) {  
                 case 'Deck':  
                     headMenu.classList.add('deck-active');  
@@ -70,40 +62,63 @@ export default class fsrsApp extends Component<fsrsAppProps, fsrsAppState> {
         const baseStyle: CSSProperties = {  
             cursor: 'pointer',  
             padding: '10px',  
-            // transition: 'all 0.3s ease',  
         };  
 
         const activeStyle: CSSProperties = isActive ? {  
             fontWeight: 'bold',  
             transform: 'scale(1.05)',  
-            boxShadow: '0 2px 5px rgba(0,0,0,0.2)', 
-			border: '2px solid rgba(255,255,255,0.2)'
+            boxShadow: '0 2px 5px rgba(0,0,0,0.2)',   
+            border: '2px solid rgba(255,255,255,0.2)'  
         } : {};  
 
         return { ...baseStyle, ...activeStyle };  
     }  
+
+    handleNodeToggle = (nodePath: string) => {  
+        this.setState(prevState => {  
+            const newExpandedNodes = new Set(prevState.expandedNodes);  
+            if (newExpandedNodes.has(nodePath)) {  
+                newExpandedNodes.delete(nodePath);  
+            } else {  
+                newExpandedNodes.add(nodePath);  
+            }  
+            return { expandedNodes: newExpandedNodes };  
+        });  
+    }   
    
-    render():ReactNode {  
+    render(): ReactNode {  
+        console.log("hello", this.props.deckTreeList)  
         return(  
-        <div>  
-            <div id="head_menu" className="fsrs-menu" >  
-                <div   
-                    className={`head-button ${this.state.currentPage === 'Deck' ? 'active' : ''}`}  
-                    style={this.getButtonStyle('Deck')}  
-                    onClick={()=>this.handlePageChange('Deck')}  
-                >Deck</div>  
-                <div   
-                    className={`head-button ${this.state.currentPage === 'Analysis' ? 'active' : ''}`}  
-                    style={this.getButtonStyle('Analysis')}  
-                    onClick={()=>this.handlePageChange('Analysis')}  
-                >Analysis</div>  
-                <div   
-                    className={`head-button ${this.state.currentPage === 'Info' ? 'active' : ''}`}  
-                    style={this.getButtonStyle('Info')}  
-                    onClick={()=>this.handlePageChange('Info')}  
-                >Info</div>  
+            <div>  
+                <div id="head_menu" className="fsrs-menu" >  
+                    <div   
+                        className={`head-button ${this.state.currentPage === 'Deck' ? 'active' : ''}`}  
+                        style={this.getButtonStyle('Deck')}  
+                        onClick={() => this.handlePageChange('Deck')}  
+                    >Deck</div>  
+                    <div   
+                        className={`head-button ${this.state.currentPage === 'Analysis' ? 'active' : ''}`}  
+                        style={this.getButtonStyle('Analysis')}  
+                        onClick={() => this.handlePageChange('Analysis')}  
+                    >Analysis</div>  
+                    <div   
+                        className={`head-button ${this.state.currentPage === 'Info' ? 'active' : ''}`}  
+                        style={this.getButtonStyle('Info')}  
+                        onClick={() => this.handlePageChange('Info')}  
+                    >Info</div>  
+                </div>  
+
+                <div className="deck-tree">  
+                    {this.props.deckTreeList && this.props.deckTreeList.map((node, index) => (  
+                        <TreeNode   
+                            key={`tree-${index}`}  
+                            node={node}  
+                            onToggle={this.handleNodeToggle}  
+                            isExpanded={this.state.expandedNodes.has(node.root)}  
+                        />  
+                    ))}   
+                </div>  
             </div>  
-        </div>  
         )  
     }  
 }

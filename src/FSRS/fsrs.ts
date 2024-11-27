@@ -1,9 +1,11 @@
-import { TFile,Notice } from "obsidian";
+import { TFile,Notice, WorkspaceLeaf } from "obsidian";
 import Anquiz from "src/main";
 import manager from "../noteManager";
 import { Card, createEmptyCard, FSRS, RecordLog } from "ts-fsrs";
 import fsrsDB from "./fsrsDB";
-
+import fsrsDeckView from "./fsrsDeckView";
+import fsrsDeck from "./fsrsDeck";
+import { deckProps } from './fsrsDeck';
 
 
 
@@ -16,10 +18,28 @@ export interface obCard{
 export default class anquizFSRS extends manager{
 	fsrs: FSRS;
 	db: fsrsDB;
+	deck: fsrsDeck
+	deckView : (leaf:WorkspaceLeaf)=>fsrsDeckView
+	
+
 	constructor(plugin:Anquiz){
 		super(plugin)
 		this.fsrs = new FSRS({})
 		this.db = new fsrsDB(plugin)
+		
+		const testDeckTree: deckProps= {
+			deckTreeList: [
+				{
+					root: "pathology",
+					leaf: null
+				}
+			]
+		}
+
+		this.deck = new fsrsDeck(testDeckTree)
+		this.deckView = (leaf:WorkspaceLeaf)=>{
+			return new fsrsDeckView(testDeckTree,leaf)
+		}
 	}
 
 	async addCard(file:TFile,path:string){
