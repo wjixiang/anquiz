@@ -1,3 +1,20 @@
+/* fsrsApp.css */
+.fsrs-menu {
+	display:flex;
+	justify-content: space-around;
+	width: 100%;
+
+}
+
+.head-button{
+	width: 100%;
+	text-align: center;
+}
+
+.head-button:hover{
+	background-color: gray;
+}
+
 /* single-select-box.css */
 .anquiz-select-box {
     display: flex;

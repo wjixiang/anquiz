@@ -111,12 +111,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "quiz_bank/完全病历作业.md",
+                "file": "自然流产的临床类型.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "完全病历作业"
+              "title": "自然流产的临床类型"
             }
           }
         ],
@@ -238,14 +238,14 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "quiz_bank/完全病历作业.md"
+                "file": "自然流产的临床类型.md"
               },
               "icon": "lucide-list",
-              "title": "完全病历作业 的大纲"
+              "title": "自然流产的临床类型 的大纲"
             }
           },
           {
-            "id": "2a9fd89821f70983",
+            "id": "cdc4169d0f39cb89",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -255,7 +255,7 @@
             }
           },
           {
-            "id": "a1cb4a785eaff033",
+            "id": "cfe037f2c48b2012",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -265,7 +265,7 @@
             }
           },
           {
-            "id": "0a46f92a1253c2ae",
+            "id": "56e15ddb90428a29",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -275,7 +275,7 @@
             }
           },
           {
-            "id": "600596ef10303235",
+            "id": "716fc416828e01f6",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -285,7 +285,7 @@
             }
           },
           {
-            "id": "1a8ebe216fd8a97a",
+            "id": "3769951676f91a72",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -295,7 +295,7 @@
             }
           },
           {
-            "id": "70810a5df4aab1b2",
+            "id": "ec90f1e408c5563b",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -305,7 +305,37 @@
             }
           },
           {
-            "id": "001d284f809266e0",
+            "id": "a5e25b135949abbd",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "38ea9ee4f8984fe1",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "89497ae044f88fa9",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "ba72c422cb653106",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -315,11 +345,11 @@
             }
           }
         ],
-        "currentTab": 10
+        "currentTab": 13
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 306.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -332,10 +362,10 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "001d284f809266e0",
+  "active": "ba72c422cb653106",
   "lastOpenFiles": [
-    "妊高症的治疗方案选择.md",
     "quiz_bank/完全病历作业.md",
+    "妊高症的治疗方案选择.md",
     "quiz_bank/内科完全病历.md",
     "pifu/头癣的类型及判断.md",
     "pifu/zhenjunb/胎儿窘迫的诊断.md",

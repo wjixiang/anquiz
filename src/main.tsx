@@ -8,42 +8,38 @@ import QuizGenerator from './quizgenerator';
 import { quizGenerateReq } from './quizgenerator';
 import Quiz from './component/quiz';
 
-import React from 'react';  
 import { createRoot } from 'react-dom/client';  
 import * as quizinterface from './interface/quizInterface'
 import { QuizManager } from './quizManager';
-import anquizFSRS from './FSRS/fsrs';
 import locale from './lang';
 import createCardModal from './component/createCardModal';
-import fsrsView from './FSRS/fsrsUI';
+
+import fsrsApp from './FSRS/fsrsApp';
 
 
 
 
 export default class Anquiz extends Plugin {
 	settings: AnquizSettings;
-	client:(api_url:string,api_key:string)=>AIClient;
+	client= (api_url:string,api_key:string)=>{return new AIClient(api_url,api_key)}
 	quizDB: QuizManager;
-	fsrs: anquizFSRS;
+	fsrsApp: fsrsApp;
 	FSRSPANEL = "fsrs_panel"
 
 	async onload() {
 		await this.loadSettings();
-
-		this.client = (api_url,api_key)=>{return new AIClient(api_url,api_key)}
-		this.fsrs = new anquizFSRS(this)
-
+		this.fsrsApp = new fsrsApp({
+			plugin:this
+		})
 		await this.initQuizDB()
-		await this.fsrs.db.init()
+		await this.fsrsApp.init()
 
 		this.registerView(this.FSRSPANEL,(leaf)=>{
-			return new fsrsView(leaf);
+			return this.fsrsApp.view(leaf);
 		})
 
 		this.activateFSRSpanel()
-		// new fsrsView()
 
-		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon('dice', 'random quiz', async (evt: MouseEvent) => {
 
 			const currentFile = this.app.workspace.getActiveFile()
@@ -74,7 +70,7 @@ export default class Anquiz extends Plugin {
 			name: locale.activate_fsrs_command,
 			callback: ()=>{
 				this.app.fileManager.getNewFileParent
-				new createCardModal(this.app,this.fsrs).open()
+				new createCardModal(this.app,this.fsrsApp.api).open()
 		
 			}
 
@@ -84,14 +80,14 @@ export default class Anquiz extends Plugin {
 			id: 'test',
 			name: 'test',
 			callback: async () => {
-				const testNard = await this.fsrs.db.getCardByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
-				const testSchedule = await this.fsrs.scheduleFromNow(testNard) 
+				const testNard = await this.fsrsApp.api.db.getCardByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
+				const testSchedule = await this.fsrsApp.api.scheduleFromNow(testNard) 
 				// const foundNote = await this.fsrs.getFileByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
 
 				
 				testNard.card.push(testSchedule['3'].card)
 				
-				this.fsrs.db.replaceCard(testNard)//simulate update card outright
+				this.fsrsApp.api.db.replaceCard(testNard)//simulate update card outright
 			}
 		});
 
