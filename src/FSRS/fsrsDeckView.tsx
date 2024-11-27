@@ -1,9 +1,9 @@
 import { ItemView, WorkspaceLeaf } from "obsidian";
-import fsrsApp from "./fsrsApp";
+import fsrsApp from "./fsrsDeck";
 import { createRoot } from "react-dom/client";
 import React from "react";
 
-export default class fsrsView extends ItemView{
+export default class fsrsDeckView extends ItemView{
 	ui:fsrsApp
 
 	constructor(ui: fsrsApp, leaf:WorkspaceLeaf){

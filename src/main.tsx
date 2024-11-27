@@ -14,7 +14,7 @@ import { QuizManager } from './quizManager';
 import locale from './lang';
 import createCardModal from './component/createCardModal';
 
-import fsrsApp from './FSRS/fsrsApp';
+import fsrsApp from './FSRS/fsrsDeck';
 
 
 

@@ -1,7 +1,7 @@
 import { Component, CSSProperties, ReactNode } from "react";  
 
 import anquizFSRS from "./fsrs";  
-import fsrsView from "./fsrsView";  
+import fsrsView from "./fsrsDeckView";  
 import Anquiz from "src/main";  
 import { WorkspaceLeaf } from 'obsidian';  
 
@@ -70,7 +70,7 @@ export default class fsrsApp extends Component<fsrsAppProps, fsrsAppState> {
         const baseStyle: CSSProperties = {  
             cursor: 'pointer',  
             padding: '10px',  
-            transition: 'all 0.3s ease',  
+            // transition: 'all 0.3s ease',  
         };  
 
         const activeStyle: CSSProperties = isActive ? {  
