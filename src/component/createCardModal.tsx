@@ -12,7 +12,7 @@ export default class createCardModal extends Modal {
 
 	onOpen() {
 		const {contentEl} = this;
-		// contentEl.setText('hello!');
+		
 		contentEl.createEl('h2', { text: 'Move Note to Folder' })
 
 		new Setting(contentEl)  

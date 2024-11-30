@@ -2,7 +2,6 @@ import ob_neDB from "src/Obsidian_nedb";
 import { obCard } from './fsrs';
 import Anquiz from "src/main";
 
-
 export default class fsrsDB extends ob_neDB<obCard> {
 	constructor(plugin:Anquiz){
 		super(plugin.app,plugin.manifest,"fsrsDB")
@@ -47,5 +46,10 @@ export default class fsrsDB extends ob_neDB<obCard> {
 		}catch(err){
 			console.log(err)
 		}
+	}
+
+	async getDeckList(): Promise<string[][]>{
+		const decks =await this.db.find({},{deck:1,_id:0})
+		return [...new Set(decks.map(doc=>doc.deck))]
 	}
 }

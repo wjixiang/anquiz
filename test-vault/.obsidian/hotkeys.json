@@ -16,5 +16,14 @@
       ],
       "key": "D"
     }
+  ],
+  "anquiz:activate-fsrs-of-current-note": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "I"
+    }
   ]
 }

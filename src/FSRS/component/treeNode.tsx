@@ -1,8 +1,9 @@
 import React, { CSSProperties } from "react";  
 
-interface deckTree {  
+export interface deckTree {  
     root: string;  
     leaf: deckTree[] | null;  
+	route: string[];
 }  
 
 export interface deckProps {  
@@ -34,6 +35,7 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
         display: 'flex',  
         alignItems: 'center',  
         padding: '5px',  
+		border: '2px solid #616161'
     };  
 
     const toggleStyle: CSSProperties = {  
@@ -55,7 +57,7 @@ export const TreeNode: React.FC<TreeNodeProps> = ({
             </div>  
             {hasChildren && isExpanded && (  
                 <div>  
-                    {node.leaf?.map((childNode, index) => (  
+                    {node.leaf?.map((childNode, index) => (   
                         // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         <TreeNode   
                             key={`${node.root}-${index}`}  

@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "0f10b92fa8fa7d53",
+        "id": "04ae4c86a28457ae",
         "type": "tabs",
         "children": [
           {
-            "id": "5a6f0a46b3681e2b",
+            "id": "19dec0593fa74418",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "自然流产的临床类型.md",
+                "file": "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "自然流产的临床类型"
+              "title": "稽留流产(missed abortion)"
             }
           }
         ]
@@ -134,7 +134,7 @@
             }
           },
           {
-            "id": "d4861cea9b36b503",
+            "id": "b2d75421df44da2d",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -144,7 +144,7 @@
             }
           },
           {
-            "id": "268576576ded332e",
+            "id": "1b87873bf83e356b",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -154,7 +154,7 @@
             }
           },
           {
-            "id": "95c2476346da44f9",
+            "id": "74485f3257be519b",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -164,7 +164,7 @@
             }
           },
           {
-            "id": "b5b6601794870a07",
+            "id": "b08dd4a0ec613096",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -174,7 +174,7 @@
             }
           },
           {
-            "id": "1da7576a26b7bcb8",
+            "id": "507736f2511dce7b",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -184,7 +184,7 @@
             }
           },
           {
-            "id": "9743e9da673084ba",
+            "id": "2b024b7f964989d4",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -194,7 +194,7 @@
             }
           },
           {
-            "id": "fef8e9be29434d2a",
+            "id": "c3ddba2a0ecb5c44",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -204,7 +204,7 @@
             }
           },
           {
-            "id": "d22a7ab4317d2305",
+            "id": "47ae92beaa26414a",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -214,7 +214,7 @@
             }
           },
           {
-            "id": "7815905b64e52f74",
+            "id": "20468cc2bbf0399b",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -224,167 +224,7 @@
             }
           },
           {
-            "id": "fa62591d460df23f",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "4afa0f3ae1f56c3e",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "e4493ec82436e256",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "2be40351043d5ab2",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "fe4332a342e88e41",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "6dfefffe5d4d079a",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "a06d11fce5b2f523",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "ef272516c23ee2b0",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "3fb4624fce3e0321",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "4afd9cf03b5afcdd",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "45c5ac6ae15bd2b2",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "6ac781979f23cbf3",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "c261ac1553d48631",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "852ac8c78f73f33d",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "b9961a64bf1df942",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "0edbbba3082b6933",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "2a48c23339c0d233",
+            "id": "cc1e7589217ef7cf",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -394,7 +234,7 @@
             }
           }
         ],
-        "currentTab": 28
+        "currentTab": 12
       }
     ],
     "direction": "horizontal",
@@ -408,23 +248,30 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "anquiz:random quiz": false,
-      "obsidian-spaced-repetition:复习卡片": false
+      "obsidian-spaced-repetition:复习卡片": false,
+      "anquiz:random quiz": false
     }
   },
-  "active": "2a48c23339c0d233",
+  "active": "cc1e7589217ef7cf",
   "lastOpenFiles": [
-    "quiz_bank/完全病历作业.md",
-    "妊高症的治疗方案选择.md",
+    "妇产科学/流产/特殊流产/留流产/胎儿窘迫的诊断.md",
+    "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
+    "妇产科学/流产/特殊流产/留流产",
+    "妇产科学/妊高症的治疗方案选择.md",
+    "妇产科学/流产/一般流产/难免流产.md",
+    "妇产科学/流产/一般流产/不全流产.md",
+    "妇产科学/流产/自然流产的临床类型.md",
+    "皮肤性病学/头癣的类型及判断.md",
+    "妇产科学/流产/特殊流产",
+    "先兆流产(threatened abortion).md",
+    "妇产科学/流产/未命名.md",
+    "妇产科学/流产/一般流产",
+    "完全病历作业.md",
     "quiz_bank/内科完全病历.md",
-    "pifu/头癣的类型及判断.md",
-    "pifu/zhenjunb/胎儿窘迫的诊断.md",
-    "pifu/zhenjunb",
-    "头癣的类型及判断.md",
+    "妇产科学/流产",
     "pifu/未命名.md",
-    "自然流产的临床类型.md",
-    "pifu/耳鼻喉作业.md",
-    "pifu",
+    "耳鼻喉作业.md",
+    "妇产科学",
     "皮肤性病学",
     "未命名 1.md",
     "quiz_bank/test.json",
