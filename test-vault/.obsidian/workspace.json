@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "04ae4c86a28457ae",
+        "id": "020924562fb0baac",
         "type": "tabs",
         "children": [
           {
-            "id": "19dec0593fa74418",
+            "id": "cbc93ed6a465720e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "稽留流产(missed abortion)"
+              "title": "新标签页"
             }
           }
         ]
@@ -132,109 +128,9 @@
               "icon": "lucide-tags",
               "title": "标签"
             }
-          },
-          {
-            "id": "b2d75421df44da2d",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "1b87873bf83e356b",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "74485f3257be519b",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "b08dd4a0ec613096",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "507736f2511dce7b",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "2b024b7f964989d4",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "c3ddba2a0ecb5c44",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "47ae92beaa26414a",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "20468cc2bbf0399b",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "cc1e7589217ef7cf",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
           }
         ],
-        "currentTab": 12
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -252,10 +148,10 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "cc1e7589217ef7cf",
+  "active": "c17a0f83ea44067a",
   "lastOpenFiles": [
-    "妇产科学/流产/特殊流产/留流产/胎儿窘迫的诊断.md",
     "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
+    "妇产科学/流产/特殊流产/留流产/胎儿窘迫的诊断.md",
     "妇产科学/流产/特殊流产/留流产",
     "妇产科学/妊高症的治疗方案选择.md",
     "妇产科学/流产/一般流产/难免流产.md",

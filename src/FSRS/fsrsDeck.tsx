@@ -1,6 +1,6 @@
 // 重命名后的组件文件，例如 FsrsDeck.tsx  
 import { Component, CSSProperties, ReactNode } from "react";  
-import { TreeNode } from './component/treeNode';  
+import TreeNode from './component/treeNode';  
 import { deckTree } from "./component/treeNode";
 
 export interface deckProps {  
@@ -108,14 +108,12 @@ export default class FsrsDeck extends Component<deckProps, deckState> {
                 </div>  
 
                 <div className="deck-tree" style={this.deckMenuStyle}>  
-                    {this.props.deckTreeList && this.props.deckTreeList.map((node, index) => (  
+                    {this.props.deckTreeList &&  (  
                         <TreeNode   
-                            key={`tree-${index}`}  
-                            node={node}  
-                            onToggle={this.handleNodeToggle}  
-                            isExpanded={this.state.expandedNodes.has(node.root)}  
+                            deckTreeList={this.props.deckTreeList}
+                            
                         />  
-                    ))}   
+                    )}   
                 </div>  
             </div>  
         )  

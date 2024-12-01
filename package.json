@@ -47,6 +47,7 @@
 		"nedb": "^1.8.0",
 		"nedb-promises": "^6.2.3",
 		"npm": "^10.9.0",
+		"styled-components": "^6.1.13",
 		"ts-fsrs": "^4.4.3",
 		"uuid": "^11.0.3",
 		"vue": "^3.5.12",

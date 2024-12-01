@@ -1,9 +1,11 @@
-import React, { CSSProperties } from "react";  
+import React, {useState } from "react";  
+import styled from "styled-components";  
 
+// 类型定义保持不变  
 export interface deckTree {  
     root: string;  
-    leaf: deckTree[] | null;  
-	route: string[];
+    leaf: deckTree[];  
+    route: string[];  
 }  
 
 export interface deckProps {  
@@ -11,65 +13,93 @@ export interface deckProps {
 }  
 
 
+// 样式组件  
+const TreeNode = styled.div`  
+  padding: 5px 0;  
+`;  
 
-// 可折叠树节点组件  
-interface TreeNodeProps {  
-    node: deckTree;  
-    level?: number;  
-    onToggle: (nodePath: string) => void;  
-    isExpanded: boolean;  
-}  
+const NodeContent = styled.div`  
+  display: flex;  
+  align-items: center;  
+  cursor: pointer;  
+  margin: 2px;  
+  
+  &:hover {  
+    background-color: #f5f5f5;  
+  }  
+`;  
 
-export const TreeNode: React.FC<TreeNodeProps> = ({   
-    node,   
-    level = 0,   
-    onToggle,   
-    isExpanded   
-}) => {  
-    const hasChildren = node.leaf && node.leaf.length > 0;  
-    
-    const nodeStyle: CSSProperties = {  
-        paddingLeft: `${level * 20}px`,  
-        cursor: hasChildren ? 'pointer' : 'default',  
-        userSelect: 'none',  
-        display: 'flex',  
-        alignItems: 'center',  
-        padding: '5px',  
-		border: '2px solid #616161'
-    };  
+const ToggleIcon = styled.span`  
+  margin-right: 2px;  
+  width: 20px;  
+  height: 20px;  
+  display: inline-flex;  
+  align-items: center;  
+  justify-content: center;  
+`;  
 
-    const toggleStyle: CSSProperties = {  
-        marginRight: '5px',  
-        fontSize: '12px',  
-        visibility: hasChildren ? 'visible' : 'hidden'  
-    };  
+const ChildrenContainer = styled.div<{ level: number }>`  
+  padding-left: ${props => props.level * 10}px;  
+  border-left: 2px solid gray
+`;  
 
-    return (  
-        <div>  
-            <div   
-                style={nodeStyle}   
-                onClick={hasChildren ? () => onToggle(node.root) : undefined}  
-            >  
-                <span style={toggleStyle}>  
-                    {isExpanded ? '▼' : '►'}  
-                </span>  
-                {node.root}  
-            </div>  
-            {hasChildren && isExpanded && (  
-                <div>  
-                    {node.leaf?.map((childNode, index) => (   
-                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                        <TreeNode   
-                            key={`${node.root}-${index}`}  
-                            node={childNode}   
-                            level={level + 1}  
-                            onToggle={onToggle}  
-                            isExpanded={false} // 子节点默认不展开  
-                        />  
-                    ))}  
-                </div>  
-            )}  
-        </div>  
-    );  
+const NodeBox = styled.div`  
+  display: flex;
+  align-items: center;
+`;  
+
+// 树节点组件  
+export const TreeNodeComponent: React.FC<{  
+  node: deckTree;  
+  level: number;  
+}> = ({ node, level }) => {  
+  const [expanded, setExpanded] = useState(false);  
+  const hasChildren = node.leaf && node.leaf.length > 0;  
+
+  const handleToggle = () => {  
+    if (hasChildren) {  
+      setExpanded(!expanded);  
+    }  
+  };  
+
+  return (  
+    <TreeNode>  
+	<NodeBox>
+		<ToggleIcon onClick={handleToggle}>  
+          {hasChildren && (expanded ? '-' : '+')}  
+        </ToggleIcon> 
+      <NodeContent>   
+        <span>{node.root}</span>  
+      </NodeContent>  
+	</NodeBox>
+      {hasChildren && expanded && (  
+        <ChildrenContainer level={level}>  
+          {node.leaf.map((child, index) => (  
+            <TreeNodeComponent  
+              key={`${child.root}-${index}`}  
+              node={child}  
+              level={level + 1}  
+            />  
+          ))}  
+        </ChildrenContainer>  
+      )}  
+    </TreeNode>  
+  );  
 };  
 
+// 主组件  
+const deckTreeComponent: React.FC<deckProps> = ({ deckTreeList }) => {  
+  return (  
+    <div>  
+      {deckTreeList.map((tree, index) => (  
+        <TreeNodeComponent  
+          key={`${tree.root}-${index}`}  
+          node={tree}  
+          level={1}  
+        />  
+      ))}  
+    </div>  
+  );  
+};  
+
+export default deckTreeComponent;
