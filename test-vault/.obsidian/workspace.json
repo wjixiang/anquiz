@@ -128,9 +128,109 @@
               "icon": "lucide-tags",
               "title": "标签"
             }
+          },
+          {
+            "id": "7adf7fde2d5b0401",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "a6cd8a78c7c4cd94",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "03366f1b83305ea8",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "c317f0d39c48eff4",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "7657d35496f0fea0",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "554f660c0e2c702b",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "5fa07abd1044d6e2",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "410b28f4186a4b16",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "023299972a2bd4aa",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "142a5b8cbaa84c34",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 12
       }
     ],
     "direction": "horizontal",
@@ -148,7 +248,7 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "c17a0f83ea44067a",
+  "active": "142a5b8cbaa84c34",
   "lastOpenFiles": [
     "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
     "妇产科学/流产/特殊流产/留流产/胎儿窘迫的诊断.md",

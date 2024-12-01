@@ -7,6 +7,9 @@ export interface AnquizSettings {
 	api_url: string;
 	api_key: string;
 	card_marking_tag: string;
+	max_new_card: number;
+	new_card_schedule_order: string;
+	next_day: number
 }
 
 export const DEFAULT_SETTINGS: AnquizSettings = {
@@ -14,6 +17,9 @@ export const DEFAULT_SETTINGS: AnquizSettings = {
 	api_url: 'https://www.gptapi.us/v1/chat/completions',
 	api_key: "sk-0SghhgFMzyNOoRwG981eDcFbEeCa4aEa9c1b831bDc73360b",
 	card_marking_tag: "card",
+	max_new_card: 5,
+	new_card_schedule_order: "1",
+	next_day: 2
 }
 
 
@@ -74,5 +80,44 @@ export class AnquizSettingTab extends PluginSettingTab {
 			this.plugin.settings.card_marking_tag = value;
 			await this.plugin.saveSettings();
 			}));
+
+		containerEl.createEl("h1",{text:"学习方案"}
+
+		)
+		new Setting(containerEl)
+		.setName('新学笔记数量')
+		.setDesc("每日最多学习的新卡片数目")
+		.addText(text => text
+			.setValue(this.plugin.settings.max_new_card.toString())
+			.onChange(async (value) => {
+			this.plugin.settings.max_new_card = parseInt(value);
+			await this.plugin.saveSettings();
+			}));
+
+		new Setting(containerEl)
+			.setName('新学笔记排序方案')
+			.addDropdown((dropdown)=>{
+				dropdown
+					.addOption("1",'根据卡片加入时间')
+					.setValue(this.plugin.settings.new_card_schedule_order)
+					.onChange((value)=>{
+						this.plugin.settings.new_card_schedule_order = value
+						this.plugin.saveSettings()
+					})
+			})
+		
+		const nextDaySetting = new Setting(containerEl)
+			.setName('下一天开始时间(小时)')
+			.setDesc(`下一天将从${this.plugin.settings.next_day}:00开始计算`)
+			.addText((text)=>{
+				text
+					.setValue(this.plugin.settings.next_day.toString())
+					.onChange((value)=>{
+						this.plugin.settings.next_day = parseInt(value)
+						this.plugin.saveSettings()
+						nextDaySetting.setDesc(`下一天将从${this.plugin.settings.next_day}:00开始计算`)
+					})
+			})
+
 	}
 }
