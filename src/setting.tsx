@@ -8,7 +8,8 @@ export interface AnquizSettings {
 	api_key: string;
 	card_marking_tag: string;
 	max_new_card: number;
-	new_card_schedule_order: string;
+	max_review: number;
+	new_card_schedule_order: 1|-1;
 	next_day: number
 }
 
@@ -18,8 +19,9 @@ export const DEFAULT_SETTINGS: AnquizSettings = {
 	api_key: "sk-0SghhgFMzyNOoRwG981eDcFbEeCa4aEa9c1b831bDc73360b",
 	card_marking_tag: "card",
 	max_new_card: 5,
-	new_card_schedule_order: "1",
-	next_day: 2
+	new_card_schedule_order: 1,
+	next_day: 2,
+	max_review: 50
 }
 
 
@@ -98,10 +100,11 @@ export class AnquizSettingTab extends PluginSettingTab {
 			.setName('新学笔记排序方案')
 			.addDropdown((dropdown)=>{
 				dropdown
-					.addOption("1",'根据卡片加入时间')
-					.setValue(this.plugin.settings.new_card_schedule_order)
+					.addOption("1",'先学习最早插入的')
+					.addOption("-1",'先学习最近插入的')
+					.setValue(this.plugin.settings.new_card_schedule_order.toString())
 					.onChange((value)=>{
-						this.plugin.settings.new_card_schedule_order = value
+						this.plugin.settings.new_card_schedule_order = parseInt(value) as 1|-1
 						this.plugin.saveSettings()
 					})
 			})

@@ -162,3 +162,4 @@ class QuizModal<T extends quizinterface.quizMode,Y extends quizinterface.QAMode>
 	}
 }
 
+

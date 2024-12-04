@@ -1,15 +1,25 @@
 import React, {useState } from "react";  
 import styled from "styled-components";  
+import { obCard } from "../fsrs";
+
+
+export interface schedule{
+	newLearn: obCard[];
+	studying: obCard[];
+	review: obCard[];
+}
 
 // 类型定义保持不变  
 export interface deckTree {  
     root: string;  
     leaf: deckTree[];  
     route: string[];  
+	schedule: schedule
 }  
 
 export interface deckProps {  
     deckTreeList: deckTree[];  
+	openSchedule: (deck:string[])=>void;
 }  
 
 
@@ -37,22 +47,36 @@ const ToggleIcon = styled.span`
   align-items: center;  
   justify-content: center;  
 `;  
-
+//padding-left: ${props => props.level * 10}px;
 const ChildrenContainer = styled.div<{ level: number }>`  
-  padding-left: ${props => props.level * 10}px;  
+  padding-left: 10px;  
   border-left: 2px solid gray
 `;  
 
 const NodeBox = styled.div`  
   display: flex;
   align-items: center;
+  width: 100%
 `;  
+
+const ScheduleDisplay = styled.div`  
+  display: flex;
+  padding: 5px 0;  
+`;  
+
+const ScheduleNumber = styled.div<{color: string}>`
+	color: ${props=>props.color};
+	text-align: center;
+	padding: 2px
+`;
+
 
 // 树节点组件  
 export const TreeNodeComponent: React.FC<{  
   node: deckTree;  
   level: number;  
-}> = ({ node, level }) => {  
+  openSchedule: (deck:string[])=>void
+}> = ({ node, level ,openSchedule }) => {  
   const [expanded, setExpanded] = useState(false);  
   const hasChildren = node.leaf && node.leaf.length > 0;  
 
@@ -68,8 +92,13 @@ export const TreeNodeComponent: React.FC<{
 		<ToggleIcon onClick={handleToggle}>  
           {hasChildren && (expanded ? '-' : '+')}  
         </ToggleIcon> 
-      <NodeContent>   
-        <span>{node.root}</span>  
+      <NodeContent onClick={()=>openSchedule(node.route)}>   
+        <span>{node.root}</span> 
+		<ScheduleDisplay>
+			<ScheduleNumber color="blue">{node.schedule.newLearn.length}</ScheduleNumber>	
+			<ScheduleNumber color="red">{node.schedule.studying.length}</ScheduleNumber>
+			<ScheduleNumber color="green">{node.schedule.review.length}</ScheduleNumber>
+		</ScheduleDisplay>
       </NodeContent>  
 	</NodeBox>
       {hasChildren && expanded && (  
@@ -78,7 +107,8 @@ export const TreeNodeComponent: React.FC<{
             <TreeNodeComponent  
               key={`${child.root}-${index}`}  
               node={child}  
-              level={level + 1}  
+            level={level + 1}  
+				openSchedule = {openSchedule}
             />  
           ))}  
         </ChildrenContainer>  
@@ -88,7 +118,7 @@ export const TreeNodeComponent: React.FC<{
 };  
 
 // 主组件  
-const deckTreeComponent: React.FC<deckProps> = ({ deckTreeList }) => {  
+const deckTreeComponent: React.FC<deckProps> = ({ deckTreeList,	openSchedule} )=> {  
   return (  
     <div>  
       {deckTreeList.map((tree, index) => (  
@@ -96,6 +126,7 @@ const deckTreeComponent: React.FC<deckProps> = ({ deckTreeList }) => {
           key={`${tree.root}-${index}`}  
           node={tree}  
           level={1}  
+		openSchedule={openSchedule}
         />  
       ))}  
     </div>  

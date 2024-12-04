@@ -1,5 +1,6 @@
 import { ItemView, WorkspaceLeaf } from "obsidian";
-import fsrsDeck, { deckProps } from "./fsrsDeck";
+import fsrsDeck from "./fsrsDeck";
+import { deckProps } from "./component/treeNode";
 import { createRoot } from "react-dom/client";
 import React from "react";
 

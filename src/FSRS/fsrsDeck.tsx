@@ -1,11 +1,7 @@
 // 重命名后的组件文件，例如 FsrsDeck.tsx  
 import { Component, CSSProperties, ReactNode } from "react";  
 import TreeNode from './component/treeNode';  
-import { deckTree } from "./component/treeNode";
-
-export interface deckProps {  
-    deckTreeList: deckTree[]   
-}  
+import { deckProps } from "./component/treeNode";
 
 interface deckState {  
     currentPage: 'Deck' | 'Analysis' | 'Info';  
@@ -111,7 +107,7 @@ export default class FsrsDeck extends Component<deckProps, deckState> {
                     {this.props.deckTreeList &&  (  
                         <TreeNode   
                             deckTreeList={this.props.deckTreeList}
-                            
+                            openSchedule={this.props.openSchedule}
                         />  
                     )}   
                 </div>  

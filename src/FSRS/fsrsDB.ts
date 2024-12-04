@@ -2,6 +2,8 @@ import ob_neDB from "src/Obsidian_nedb";
 import { obCard } from './fsrs';
 import Anquiz from "src/main";
 
+
+
 export default class fsrsDB extends ob_neDB<obCard> {
 	constructor(plugin:Anquiz){
 		super(plugin.app,plugin.manifest,"fsrsDB")
@@ -51,5 +53,26 @@ export default class fsrsDB extends ob_neDB<obCard> {
 	async getDeckList(): Promise<string[][]>{
 		const decks =await this.db.find({},{deck:1,_id:0})
 		return [...new Set(decks.map(doc=>doc.deck))]
+	}
+
+	async fetchNewLearn(deck:string[],maxNewLearn:number,order:1|-1){
+		const result = await this.db.find({
+			card: {$size: 1}
+		}).sort({ 'card.0.due':order}).limit(maxNewLearn)
+
+		return result.filter(doc => deck.every(d=>doc.deck.includes(d)))
+	}
+
+	async fetchReview(deck:string[],endTime:Date){
+		/**
+		 * @returns all cards due today of one deck, include 'learning' and 'review'
+		 */
+		const dueToday = (await this.db.find({}).sort({
+			'card.-1.due': 1
+		})).filter(d=>{
+			d.card[d.card.length-1].due<endTime
+		})
+	
+		return dueToday.filter(doc => deck.every(d=>doc.deck.includes(d))).filter(d=>d.card.length>1)
 	}
 }
