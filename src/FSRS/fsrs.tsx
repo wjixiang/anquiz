@@ -3,15 +3,14 @@ import Anquiz from "src/main";
 import manager from "../noteManager";
 import { Card, FSRS, RecordLog } from "ts-fsrs";
 import fsrsDB from "./fsrsDB";
-import fsrsDeckView from "./fsrsDeckView";
+import fsrsDeckView from "./fsrsApp";
 import fsrsDeck from "./fsrsDeck";
-import { deckProps, schedule } from './component/treeNode';
+import { schedule } from './component/treeNode';
 import { deckTree } from './component/treeNode';
 import fsrsNoteProcess from "./fsrsNoteProcess";
+import { fsrsAppProps } from "./fsrsApp";
 
-
-
-
+ 
 export interface obCard{
 	nid: string;
 	card: Card[];
@@ -24,8 +23,8 @@ export default class anquizFSRS extends manager{
 	fsrs: FSRS;
 	db: fsrsDB;
 	deck: fsrsDeck
-	deckView : (leaf:WorkspaceLeaf)=>fsrsDeckView
-	deckProps: deckProps
+	deckView : (leaf:WorkspaceLeaf)=>fsrsDeckView;
+	appProps: fsrsAppProps
 	noteProcess: fsrsNoteProcess
 	
 
@@ -35,29 +34,49 @@ export default class anquizFSRS extends manager{
 		this.db = new fsrsDB(plugin)
 		this.noteProcess = new fsrsNoteProcess(plugin)
 		
-		this.deckProps = {
-			deckTreeList: [
-				{
-					root: "(root)",
-					leaf: [],
-					route: [],
-					schedule:{
-						newLearn: [],
-						studying: [],
-						review: []
+		this.appProps = {
+			deckProps:{
+				deckTreeList: [
+					{
+						root: "(root)",
+						leaf: [],
+						route: [],
+						schedule:{
+							newLearn: [],
+							studying: [],
+							review: []
+						}
 					}
-				}
-			],
-			openSchedule: this.openSchedule
+				],
+				openSchedule: this.openSchedule,
+			},
+			selectedDeck: null,
+			currentPage: 'deck'
 		}
-
-		this.deck = new fsrsDeck(this.deckProps)
 		this.deckView = (leaf:WorkspaceLeaf)=>{
-			return new fsrsDeckView(this.deckProps,leaf)
+			return new fsrsDeckView(leaf,this)
 		}
 	}
 
+	async activateStudypanel() {
+		const { workspace } = this.plugin.app;
+		const viewType = "fsrs-study"
+		let leaf: WorkspaceLeaf | null = null;
+		const leaves = workspace.getLeavesOfType(viewType);
 
+		if (leaves.length > 0) {
+			// A leaf with our view already exists, use that
+			leaf = leaves[0];
+		} else {
+			// Our view could not be found in the workspace, create a new leaf
+			// in the right sidebar for it
+			leaf = workspace.getRightLeaf(false);
+			await leaf.setViewState({ type:viewType, active: true });
+		}
+
+		// "Reveal" the leaf in case it is in a collapsed sidebar
+		workspace.revealLeaf(leaf);
+	}
 
 	async updateDeckList(){
 		const raw_deckList = await this.db.getDeckList() //get every deck record
@@ -65,7 +84,7 @@ export default class anquizFSRS extends manager{
 		const deduped_deckList = [...new Set(raw_deckList.map(r=>JSON.stringify(r)))].map(r=>JSON.parse(r)) //depude deck record
 		console.log(deduped_deckList)
 		const deckList = [...new Set(deduped_deckList.map(list => list[0]))]
-		this.deckProps.deckTreeList =  await Promise.all(deckList.map(async root=>{
+		this.appProps.deckProps.deckTreeList =  await Promise.all(deckList.map(async root=>{
 			return this.parseNode({
 				root: root,
 				leaf: [],
@@ -73,7 +92,7 @@ export default class anquizFSRS extends manager{
 				schedule: await this.getSchedule([root])
 			},deduped_deckList)
 		}))
-		console.log("update deck list:",this.deckProps.deckTreeList)
+		console.log("update deck list:",this.appProps.deckProps.deckTreeList)
 
 	}
 
@@ -132,14 +151,12 @@ export default class anquizFSRS extends manager{
 		const newLearnNotes = await this.db.fetchNewLearn(
 			deck,
 			this.plugin.settings.max_new_card,
-			this.plugin.settings.new_card_schedule_order
+			this.plugin.settings.new_card_schedule_order,
+			this.plugin.settings.next_day
 		)
 		return newLearnNotes
 	}
 
-	getStudying = async(deck:string[]) => {
-
-	}
 
 	getLearningAndReview = async(deck:string[]) => {
 		
@@ -165,20 +182,11 @@ export default class anquizFSRS extends manager{
 		return schedule
 	}
 
-	openSchedule = async(deck:string[])=>{
-		console.log(deck)
-		const newLearn = await this.getNewLearn(deck)
-		const learn_and_review = await this.getLearningAndReview(deck)
-		const studying = learn_and_review.filter(d => d.card[d.card.length-1].state===1)
-		const review = learn_and_review.filter(d => d.card[d.card.length-1].state===2)
-
-		const schedule:schedule = {
-			newLearn: newLearn,
-			studying: studying,
-			review: review
-		}
-		console.log(schedule)
-	}
+	openSchedule = async(deckTree:deckTree,update:()=>void)=>{
+		this.appProps.currentPage = 'study'
+		console.log(this.appProps,deckTree)
+		update()
+	} 
 
 	schedulePanel: React.FC<{ //overview of selected deck's learning schedule
 		refresh_date: Date;
@@ -188,7 +196,8 @@ export default class anquizFSRS extends manager{
 		const newLearn = this.db.fetchNewLearn(
 			scheduleData.selected_deck,
 			this.plugin.settings.max_new_card,
-			this.plugin.settings.new_card_schedule_order
+			this.plugin.settings.new_card_schedule_order,
+			this.plugin.settings.next_day
 		)
 		return(
 			<>{newLearn}</>

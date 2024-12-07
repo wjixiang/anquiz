@@ -146,7 +146,7 @@
             }
           },
           {
-            "id": "f550d4e8fab90df6",
+            "id": "0ef8ba82cd7fc393",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -156,7 +156,7 @@
             }
           },
           {
-            "id": "56af829014a1088c",
+            "id": "c81d915d94d8176f",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -166,7 +166,7 @@
             }
           },
           {
-            "id": "03ce7b3a725aa0df",
+            "id": "0b4d2e12fbe708cf",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -176,7 +176,7 @@
             }
           },
           {
-            "id": "555092213093aeb0",
+            "id": "4693c2e8c6507fab",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -186,7 +186,7 @@
             }
           },
           {
-            "id": "5d5cf39a998d4d52",
+            "id": "9c4f400b64a62a14",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -196,7 +196,7 @@
             }
           },
           {
-            "id": "11f790bf32d8a24b",
+            "id": "904e0b662e0c78c5",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -206,7 +206,7 @@
             }
           },
           {
-            "id": "4df439479fad8b57",
+            "id": "b9228bc5dfbf0fff",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -216,7 +216,7 @@
             }
           },
           {
-            "id": "676e340abbafc3be",
+            "id": "d1d90040b476ed08",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -226,7 +226,7 @@
             }
           },
           {
-            "id": "f68999b645552276",
+            "id": "24da8be21adb7b03",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -236,7 +236,7 @@
             }
           },
           {
-            "id": "098123e030989aa7",
+            "id": "cda26d13ac5143f6",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -246,7 +246,7 @@
             }
           },
           {
-            "id": "a7ab44a02810e675",
+            "id": "84e654c3cca740d9",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -256,7 +256,7 @@
             }
           },
           {
-            "id": "ad86c50f1f036688",
+            "id": "e42e57a7910e5e5a",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -266,7 +266,7 @@
             }
           },
           {
-            "id": "b7061b73768b0d61",
+            "id": "64354ddf68d23f9c",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -276,7 +276,7 @@
             }
           },
           {
-            "id": "a4e867384b907f76",
+            "id": "8b6389b93a242552",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -286,7 +286,7 @@
             }
           },
           {
-            "id": "19468c03615c98c8",
+            "id": "aafc120cc461a0c5",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -296,7 +296,7 @@
             }
           },
           {
-            "id": "298238618028a4da",
+            "id": "886257f29a9e31ce",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -306,7 +306,7 @@
             }
           },
           {
-            "id": "14ef29af85e08f2f",
+            "id": "f035fd9ca1a988a8",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -316,7 +316,7 @@
             }
           },
           {
-            "id": "946e1fbf05e84395",
+            "id": "0d517c98e310599b",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -326,7 +326,7 @@
             }
           },
           {
-            "id": "80a2433b914e3ef8",
+            "id": "a7e64816124174a5",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -336,47 +336,7 @@
             }
           },
           {
-            "id": "4f07a132d44f357a",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "fbf53a22606e4f68",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "d059aafd66b8ca00",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "17e4e9abe971700b",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "0fb14dafb00f9848",
+            "id": "28ea9a4387bc9225",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -386,7 +346,7 @@
             }
           }
         ],
-        "currentTab": 27
+        "currentTab": 23
       }
     ],
     "direction": "horizontal",
@@ -404,10 +364,10 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "0fb14dafb00f9848",
+  "active": "28ea9a4387bc9225",
   "lastOpenFiles": [
-    "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
     "妇产科学/流产/特殊流产/留流产/胎儿窘迫的诊断.md",
+    "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
     "quiz_bank/内科完全病历.md",
     "妇产科学/流产/特殊流产/留流产",
     "妇产科学/妊高症的治疗方案选择.md",

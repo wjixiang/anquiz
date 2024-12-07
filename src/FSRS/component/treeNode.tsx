@@ -19,7 +19,7 @@ export interface deckTree {
 
 export interface deckProps {  
     deckTreeList: deckTree[];  
-	openSchedule: (deck:string[])=>void;
+	openSchedule: (deckTree:deckTree,update:()=>void)=>void;
 }  
 
 
@@ -75,7 +75,7 @@ const ScheduleNumber = styled.div<{color: string}>`
 export const TreeNodeComponent: React.FC<{  
   node: deckTree;  
   level: number;  
-  openSchedule: (deck:string[])=>void
+  openSchedule: (deckTree:deckTree,update:()=>void)=>void
 }> = ({ node, level ,openSchedule }) => {  
   const [expanded, setExpanded] = useState(false);  
   const hasChildren = node.leaf && node.leaf.length > 0;  
@@ -92,7 +92,7 @@ export const TreeNodeComponent: React.FC<{
 		<ToggleIcon onClick={handleToggle}>  
           {hasChildren && (expanded ? '-' : '+')}  
         </ToggleIcon> 
-      <NodeContent onClick={()=>openSchedule(node.route)}>   
+      <NodeContent onClick={()=>openSchedule(node,()=>{console.log(`open deck ${node.root}`)})}>   
         <span>{node.root}</span> 
 		<ScheduleDisplay>
 			<ScheduleNumber color="blue">{node.schedule.newLearn.length}</ScheduleNumber>	

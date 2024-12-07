@@ -55,10 +55,11 @@ export default class fsrsDB extends ob_neDB<obCard> {
 		return [...new Set(decks.map(doc=>doc.deck))]
 	}
 
-	async fetchNewLearn(deck:string[],maxNewLearn:number,order:1|-1){
+	async fetchNewLearn(deck:string[],maxNewLearn:number,order:1|-1,flashHour:number){
+		const alreadyLearn = (await this.fetchTodayAlreadyLearn(deck,flashHour)).length
 		const result = await this.db.find({
 			card: {$size: 1}
-		}).sort({ 'card.0.due':order}).limit(maxNewLearn)
+		}).sort({ 'card.0.due':order}).limit((maxNewLearn-alreadyLearn)<0 ? 0 : maxNewLearn-alreadyLearn)
 
 		return result.filter(doc => deck.every(d=>doc.deck.includes(d)))
 	}
@@ -74,5 +75,19 @@ export default class fsrsDB extends ob_neDB<obCard> {
 		})
 	
 		return dueToday.filter(doc => deck.every(d=>doc.deck.includes(d))).filter(d=>d.card.length>1)
+	}
+
+	async fetchTodayAlreadyLearn(deck:string[],flashHour:number){
+		const yesterday = new Date()
+		yesterday.setDate(new Date().getDate()-1)
+		yesterday.setHours(flashHour,0,0,0)
+	
+		const result = (await this.db.find({})).filter(d=>d.card.length>1 && d.card[d.card.length-2].state===0).filter(
+			d=>d.card[d.card.length-2].due < new Date()
+		).filter(
+			d=>d.card[d.card.length-2].due > yesterday
+		)
+
+		return result.filter(doc => deck.every(d=>doc.deck.includes(d)))
 	}
 }
