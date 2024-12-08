@@ -1,6 +1,7 @@
 import React, {useState } from "react";  
 import styled from "styled-components";  
 import { obCard } from "../fsrs";
+import ScheduleStatus from "./ScheduleStatus";
 
 
 export interface schedule{
@@ -59,16 +60,6 @@ const NodeBox = styled.div`
   width: 100%
 `;  
 
-const ScheduleDisplay = styled.div`  
-  display: flex;
-  padding: 5px 0;  
-`;  
-
-const ScheduleNumber = styled.div<{color: string}>`
-	color: ${props=>props.color};
-	text-align: center;
-	padding: 2px
-`;
 
 
 // 树节点组件  
@@ -94,11 +85,7 @@ export const TreeNodeComponent: React.FC<{
         </ToggleIcon> 
       <NodeContent onClick={()=>openSchedule(node,()=>{console.log(`open deck ${node.root}`)})}>   
         <span>{node.root}</span> 
-		<ScheduleDisplay>
-			<ScheduleNumber color="blue">{node.schedule.newLearn.length}</ScheduleNumber>	
-			<ScheduleNumber color="red">{node.schedule.studying.length}</ScheduleNumber>
-			<ScheduleNumber color="green">{node.schedule.review.length}</ScheduleNumber>
-		</ScheduleDisplay>
+		<ScheduleStatus schedule={node.schedule} />
       </NodeContent>  
 	</NodeBox>
       {hasChildren && expanded && (  

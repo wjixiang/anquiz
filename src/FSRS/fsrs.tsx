@@ -19,6 +19,11 @@ export interface obCard{
 	deck: string[];
 }
 
+export interface fsrsAppProps {
+	deckProps:deckProps;
+	selectedDeck: deckTree|null;
+	currentPage: string;
+}
 
 
 export default class anquizFSRS extends manager{
@@ -205,6 +210,11 @@ export default class anquizFSRS extends manager{
 		)
 	}
 
+	redirect = async (nid:string)=>{
+		const targetTFile = await this.getFileByNid(nid)
+		this.plugin.app.workspace.getLeaf().openFile(targetTFile)
+	}
+
 	rateNote = ()=>{
 
 	}
@@ -236,9 +246,15 @@ export default class anquizFSRS extends manager{
 						deckTreeList={appProps.deckProps.deckTreeList} 
 						openSchedule={openSchedule} />
 				case 'study':
-					return <FsrsStudy deck={selectedDeck} backHome={backHome} sortMethod={{
+					return <FsrsStudy 
+						deck={selectedDeck} 
+						backHome={backHome} 
+						sortMethod={{
 						newLearnSortMethod:sortMethod.sortByDueTimeAsc
-					}}/>
+					}} 
+						getTFile={(nid)=>this.getFileByNid(nid)}
+						redirect={(nid)=>this.redirect(nid)}
+					/>
 			}
 		
 		}
@@ -248,9 +264,11 @@ export default class anquizFSRS extends manager{
 			</div>
 		)
 	}
+
+	
 }
 
-export class fsrsView extends ItemView{
+export class fsrsView extends ItemView{ //UI container of obsidian
 	fsrs:anquizFSRS
 	root = createRoot(this.containerEl.children[1])
 	constructor(leaf:WorkspaceLeaf,fsrs:anquizFSRS){
@@ -276,8 +294,3 @@ export class fsrsView extends ItemView{
 
 }
 
-export interface fsrsAppProps {
-	deckProps:deckProps;
-	selectedDeck: deckTree|null;
-	currentPage: string;
-}

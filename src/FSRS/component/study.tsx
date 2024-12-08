@@ -1,8 +1,11 @@
-import { deckTree, schedule } from './treeNode';
-import React, {useState}from "react"  
+import { deckTree } from './treeNode';
+import React, {useEffect, useState}from "react"  
 import styled from "styled-components";  
 import { ArrowLeft, BookOpen } from 'lucide-react';  
 import { obCard } from '../fsrs';
+import ScheduleStatus from './ScheduleStatus';
+import LearnArea from './learnArea';
+import { TFile } from 'obsidian';
 
 const HeadControl = styled.div`  
     display: flex;  
@@ -62,7 +65,9 @@ interface sortMethod{
 export const FsrsStudy: React.FC<{  
     deck: deckTree | null,   
     backHome: () => void,
-	sortMethod: sortMethod
+	sortMethod: sortMethod,
+	getTFile: (nid:string)=>Promise<TFile>,
+	redirect: (nid:string)=>void
 }> = (props) => {  
     const deckPath = props.deck ? props.deck.route.join(' / ') : '';  
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -72,56 +77,49 @@ export const FsrsStudy: React.FC<{
         review: []  
 	})
 
-	const next = ()=>{
-		const sortedNewLearn = props.sortMethod.newLearnSortMethod(schedule.newLearn)
-		console.log(sortedNewLearn)
+	const initObCard:obCard = {
+		nid: '',
+		card: [],
+		deck: []
 	}
-	next()
+
+	
+	const [currentCard,setCurrentCard] = useState<obCard>(initObCard)
+
+	useEffect(()=>{
+		const next = ()=>{
+			const sortedNewLearn = props.sortMethod.newLearnSortMethod(schedule.newLearn)
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			const sortedReview = props.sortMethod.newLearnSortMethod(schedule.newLearn)
+			console.table(sortedNewLearn)
+	
+			setCurrentCard(sortedNewLearn[0])// temporary
+		}
+		next()
+	})
+
     return (  
-        <HeadControl>  
-            <ControlLeft>  
-                <IconButton onClick={props.backHome} title="返回卡组">  
-                    <ArrowLeft size={20} />  
-                </IconButton>  
-                <DeckTitle>{deckPath}</DeckTitle>  
-            </ControlLeft>  
+		<div>
+			<HeadControl>  
+				<ControlLeft>  
+					<IconButton onClick={props.backHome} title="返回卡组">  
+						<ArrowLeft size={20} />  
+					</IconButton>  
+					<DeckTitle>{deckPath}</DeckTitle>  
+				</ControlLeft>  
 
-            <ControlCenter>  
-                <IconButton title="学习进度">  
-                    <BookOpen size={20} />  
-                </IconButton>  
-            </ControlCenter>  
+				<ControlCenter>  
+					<IconButton title="学习进度">  
+						<BookOpen size={20} />  
+					</IconButton>  
+				</ControlCenter>  
 
-            <ControlRight>  
-				<ScheduleStatus schedule={schedule}/>
-            </ControlRight>  
-        </HeadControl>  
+				<ControlRight>  
+					<ScheduleStatus schedule={schedule}/>
+				</ControlRight>  
+			</HeadControl> 
+
+			<LearnArea currentCard={currentCard} getTFile={props.getTFile} redirect={props.redirect}  />
+		</div> 
     )  
 }
-
-const ScheduleDisplay = styled.div`  
-  display: flex;
-  padding: 5px 0;  
-`;  
-
-const ScheduleNumber = styled.div<{color: string}>`
-	color: ${props=>props.color};
-	text-align: center;
-	padding: 2px;
-	margin: 1px;
-	border: 1px solid #272A36;
-	background-color: #363636; 
-	box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
-`;
-
-const ScheduleStatus:React.FC<{schedule:schedule}> = (props)=>{
-	return(
-		<ScheduleDisplay>
-			<ScheduleNumber color="#84C7FF">{props.schedule.newLearn.length}</ScheduleNumber>	
-			<ScheduleNumber color="red">{props.schedule.studying.length}</ScheduleNumber>
-			<ScheduleNumber color="green">{props.schedule.review.length}</ScheduleNumber>
-		</ScheduleDisplay>
-	)
-
-}
-

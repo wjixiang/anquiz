@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "妇产科学/流产/特殊流产/留流产/胎儿窘迫的诊断.md",
+                "file": "妇产科学/流产/一般流产/不全流产.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "胎儿窘迫的诊断"
+              "title": "不全流产"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "妇产科学/流产/特殊流产/留流产/胎儿窘迫的诊断.md"
+                "file": "妇产科学/流产/一般流产/不全流产.md"
               },
               "icon": "lucide-list",
-              "title": "胎儿窘迫的诊断 的大纲"
+              "title": "不全流产 的大纲"
             }
           },
           {
@@ -414,9 +414,199 @@
               "icon": "lucide-file",
               "title": "fsrs-panel"
             }
+          },
+          {
+            "id": "01893cca78462a1c",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "c28b0d178e26b595",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "d7f26e2dc6bac325",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "0a92917a52fe42e5",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "5ab77ef84600b4cf",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "2638d337dc11000f",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "8a99d41db2f8a970",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "509aa284da4f1869",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "f718ded0e739251e",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "1af6535eaadd1cf0",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "a16f131c6f24cee6",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "6b56b5c244380315",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "70b04535a8cfd2e6",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "e31cee4e5c3b0007",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "3df7c7a797c668c3",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "47d1ec54e31073b6",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "dc0a923c983e095b",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "ba836acfb0281f9d",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "b0ef73f23d0a8b0b",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
           }
         ],
-        "currentTab": 30
+        "currentTab": 49
       }
     ],
     "direction": "horizontal",
@@ -434,8 +624,10 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "3a60c3d8657a8517",
+  "active": "cbc93ed6a465720e",
   "lastOpenFiles": [
+    "妇产科学/流产/自然流产的临床类型.md",
+    "皮肤性病学/头癣的类型及判断.md",
     "妇产科学/流产/特殊流产/留流产/胎儿窘迫的诊断.md",
     "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
     "quiz_bank/内科完全病历.md",
@@ -443,8 +635,6 @@
     "妇产科学/妊高症的治疗方案选择.md",
     "妇产科学/流产/一般流产/难免流产.md",
     "妇产科学/流产/一般流产/不全流产.md",
-    "妇产科学/流产/自然流产的临床类型.md",
-    "皮肤性病学/头癣的类型及判断.md",
     "妇产科学/流产/特殊流产",
     "先兆流产(threatened abortion).md",
     "妇产科学/流产/未命名.md",
