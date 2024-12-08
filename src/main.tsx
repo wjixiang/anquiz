@@ -35,7 +35,7 @@ export default class Anquiz extends Plugin {
 		await this.fsrsApp.updateDeckList()
 
 		this.registerView(this.FSRSPANEL,(leaf)=>{
-			return this.fsrsApp.deckView(leaf);
+			return this.fsrsApp.view(leaf);
 		})
 
 		this.activateFSRSpanel()

@@ -1,18 +1,20 @@
-import { WorkspaceLeaf } from "obsidian";
+import { ItemView, WorkspaceLeaf } from "obsidian";
 import Anquiz from "src/main";
 import manager from "../noteManager";
 import { Card, FSRS, RecordLog } from "ts-fsrs";
 import fsrsDB from "./fsrsDB";
-import fsrsDeckView from "./fsrsApp";
-import fsrsDeck from "./fsrsDeck";
-import { schedule } from './component/treeNode';
+import FsrsDeck from "./fsrsDeck";
+import { deckProps, schedule } from './component/treeNode';
 import { deckTree } from './component/treeNode';
 import fsrsNoteProcess from "./fsrsNoteProcess";
-import { fsrsAppProps } from "./fsrsApp";
+import React, { useState } from "react";
+import { FsrsStudy } from "./component/study";
+import { createRoot } from "react-dom/client";
+import sortMethod from "./sortMethod";
 
  
 export interface obCard{
-	nid: string;
+	nid: string; 
 	card: Card[];
 	deck: string[];
 }
@@ -22,8 +24,8 @@ export interface obCard{
 export default class anquizFSRS extends manager{
 	fsrs: FSRS;
 	db: fsrsDB;
-	deck: fsrsDeck
-	deckView : (leaf:WorkspaceLeaf)=>fsrsDeckView;
+	deck: FsrsDeck
+	view : (leaf:WorkspaceLeaf)=>fsrsView;
 	appProps: fsrsAppProps
 	noteProcess: fsrsNoteProcess
 	
@@ -33,7 +35,6 @@ export default class anquizFSRS extends manager{
 		this.fsrs = new FSRS({})
 		this.db = new fsrsDB(plugin)
 		this.noteProcess = new fsrsNoteProcess(plugin)
-		
 		this.appProps = {
 			deckProps:{
 				deckTreeList: [
@@ -53,8 +54,8 @@ export default class anquizFSRS extends manager{
 			selectedDeck: null,
 			currentPage: 'deck'
 		}
-		this.deckView = (leaf:WorkspaceLeaf)=>{
-			return new fsrsDeckView(leaf,this)
+		this.view = (leaf:WorkspaceLeaf)=>{
+			return new fsrsView(leaf,this)
 		}
 	}
 
@@ -208,7 +209,75 @@ export default class anquizFSRS extends manager{
 
 	}
 
-	// studyPanel: React.FC<{}> = ()=>{
+	fsrsApp: React.FC = ()=>{
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		const [appProps, setAppProps] = useState<fsrsAppProps>(this.appProps);  
+		const [currentPage, setCurrentPage] = useState('deck');  
+		const [selectedDeck, setSelectedDeck] = useState<deckTree | null>(null); 
+	
+	
+	
+		const openSchedule = (deckTree: deckTree, update: () => void) => {  
+			setSelectedDeck(deckTree);  
+			setCurrentPage('study');  
+			// 如果有额外的更新逻辑，执行传入的 update 函数  
+			update();  
+		};  
+	
+		const backHome = ()=>{
+			setCurrentPage('deck'); 
+		}
+	
+	
+		const renderPage = ()=>{
+			switch (currentPage){
+				case 'deck':
+					return <FsrsDeck 
+						deckTreeList={appProps.deckProps.deckTreeList} 
+						openSchedule={openSchedule} />
+				case 'study':
+					return <FsrsStudy deck={selectedDeck} backHome={backHome} sortMethod={{
+						newLearnSortMethod:sortMethod.sortByDueTimeAsc
+					}}/>
+			}
+		
+		}
+		return(
+			<div>
+				{renderPage()}
+			</div>
+		)
+	}
+}
 
-	// }
+export class fsrsView extends ItemView{
+	fsrs:anquizFSRS
+	root = createRoot(this.containerEl.children[1])
+	constructor(leaf:WorkspaceLeaf,fsrs:anquizFSRS){
+		super(leaf);
+		this.fsrs = fsrs
+	}  
+ 
+	getViewType(): string {
+		return "fsrsView" 
+	}
+	getDisplayText(): string { 
+		return "fsrs-panel"
+	}
+	renderComponent(fsrsApp:React.FC<fsrsAppProps>) {  
+        this.root.render(  
+            React.createElement(fsrsApp, this.fsrs.appProps)  
+        );  
+    }  
+
+    protected async onOpen(): Promise<void> {  
+        this.renderComponent(this.fsrs.fsrsApp)
+    }  
+
+}
+
+export interface fsrsAppProps {
+	deckProps:deckProps;
+	selectedDeck: deckTree|null;
+	currentPage: string;
 }

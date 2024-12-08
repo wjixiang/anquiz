@@ -344,9 +344,79 @@
               "icon": "lucide-file",
               "title": "fsrs-panel"
             }
+          },
+          {
+            "id": "ecdfff3447491c38",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "98d8906f0e587cda",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "2baa509fb2f1bae7",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          },
+          {
+            "id": "711edaa6c06211dd",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "6b587cbe850eaad6",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "b1591a825a53954b",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          },
+          {
+            "id": "3a60c3d8657a8517",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
           }
         ],
-        "currentTab": 23
+        "currentTab": 30
       }
     ],
     "direction": "horizontal",
@@ -364,7 +434,7 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "28ea9a4387bc9225",
+  "active": "3a60c3d8657a8517",
   "lastOpenFiles": [
     "妇产科学/流产/特殊流产/留流产/胎儿窘迫的诊断.md",
     "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",

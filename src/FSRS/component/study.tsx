@@ -2,6 +2,7 @@ import { deckTree, schedule } from './treeNode';
 import React, {useState}from "react"  
 import styled from "styled-components";  
 import { ArrowLeft, BookOpen } from 'lucide-react';  
+import { obCard } from '../fsrs';
 
 const HeadControl = styled.div`  
     display: flex;  
@@ -54,9 +55,14 @@ const DeckTitle = styled.div`
     font-size: 16px;  
 `  
 
+interface sortMethod{
+	newLearnSortMethod: (cards:obCard[])=>obCard[]
+}
+
 export const FsrsStudy: React.FC<{  
     deck: deckTree | null,   
     backHome: () => void,
+	sortMethod: sortMethod
 }> = (props) => {  
     const deckPath = props.deck ? props.deck.route.join(' / ') : '';  
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -65,6 +71,12 @@ export const FsrsStudy: React.FC<{
         studying: [],  
         review: []  
 	})
+
+	const next = ()=>{
+		const sortedNewLearn = props.sortMethod.newLearnSortMethod(schedule.newLearn)
+		console.log(sortedNewLearn)
+	}
+	next()
     return (  
         <HeadControl>  
             <ControlLeft>  
@@ -112,3 +124,4 @@ const ScheduleStatus:React.FC<{schedule:schedule}> = (props)=>{
 	)
 
 }
+
