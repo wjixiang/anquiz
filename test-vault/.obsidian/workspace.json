@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "020924562fb0baac",
+        "id": "b987f6c44c46b1a2",
         "type": "tabs",
         "children": [
           {
-            "id": "cbc93ed6a465720e",
+            "id": "d9880ea52be0cdf1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "妇产科学/流产/一般流产/不全流产.md",
+                "file": "妇产科学/流产/自然流产的临床类型.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "不全流产"
+              "title": "自然流产的临床类型"
             }
           }
         ]
@@ -134,19 +134,7 @@
             }
           },
           {
-            "id": "5a2e6c2768a0532b",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "妇产科学/流产/一般流产/不全流产.md"
-              },
-              "icon": "lucide-list",
-              "title": "不全流产 的大纲"
-            }
-          },
-          {
-            "id": "0ef8ba82cd7fc393",
+            "id": "f7a5df883ba47d57",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -156,7 +144,7 @@
             }
           },
           {
-            "id": "c81d915d94d8176f",
+            "id": "9162d0db292be41a",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -166,7 +154,7 @@
             }
           },
           {
-            "id": "0b4d2e12fbe708cf",
+            "id": "6cff399d8fd8bd38",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -176,7 +164,7 @@
             }
           },
           {
-            "id": "4693c2e8c6507fab",
+            "id": "5d3d0e7cdc6b1fc0",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -186,7 +174,7 @@
             }
           },
           {
-            "id": "9c4f400b64a62a14",
+            "id": "c293d365ebb7b328",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -196,7 +184,7 @@
             }
           },
           {
-            "id": "904e0b662e0c78c5",
+            "id": "f1cc374e32ed69a1",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -206,7 +194,7 @@
             }
           },
           {
-            "id": "b9228bc5dfbf0fff",
+            "id": "457aa087ead9d7ec",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -216,7 +204,7 @@
             }
           },
           {
-            "id": "d1d90040b476ed08",
+            "id": "31215912fb2d8791",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -226,7 +214,7 @@
             }
           },
           {
-            "id": "24da8be21adb7b03",
+            "id": "8daf6d167bfce2bb",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -236,7 +224,7 @@
             }
           },
           {
-            "id": "cda26d13ac5143f6",
+            "id": "ea9ab36e6acfaff8",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -246,7 +234,7 @@
             }
           },
           {
-            "id": "84e654c3cca740d9",
+            "id": "334121ee6212bbda",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -256,7 +244,7 @@
             }
           },
           {
-            "id": "e42e57a7910e5e5a",
+            "id": "26d5a4c448edea38",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -266,7 +254,7 @@
             }
           },
           {
-            "id": "64354ddf68d23f9c",
+            "id": "5e9cf5cb6838f9e7",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -276,7 +264,7 @@
             }
           },
           {
-            "id": "8b6389b93a242552",
+            "id": "d9095d571d62f5c8",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -286,7 +274,7 @@
             }
           },
           {
-            "id": "aafc120cc461a0c5",
+            "id": "5299dcfdae5fd3bb",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -296,7 +284,7 @@
             }
           },
           {
-            "id": "886257f29a9e31ce",
+            "id": "2e456c41167c995e",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -306,7 +294,7 @@
             }
           },
           {
-            "id": "f035fd9ca1a988a8",
+            "id": "607365ea0599d9a1",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -316,7 +304,7 @@
             }
           },
           {
-            "id": "0d517c98e310599b",
+            "id": "99bac46be9da23b7",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -326,7 +314,7 @@
             }
           },
           {
-            "id": "a7e64816124174a5",
+            "id": "5ed4db110a36ffe8",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -336,7 +324,7 @@
             }
           },
           {
-            "id": "28ea9a4387bc9225",
+            "id": "29bab667877d391e",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -346,7 +334,7 @@
             }
           },
           {
-            "id": "ecdfff3447491c38",
+            "id": "c693bff730f737ad",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -356,7 +344,7 @@
             }
           },
           {
-            "id": "98d8906f0e587cda",
+            "id": "9d075c4bedb54b2e",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -366,237 +354,7 @@
             }
           },
           {
-            "id": "2baa509fb2f1bae7",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
-            }
-          },
-          {
-            "id": "711edaa6c06211dd",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "6b587cbe850eaad6",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "b1591a825a53954b",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
-            }
-          },
-          {
-            "id": "3a60c3d8657a8517",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "01893cca78462a1c",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "c28b0d178e26b595",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "d7f26e2dc6bac325",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "0a92917a52fe42e5",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "5ab77ef84600b4cf",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "2638d337dc11000f",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "8a99d41db2f8a970",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "509aa284da4f1869",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "f718ded0e739251e",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "1af6535eaadd1cf0",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "a16f131c6f24cee6",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "6b56b5c244380315",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "70b04535a8cfd2e6",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "e31cee4e5c3b0007",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "3df7c7a797c668c3",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "47d1ec54e31073b6",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "dc0a923c983e095b",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "ba836acfb0281f9d",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "b0ef73f23d0a8b0b",
+            "id": "a30bba7d94b9ef64",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -606,7 +364,7 @@
             }
           }
         ],
-        "currentTab": 49
+        "currentTab": 25
       }
     ],
     "direction": "horizontal",
@@ -624,17 +382,17 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "cbc93ed6a465720e",
+  "active": "a30bba7d94b9ef64",
   "lastOpenFiles": [
     "妇产科学/流产/自然流产的临床类型.md",
     "皮肤性病学/头癣的类型及判断.md",
+    "妇产科学/流产/一般流产/不全流产.md",
     "妇产科学/流产/特殊流产/留流产/胎儿窘迫的诊断.md",
     "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
     "quiz_bank/内科完全病历.md",
     "妇产科学/流产/特殊流产/留流产",
     "妇产科学/妊高症的治疗方案选择.md",
     "妇产科学/流产/一般流产/难免流产.md",
-    "妇产科学/流产/一般流产/不全流产.md",
     "妇产科学/流产/特殊流产",
     "先兆流产(threatened abortion).md",
     "妇产科学/流产/未命名.md",

@@ -6,6 +6,8 @@ import { obCard } from '../fsrs';
 import ScheduleStatus from './ScheduleStatus';
 import LearnArea from './learnArea';
 import { TFile } from 'obsidian';
+import RatePanel from './ratePanel';
+import {  RecordLog } from 'ts-fsrs';
 
 const HeadControl = styled.div`  
     display: flex;  
@@ -63,11 +65,12 @@ interface sortMethod{
 }
 
 export const FsrsStudy: React.FC<{  
-    deck: deckTree | null,   
-    backHome: () => void,
-	sortMethod: sortMethod,
-	getTFile: (nid:string)=>Promise<TFile>,
-	redirect: (nid:string)=>void
+    deck: deckTree | null;
+    backHome: () => void;
+	sortMethod: sortMethod;
+	getTFile: (nid:string)=>Promise<TFile>;
+	redirect: (nid:string)=>void;
+	rater: (card:obCard)=>RecordLog;
 }> = (props) => {  
     const deckPath = props.deck ? props.deck.route.join(' / ') : '';  
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -120,6 +123,7 @@ export const FsrsStudy: React.FC<{
 			</HeadControl> 
 
 			<LearnArea currentCard={currentCard} getTFile={props.getTFile} redirect={props.redirect}  />
+			<RatePanel currentCard={currentCard} rater={props.rater} />
 		</div> 
     )  
 }

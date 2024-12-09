@@ -4,7 +4,11 @@ import { TFile } from "obsidian";
 import { useEffect, useState } from "react";
 
 const NoteLink = styled.div`  
-  padding: 5px 0;  
+	margin: auto;
+	padding: 5px 0;  
+	&:hover {  
+    text-decoration: underline;  
+  }  
 `;  
 
 const LearnArea:React.FC<{
@@ -35,7 +39,7 @@ const LearnArea:React.FC<{
     }, [props.currentCard.nid, props.getTFile]);
 
 	return(
-		<div>{props.currentCard.nid}
+		<div>
 			<NoteLink onClick={()=>props.redirect(props.currentCard.nid)}>
 				{loading ? '加载中...' : (file ? file.name : '未找到文件')}
 			</NoteLink>

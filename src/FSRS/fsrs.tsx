@@ -1,4 +1,4 @@
-import { ItemView, WorkspaceLeaf } from "obsidian";
+import { ItemView, Notice, WorkspaceLeaf } from "obsidian";
 import Anquiz from "src/main";
 import manager from "../noteManager";
 import { Card, FSRS, RecordLog } from "ts-fsrs";
@@ -142,7 +142,7 @@ export default class anquizFSRS extends manager{
     }  
 
 
-	async scheduleFromNow(card:obCard){
+	scheduleFromNow(card:obCard){
 		const scheduling_cards:RecordLog = this.fsrs.repeat(card.card[card.card.length-1],new Date())
 		return scheduling_cards
 	}
@@ -213,6 +213,7 @@ export default class anquizFSRS extends manager{
 	redirect = async (nid:string)=>{
 		const targetTFile = await this.getFileByNid(nid)
 		this.plugin.app.workspace.getLeaf().openFile(targetTFile)
+		new Notice(`open ${targetTFile.name}`,500)
 	}
 
 	rateNote = ()=>{
@@ -238,7 +239,7 @@ export default class anquizFSRS extends manager{
 			setCurrentPage('deck'); 
 		}
 	
-	
+
 		const renderPage = ()=>{
 			switch (currentPage){
 				case 'deck':
@@ -254,6 +255,7 @@ export default class anquizFSRS extends manager{
 					}} 
 						getTFile={(nid)=>this.getFileByNid(nid)}
 						redirect={(nid)=>this.redirect(nid)}
+						rater={(obcard)=>this.scheduleFromNow(obcard)}
 					/>
 			}
 		
