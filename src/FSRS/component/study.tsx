@@ -7,7 +7,7 @@ import ScheduleStatus from './ScheduleStatus';
 import LearnArea from './learnArea';
 import { TFile } from 'obsidian';
 import RatePanel from './ratePanel';
-import {  RecordLog } from 'ts-fsrs';
+import {  Card, RecordLog } from 'ts-fsrs';
 
 const HeadControl = styled.div`  
     display: flex;  
@@ -71,6 +71,7 @@ export const FsrsStudy: React.FC<{
 	getTFile: (nid:string)=>Promise<TFile>;
 	redirect: (nid:string)=>void;
 	rater: (card:obCard)=>RecordLog;
+	submitRate:(obcard:obCard,newCard:Card)=>Promise<obCard|null>;
 }> = (props) => {  
     const deckPath = props.deck ? props.deck.route.join(' / ') : '';  
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -101,6 +102,12 @@ export const FsrsStudy: React.FC<{
 		next()
 	})
 
+	if(currentCard.nid===''){
+		return(<div>
+
+		</div>)
+	}
+
     return (  
 		<div>
 			<HeadControl>  
@@ -123,7 +130,7 @@ export const FsrsStudy: React.FC<{
 			</HeadControl> 
 
 			<LearnArea currentCard={currentCard} getTFile={props.getTFile} redirect={props.redirect}  />
-			<RatePanel currentCard={currentCard} rater={props.rater} />
+			<RatePanel currentCard={currentCard} rater={props.rater} submitRate={props.submitRate}/>
 		</div> 
     )  
 }

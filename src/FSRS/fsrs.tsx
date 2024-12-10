@@ -216,9 +216,9 @@ export default class anquizFSRS extends manager{
 		new Notice(`open ${targetTFile.name}`,500)
 	}
 
-	rateNote = ()=>{
+	// rateNote = ()=>{
 
-	}
+	// }
 
 	fsrsApp: React.FC = ()=>{
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -237,6 +237,7 @@ export default class anquizFSRS extends manager{
 	
 		const backHome = ()=>{
 			setCurrentPage('deck'); 
+			this.updateDeckList()
 		}
 	
 
@@ -256,6 +257,7 @@ export default class anquizFSRS extends manager{
 						getTFile={(nid)=>this.getFileByNid(nid)}
 						redirect={(nid)=>this.redirect(nid)}
 						rater={(obcard)=>this.scheduleFromNow(obcard)}
+						submitRate={(obcard,newcard)=>this.db.rateCard(obcard,newcard)}
 					/>
 			}
 		

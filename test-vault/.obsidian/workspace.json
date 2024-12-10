@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "妇产科学/流产/自然流产的临床类型.md",
+                "file": "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "自然流产的临床类型"
+              "title": "稽留流产(missed abortion)"
             }
           }
         ]
@@ -134,7 +134,7 @@
             }
           },
           {
-            "id": "f7a5df883ba47d57",
+            "id": "774fcdd43ab945da",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -144,217 +144,7 @@
             }
           },
           {
-            "id": "9162d0db292be41a",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "6cff399d8fd8bd38",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "5d3d0e7cdc6b1fc0",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "c293d365ebb7b328",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "f1cc374e32ed69a1",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "457aa087ead9d7ec",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "31215912fb2d8791",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "8daf6d167bfce2bb",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "ea9ab36e6acfaff8",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "334121ee6212bbda",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "26d5a4c448edea38",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "5e9cf5cb6838f9e7",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "d9095d571d62f5c8",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "5299dcfdae5fd3bb",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "2e456c41167c995e",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "607365ea0599d9a1",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "99bac46be9da23b7",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "5ed4db110a36ffe8",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "29bab667877d391e",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "c693bff730f737ad",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "9d075c4bedb54b2e",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "fsrs-panel"
-            }
-          },
-          {
-            "id": "a30bba7d94b9ef64",
+            "id": "cbaedc2a5b622b8f",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -364,7 +154,7 @@
             }
           }
         ],
-        "currentTab": 25
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -382,7 +172,7 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "a30bba7d94b9ef64",
+  "active": "cbaedc2a5b622b8f",
   "lastOpenFiles": [
     "妇产科学/流产/自然流产的临床类型.md",
     "皮肤性病学/头癣的类型及判断.md",

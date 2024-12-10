@@ -61,6 +61,33 @@
       "AIquiz"
     ],
     "links": [
+      "c6d8891b-bae7-4a11-98d3-daaf56763a54"
+    ],
+    "disc": "",
+    "records": [
+      ""
+    ],
+    "qa": {
+      "question": "稽留流产最常见的临床表现是什么？",
+      "options": [
+        "阴道流血",
+        "下腹痛",
+        "孕激素增加",
+        "胚胎停止发育",
+        "子宫大小异常"
+      ],
+      "answer": "D"
+    },
+    "_id": "TZ0Qg6HvTMdsdmVy"
+  },
+  {
+    "subject": "",
+    "unit": "",
+    "mode": "A1",
+    "tags": [
+      "AIquiz"
+    ],
+    "links": [
       "ba0b4089-49b8-405f-bc94-7d45d6838470"
     ],
     "disc": "",

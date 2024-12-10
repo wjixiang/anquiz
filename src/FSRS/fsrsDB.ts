@@ -1,6 +1,7 @@
 import ob_neDB from "src/Obsidian_nedb";
 import { obCard } from './fsrs';
 import Anquiz from "src/main";
+import { Card } from "ts-fsrs";
 
 
 
@@ -89,5 +90,21 @@ export default class fsrsDB extends ob_neDB<obCard> {
 		)
 
 		return result.filter(doc => deck.every(d=>doc.deck.includes(d)))
+	}
+
+	async rateCard(obcard:obCard,newCard:Card):Promise<obCard|null>{
+		try{
+			obcard.card.push(newCard)
+			const updatedCard = await this.db.update(
+				{nid:obcard.nid},
+				obcard,
+				{returnUpdatedDocs:true}
+			)
+			this.save()
+			return updatedCard
+		}catch(err){
+			console.log(err)
+			throw(new Error(err))
+		}
 	}
 }
