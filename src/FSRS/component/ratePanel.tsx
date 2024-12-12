@@ -35,6 +35,7 @@ const RatePanel:React.FC<rateProps> = (props)=>{
 	const test_params = generatorParameters({ enable_fuzz: true, enable_short_term: false })
 	const f = fsrs(test_params)
 	const scheduling_cards = f.repeat(props.currentCard.card[props.currentCard.card.length-1],new Date())
+	console.log(`log:`, scheduling_cards[1])
 
 	return(
 		<div>

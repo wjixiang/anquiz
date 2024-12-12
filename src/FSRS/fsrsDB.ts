@@ -72,8 +72,11 @@ export default class fsrsDB extends ob_neDB<obCard> {
 		const dueToday = (await this.db.find({}).sort({
 			'card.-1.due': 1
 		})).filter(d=>{
+			// if(Date.parse(d.card[d.card.length-1].due.toDateString())>Date.parse(endTime.toDateString())){
+			// 	console.log(d.card[d.card.length-1].due)
+			// }
 			d.card[d.card.length-1].due<endTime
-		})
+		}) 
 	
 		return dueToday.filter(doc => deck.every(d=>doc.deck.includes(d))).filter(d=>d.card.length>1)
 	}

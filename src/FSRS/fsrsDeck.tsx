@@ -1,5 +1,5 @@
 // 重命名后的组件文件，例如 FsrsDeck.tsx  
-import { Component, CSSProperties, ReactNode } from "react";  
+import { Component, CSSProperties, ReactNode } from 'react';  
 import TreeNode from './component/treeNode';  
 import { deckProps } from "./component/treeNode";
 
@@ -21,6 +21,18 @@ export default class FsrsDeck extends Component<deckProps, deckState> {
     async componentDidMount() {  
         this.updatePageStyles();  
     }  
+
+	componentDidUpdate(prevProps: deckProps) {  
+        // 比较新旧 props，确定是否需要更新  
+        if (JSON.stringify(prevProps.deckTreeList) !== JSON.stringify(this.props.deckTreeList)) {  
+            console.log('Deck list props have changed');  
+            
+            // 可选：重置某些状态或执行特定逻辑  
+            this.setState({  
+                expandedNodes: new Set<string>() // 可选：重置展开节点  
+            });  
+        }  
+    } 
 
     handlePageChange = (page: 'Deck' | 'Analysis' | 'Info') => {  
         console.log(page)  
@@ -104,12 +116,13 @@ export default class FsrsDeck extends Component<deckProps, deckState> {
                 </div>  
 
                 <div className="deck-tree" style={this.deckMenuStyle}>  
-                    {this.props.deckTreeList &&  (  
+				{this.props.deckTreeList && this.props.deckTreeList.length > 0 && (  
                         <TreeNode   
-                            deckTreeList={this.props.deckTreeList}
-                            openSchedule={this.props.openSchedule}
+                            key={JSON.stringify(this.props.deckTreeList)} // 添加 key 强制重渲染  
+                            deckTreeList={this.props.deckTreeList}  
+                            openSchedule={this.props.openSchedule}  
                         />  
-                    )}   
+                    )} 
                 </div>  
             </div>  
         )  

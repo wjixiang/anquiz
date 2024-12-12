@@ -1,4 +1,4 @@
-import { deckTree } from './treeNode';
+import { deckTree, schedule } from './treeNode';
 import React, {useEffect, useState}from "react"  
 import styled from "styled-components";  
 import { ArrowLeft, BookOpen } from 'lucide-react';  
@@ -72,6 +72,7 @@ export const FsrsStudy: React.FC<{
 	redirect: (nid:string)=>void;
 	rater: (card:obCard)=>RecordLog;
 	submitRate:(obcard:obCard,newCard:Card)=>Promise<obCard|null>;
+	updateSchedule:(deck:string[])=>Promise<schedule>
 }> = (props) => {  
     const deckPath = props.deck ? props.deck.route.join(' / ') : '';  
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -86,12 +87,15 @@ export const FsrsStudy: React.FC<{
 		card: [],
 		deck: []
 	}
-
+ 
 	
 	const [currentCard,setCurrentCard] = useState<obCard>(initObCard)
 
 	useEffect(()=>{
-		const next = ()=>{
+		const next = async()=>{
+			if(props.deck?.route){
+				setSchedule(await props.updateSchedule(props.deck.route))
+			}
 			const sortedNewLearn = props.sortMethod.newLearnSortMethod(schedule.newLearn)
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			const sortedReview = props.sortMethod.newLearnSortMethod(schedule.newLearn)
@@ -100,7 +104,7 @@ export const FsrsStudy: React.FC<{
 			setCurrentCard(sortedNewLearn[0])// temporary
 		}
 		next()
-	})
+	},[props.deck])
 
 	if(currentCard.nid===''){
 		return(<div>

@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b987f6c44c46b1a2",
+        "id": "871a76b7285c60b6",
         "type": "tabs",
         "children": [
           {
-            "id": "d9880ea52be0cdf1",
+            "id": "1c68501114528de0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
+                "file": "妇产科学/流产/特殊流产/留流产/胎儿窘迫的诊断.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "稽留流产(missed abortion)"
+              "title": "胎儿窘迫的诊断"
             }
           }
         ]
@@ -134,7 +134,7 @@
             }
           },
           {
-            "id": "774fcdd43ab945da",
+            "id": "90e7a940d7e3019e",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -144,7 +144,167 @@
             }
           },
           {
-            "id": "cbaedc2a5b622b8f",
+            "id": "f7d82d4a365bdeff",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "ebabe37b5a7c28d4",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "9c11afb623ee05d6",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "76db971a22f87788",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "4a651b5079980d50",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "c2f8f53ea012dcb8",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "806aa5892b15c640",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "fbc857dd35c08c84",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "510d81e6bbafe677",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "31898779ea4d51f3",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "9e94b62ed558d9d6",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "4279933e298560e0",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "6124032384d2fc14",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "5757412590c4c17b",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "0e0e5ff81a67a045",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "fe9e7ab7e6957f93",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "88aaa510f95c1b09",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -154,7 +314,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 20
       }
     ],
     "direction": "horizontal",
@@ -172,16 +332,16 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "cbaedc2a5b622b8f",
+  "active": "88aaa510f95c1b09",
   "lastOpenFiles": [
+    "妇产科学/妊高症的治疗方案选择.md",
+    "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
     "妇产科学/流产/自然流产的临床类型.md",
     "皮肤性病学/头癣的类型及判断.md",
     "妇产科学/流产/一般流产/不全流产.md",
     "妇产科学/流产/特殊流产/留流产/胎儿窘迫的诊断.md",
-    "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
     "quiz_bank/内科完全病历.md",
     "妇产科学/流产/特殊流产/留流产",
-    "妇产科学/妊高症的治疗方案选择.md",
     "妇产科学/流产/一般流产/难免流产.md",
     "妇产科学/流产/特殊流产",
     "先兆流产(threatened abortion).md",

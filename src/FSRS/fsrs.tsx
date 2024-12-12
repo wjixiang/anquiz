@@ -97,7 +97,10 @@ export default class anquizFSRS extends manager{
 				route: [root],
 				schedule: await this.getSchedule([root])
 			},deduped_deckList)
-		}))
+		}))	
+
+
+
 		console.log("update deck list:",this.appProps.deckProps.deckTreeList)
 
 	}
@@ -160,7 +163,7 @@ export default class anquizFSRS extends manager{
 			this.plugin.settings.new_card_schedule_order,
 			this.plugin.settings.next_day
 		)
-		return newLearnNotes
+		return newLearnNotes 
 	}
 
 
@@ -170,11 +173,11 @@ export default class anquizFSRS extends manager{
 			deck,
 			this.hourToDate(this.plugin.settings.next_day)
 		)
+		console.log(`refrash:${this.hourToDate(this.plugin.settings.next_day)}`)
 		return reviewNotes
 	}
 	
 	getSchedule = async(deck:string[]):Promise<schedule>=>{
-		console.log(deck)
 		const newLearn = await this.getNewLearn(deck)
 		const learn_and_review = await this.getLearningAndReview(deck)
 		const studying = learn_and_review.filter(d => d.card[d.card.length-1].state===1)
@@ -185,6 +188,7 @@ export default class anquizFSRS extends manager{
 			studying: studying,
 			review: review
 		}
+		console.log(`${deck.join('/')}`,schedule)
 		return schedule
 	}
 
@@ -216,10 +220,6 @@ export default class anquizFSRS extends manager{
 		new Notice(`open ${targetTFile.name}`,500)
 	}
 
-	// rateNote = ()=>{
-
-	// }
-
 	fsrsApp: React.FC = ()=>{
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const [appProps, setAppProps] = useState<fsrsAppProps>(this.appProps);  
@@ -240,7 +240,7 @@ export default class anquizFSRS extends manager{
 			this.updateDeckList()
 		}
 	
-
+ 
 		const renderPage = ()=>{
 			switch (currentPage){
 				case 'deck':
@@ -258,8 +258,9 @@ export default class anquizFSRS extends manager{
 						redirect={(nid)=>this.redirect(nid)}
 						rater={(obcard)=>this.scheduleFromNow(obcard)}
 						submitRate={(obcard,newcard)=>this.db.rateCard(obcard,newcard)}
+						updateSchedule={this.getSchedule}
 					/>
-			}
+			} 
 		
 		}
 		return(

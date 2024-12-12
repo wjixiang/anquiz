@@ -75,17 +75,6 @@
         "reps": 0,
         "lapses": 0,
         "state": 0
-      },
-      {
-        "due": "2024-12-12T22:11:59.327Z",
-        "stability": 0.4072,
-        "difficulty": 7.2102,
-        "elapsed_days": 0,
-        "scheduled_days": 1,
-        "reps": 1,
-        "lapses": 0,
-        "state": 2,
-        "last_review": "2024-12-11T22:11:59.327Z"
       }
     ],
     "deck": [
@@ -125,28 +114,6 @@
         "reps": 0,
         "lapses": 0,
         "state": 0
-      },
-      {
-        "due": "2024-12-12T22:13:10.936Z",
-        "stability": 0.4072,
-        "difficulty": 7.2102,
-        "elapsed_days": 0,
-        "scheduled_days": 1,
-        "reps": 1,
-        "lapses": 0,
-        "state": 2,
-        "last_review": "2024-12-11T22:13:10.936Z"
-      },
-      {
-        "due": "2024-12-14T22:13:10.936Z",
-        "stability": 3.1262,
-        "difficulty": 5.31457783,
-        "elapsed_days": 0,
-        "scheduled_days": 3,
-        "reps": 1,
-        "lapses": 0,
-        "state": 2,
-        "last_review": "2024-12-11T22:13:10.936Z"
       }
     ],
     "deck": [
@@ -166,17 +133,6 @@
         "reps": 0,
         "lapses": 0,
         "state": 0
-      },
-      {
-        "due": "2024-12-27T22:17:02.560Z",
-        "stability": 15.4722,
-        "difficulty": 3.2828565,
-        "elapsed_days": 0,
-        "scheduled_days": 16,
-        "reps": 1,
-        "lapses": 0,
-        "state": 2,
-        "last_review": "2024-12-11T22:17:02.560Z"
       }
     ],
     "deck": [

@@ -16,7 +16,7 @@ const ScheduleNumber = styled.div<{color: string}>`
 	box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
 `;
 
-
+ 
 
 const ScheduleStatus:React.FC<{schedule:schedule}> = (props)=>{
 	return(
