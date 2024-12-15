@@ -5,9 +5,8 @@ import { ArrowLeft, BookOpen } from 'lucide-react';
 import { obCard } from '../fsrs';
 import ScheduleStatus from './ScheduleStatus';
 import LearnArea from './learnArea';
-import { TFile } from 'obsidian';
 import RatePanel from './ratePanel';
-import {  Card, RecordLog } from 'ts-fsrs';
+import {  Card } from 'ts-fsrs';
 
 const HeadControl = styled.div`  
     display: flex;  
@@ -60,7 +59,7 @@ const DeckTitle = styled.div`
     font-size: 16px;  
 `  
 
-interface sortMethod{
+export interface sortMethod{
 	newLearnSortMethod: (cards:obCard[])=>obCard[]
 }
 
@@ -68,9 +67,8 @@ export const FsrsStudy: React.FC<{
     deck: deckTree | null;
     backHome: () => void;
 	sortMethod: sortMethod;
-	getTFile: (nid:string)=>Promise<TFile>;
+	getFileName: (nid:string)=>Promise<string>;
 	redirect: (nid:string)=>void;
-	rater: (card:obCard)=>RecordLog;
 	submitRate:(obcard:obCard,newCard:Card)=>Promise<obCard|null>;
 	updateSchedule:(deck:string[])=>Promise<schedule>
 }> = (props) => {  
@@ -133,8 +131,8 @@ export const FsrsStudy: React.FC<{
 				</ControlRight>  
 			</HeadControl> 
 
-			<LearnArea currentCard={currentCard} getTFile={props.getTFile} redirect={props.redirect}  />
-			<RatePanel currentCard={currentCard} rater={props.rater} submitRate={props.submitRate}/>
+			<LearnArea currentCard={currentCard} getFileName={props.getFileName} redirect={props.redirect}  />
+			<RatePanel currentCard={currentCard} submitRate={props.submitRate}/>
 		</div> 
     )  
 }

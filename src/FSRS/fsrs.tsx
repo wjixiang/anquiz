@@ -1,7 +1,7 @@
 import { ItemView, Notice, WorkspaceLeaf } from "obsidian";
 import Anquiz from "src/main";
 import manager from "../noteManager";
-import { Card, FSRS, RecordLog } from "ts-fsrs";
+import { Card } from "ts-fsrs";
 import fsrsDB from "./fsrsDB";
 import FsrsDeck from "./fsrsDeck";
 import { deckProps, schedule } from './component/treeNode';
@@ -27,9 +27,7 @@ export interface fsrsAppProps {
 
 
 export default class anquizFSRS extends manager{
-	fsrs: FSRS;
 	db: fsrsDB;
-	deck: FsrsDeck
 	view : (leaf:WorkspaceLeaf)=>fsrsView;
 	appProps: fsrsAppProps
 	noteProcess: fsrsNoteProcess
@@ -37,7 +35,7 @@ export default class anquizFSRS extends manager{
 
 	constructor(plugin:Anquiz){
 		super(plugin)
-		this.fsrs = new FSRS({})
+		// this.fsrs = new FSRS({})
 		this.db = new fsrsDB(plugin)
 		this.noteProcess = new fsrsNoteProcess(plugin)
 		this.appProps = {
@@ -145,11 +143,6 @@ export default class anquizFSRS extends manager{
     }  
 
 
-	scheduleFromNow(card:obCard){
-		const scheduling_cards:RecordLog = this.fsrs.repeat(card.card[card.card.length-1],new Date())
-		return scheduling_cards
-	}
-
 	hourToDate(hour: number) {  
 		const date = new Date();  
 		date.setHours(hour, 0, 0, 0);  
@@ -254,9 +247,11 @@ export default class anquizFSRS extends manager{
 						sortMethod={{
 						newLearnSortMethod:sortMethod.sortByDueTimeAsc
 					}} 
-						getTFile={(nid)=>this.getFileByNid(nid)}
+						getFileName={async (nid:string)=>{
+							const file = await this.getFileByNid(nid)
+							return file.basename
+						}}
 						redirect={(nid)=>this.redirect(nid)}
-						rater={(obcard)=>this.scheduleFromNow(obcard)}
 						submitRate={(obcard,newcard)=>this.db.rateCard(obcard,newcard)}
 						updateSchedule={this.getSchedule}
 					/>

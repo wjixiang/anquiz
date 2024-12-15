@@ -76,20 +76,20 @@ export default class Anquiz extends Plugin {
 
 		});
 		
-		this.addCommand({
-			id: 'test',
-			name: 'test',
-			callback: async () => {
-				const testNard = await this.fsrsApp.db.getCardByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
-				const testSchedule = await this.fsrsApp.scheduleFromNow(testNard) 
-				// const foundNote = await this.fsrs.getFileByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
+		// this.addCommand({
+		// 	id: 'test',
+		// 	name: 'test',
+		// 	callback: async () => {
+		// 		const testNard = await this.fsrsApp.db.getCardByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
+				
+		// 		// const foundNote = await this.fsrs.getFileByNid("7cfbeb6f-f20f-4908-b230-e2178a7e1037")
 
 				
-				testNard.card.push(testSchedule['3'].card)
+		// 		testNard.card.push(testSchedule['3'].card)
 				
-				this.fsrsApp.db.replaceCard(testNard)//simulate update card outright
-			}
-		});
+		// 		this.fsrsApp.db.replaceCard(testNard)//simulate update card outright
+		// 	}
+		// });
 
 		this.addSettingTab(new AnquizSettingTab(this.app, this));
 

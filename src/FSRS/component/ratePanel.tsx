@@ -6,7 +6,6 @@ import { Notice } from "obsidian";
 
 export interface rateProps {
 	currentCard: obCard;
-	rater: (card:obCard)=>object;
 	submitRate:(obcard:obCard,newCard:Card)=>Promise<obCard|null>;
 }
 

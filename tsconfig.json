@@ -21,10 +21,11 @@
       "ES6",
       "ES7"
     ],
-	"jsx": "react-jsx"
+	"jsx": "react-jsx",
+	"esModuleInterop": true
   },
   "include": [
     "**/*.ts",
 	"**/*.tsx"  
-  ]
+, "__tests__/fsrs.test.ts"  ]
 }

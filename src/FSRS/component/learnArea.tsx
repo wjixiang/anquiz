@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { obCard } from "../fsrs"
-import { TFile } from "obsidian";
 import { useEffect, useState } from "react";
 
 const NoteLink = styled.div`  
@@ -13,10 +12,10 @@ const NoteLink = styled.div`
 
 const LearnArea:React.FC<{
 	currentCard:obCard;
-	getTFile:(nid:string)=>Promise<TFile>;
+	getFileName:(nid:string)=>Promise<string>;
 	redirect:(nid:string)=>void;
 }> = (props)=>{
-	const [file, setFile] = useState<TFile | null>(null);  
+	const [fileName, setFileName] = useState<string | null>(null);  
     const [loading, setLoading] = useState(true);  
 
 	useEffect(() => {  
@@ -24,11 +23,11 @@ const LearnArea:React.FC<{
         const fetchFile = async () => {  
             try {  
                 setLoading(true);  
-                const fetchedFile = await props.getTFile(props.currentCard.nid);  
-                setFile(fetchedFile);  
+                const name =  props.getFileName(props.currentCard.nid);  
+                setFileName(await name);  
             } catch (error) {  
-                console.error('Failed to fetch file:', error);  
-                setFile(null);  
+                console.error('Failed to fetch file name:', error);  
+                setFileName(null);  
             } finally {  
                 setLoading(false);  
             }  
@@ -36,12 +35,12 @@ const LearnArea:React.FC<{
 
         // 立即调用  
         fetchFile();  
-    }, [props.currentCard.nid, props.getTFile]);
+    }, [props.currentCard.nid, props.getFileName]);
 
 	return(
 		<div>
 			<NoteLink onClick={()=>props.redirect(props.currentCard.nid)}>
-				{loading ? '加载中...' : (file ? file.name : '未找到文件')}
+				{loading ? '加载中...' : (fileName ? fileName : '未找到文件')}
 			</NoteLink>
 		</div>
 	)

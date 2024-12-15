@@ -31,9 +31,9 @@ export default class ob_neDB<T> {
                 for (const record of records) {  
                     await this.db.insert(record);  
                 }  
-                console.log("QuizDB loaded from file");  
+                console.log("DB loaded from file");  
             } else {  
-                console.log("QuizDB file not exists, starting with empty database");  
+                console.log("DB file not exists, starting with empty database");  
                 await this.save(); // create empty DB.json file  
             }  
         } catch (error) {  
