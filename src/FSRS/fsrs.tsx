@@ -223,14 +223,19 @@ export default class anquizFSRS extends manager{
 	
 		const openSchedule = (deckTree: deckTree, update: () => void) => {  
 			setSelectedDeck(deckTree);  
-			setCurrentPage('study');  
-			// 如果有额外的更新逻辑，执行传入的 update 函数  
+			setCurrentPage('study');   
 			update();  
 		};  
 	
-		const backHome = ()=>{
+		const backHome = async()=>{
+			await this.updateDeckList()
 			setCurrentPage('deck'); 
-			this.updateDeckList()
+		}
+
+		const submitRate = async(obcard:obCard,newcard:Card)=>{
+			const rateRes = await this.db.rateCard(obcard,newcard)
+			// await this.updateDeckList()
+			return rateRes
 		}
 	
  
@@ -252,7 +257,7 @@ export default class anquizFSRS extends manager{
 							return file.basename
 						}}
 						redirect={(nid)=>this.redirect(nid)}
-						submitRate={(obcard,newcard)=>this.db.rateCard(obcard,newcard)}
+						submitRate={(obcard,newcard)=>submitRate(obcard,newcard)}
 						updateSchedule={this.getSchedule}
 					/>
 			} 

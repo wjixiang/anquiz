@@ -26,11 +26,7 @@ export default class FsrsDeck extends Component<deckProps, deckState> {
         // 比较新旧 props，确定是否需要更新  
         if (JSON.stringify(prevProps.deckTreeList) !== JSON.stringify(this.props.deckTreeList)) {  
             console.log('Deck list props have changed');  
-            
-            // 可选：重置某些状态或执行特定逻辑  
-            this.setState({  
-                expandedNodes: new Set<string>() // 可选：重置展开节点  
-            });  
+             
         }  
     } 
 

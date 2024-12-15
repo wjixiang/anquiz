@@ -553,9 +553,109 @@
               "icon": "lucide-file",
               "title": "fsrs-panel"
             }
+          },
+          {
+            "id": "552bac2965812fc9",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "9857819467a10e7a",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "96a41c4977627df7",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "27d7335e1923dfa0",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "006d63db648b8bf9",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "7092cb7e64e05297",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "8a516fcbc158a8ad",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "73b1dbb5408bfa73",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "407f4286ce75b500",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "64a9fb8f4c54d6c9",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
           }
         ],
-        "currentTab": 41
+        "currentTab": 51
       }
     ],
     "direction": "horizontal",
@@ -573,7 +673,7 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "fb12194d4a2fec63",
+  "active": "64a9fb8f4c54d6c9",
   "lastOpenFiles": [
     "未命名 1.md",
     "未命名.md",
