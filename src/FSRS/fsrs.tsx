@@ -1,6 +1,5 @@
-import { ItemView, Notice, WorkspaceLeaf } from "obsidian";
+import { Notice, WorkspaceLeaf } from "obsidian";
 import Anquiz from "src/main";
-import manager from "../noteManager";
 import { Card } from "ts-fsrs";
 import fsrsDB from "./fsrsDB";
 import FsrsDeck from "./fsrsDeck";
@@ -9,8 +8,9 @@ import { deckTree } from './component/treeNode';
 import fsrsNoteProcess from "./fsrsNoteProcess";
 import React, { useState } from "react";
 import { FsrsStudy } from "./component/study";
-import { createRoot } from "react-dom/client";
+
 import sortMethod from "./sortMethod";
+import fsrsView from "./fsrsView";
 
  
 export interface obCard{
@@ -26,40 +26,46 @@ export interface fsrsAppProps {
 }
 
 
-export default class anquizFSRS extends manager{
+export default class anquizFSRS {
 	db: fsrsDB;
 	view : (leaf:WorkspaceLeaf)=>fsrsView;
 	appProps: fsrsAppProps
 	noteProcess: fsrsNoteProcess
-	
+	env = "release"
+	plugin: Anquiz
 
-	constructor(plugin:Anquiz){
-		super(plugin)
-		// this.fsrs = new FSRS({})
-		this.db = new fsrsDB(plugin)
-		this.noteProcess = new fsrsNoteProcess(plugin)
-		this.appProps = {
-			deckProps:{
-				deckTreeList: [
-					{
-						root: "(root)",
-						leaf: [],
-						route: [],
-						schedule:{
-							newLearn: [],
-							studying: [],
-							review: []
+	constructor(plugin?:Anquiz){
+		if(plugin){
+			this.plugin = plugin
+			this.db = new fsrsDB(plugin)
+			this.noteProcess = new fsrsNoteProcess(plugin)
+			this.appProps = {
+				deckProps:{
+					deckTreeList: [
+						{
+							root: "(root)",
+							leaf: [],
+							route: [],
+							schedule:{
+								newLearn: [],
+								studying: [],
+								review: []
+							}
 						}
-					}
-				],
-				openSchedule: this.openSchedule,
-			},
-			selectedDeck: null,
-			currentPage: 'deck'
+					],
+					openSchedule: this.openSchedule,
+				},
+				selectedDeck: null,
+				currentPage: 'deck'
+			}
+			// this.view = (leaf:WorkspaceLeaf)=>{
+			// 	return new fsrsView(leaf,this)
+			// }
+		}else{
+			this.env = 'dev'
+			this.db = new fsrsDB()
 		}
-		this.view = (leaf:WorkspaceLeaf)=>{
-			return new fsrsView(leaf,this)
-		}
+		
 	}
 
 	async activateStudypanel() {
@@ -205,12 +211,18 @@ export default class anquizFSRS extends manager{
 		return(
 			<>{newLearn}</>
 		)
-	}
+	} 
 
 	redirect = async (nid:string)=>{
-		const targetTFile = await this.getFileByNid(nid)
+		const targetTFile = await this.noteProcess.getFileByNid(nid)
 		this.plugin.app.workspace.getLeaf().openFile(targetTFile)
 		new Notice(`open ${targetTFile.name}`,500)
+	}
+
+	flashQueue = async(deck:string[]):Promise<obCard[]> =>{
+		const toDayAlreadyLearned = await this.db.fetchTodayAlreadyLearn(deck,this.plugin.settings.next_day)
+		console.log("today already learned:",toDayAlreadyLearned)
+		return toDayAlreadyLearned
 	}
 
 	fsrsApp: React.FC = ()=>{
@@ -250,15 +262,17 @@ export default class anquizFSRS extends manager{
 						deck={selectedDeck} 
 						backHome={backHome} 
 						sortMethod={{
-						newLearnSortMethod:sortMethod.sortByDueTimeAsc
+						newLearnSortMethod:sortMethod.sortByDueTimeAsc,
+						reviewSortMethod:sortMethod.sortByDueTimeAsc,
 					}} 
 						getFileName={async (nid:string)=>{
-							const file = await this.getFileByNid(nid)
+							const file = await this.noteProcess.getFileByNid(nid)
 							return file.basename
 						}}
 						redirect={(nid)=>this.redirect(nid)}
 						submitRate={(obcard,newcard)=>submitRate(obcard,newcard)}
 						updateSchedule={this.getSchedule}
+						flashQueue={(deck)=>this.flashQueue(deck)}
 					/>
 			} 
 		
@@ -273,29 +287,5 @@ export default class anquizFSRS extends manager{
 	
 }
 
-export class fsrsView extends ItemView{ //UI container of obsidian
-	fsrs:anquizFSRS
-	root = createRoot(this.containerEl.children[1])
-	constructor(leaf:WorkspaceLeaf,fsrs:anquizFSRS){
-		super(leaf);
-		this.fsrs = fsrs
-	}  
- 
-	getViewType(): string {
-		return "fsrsView" 
-	}
-	getDisplayText(): string { 
-		return "fsrs-panel"
-	}
-	renderComponent(fsrsApp:React.FC<fsrsAppProps>) {  
-        this.root.render(  
-            React.createElement(fsrsApp, this.fsrs.appProps)  
-        );  
-    }  
 
-    protected async onOpen(): Promise<void> {  
-        this.renderComponent(this.fsrs.fsrsApp)
-    }  
-
-}
 

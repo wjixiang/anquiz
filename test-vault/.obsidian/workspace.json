@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "871a76b7285c60b6",
+        "id": "5ebf589ea8955b1a",
         "type": "tabs",
         "children": [
           {
-            "id": "1c68501114528de0",
+            "id": "5777587ee3ab8469",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,37 +20,8 @@
               "icon": "lucide-file",
               "title": "胎儿窘迫的诊断"
             }
-          },
-          {
-            "id": "f3886e9f20c91318",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "未命名.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "未命名"
-            }
-          },
-          {
-            "id": "d20cf5c7cd00ca07",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "未命名 1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "未命名 1"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -163,289 +134,7 @@
             }
           },
           {
-            "id": "90e7a940d7e3019e",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "f7d82d4a365bdeff",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "ebabe37b5a7c28d4",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "9c11afb623ee05d6",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "76db971a22f87788",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "4a651b5079980d50",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "c2f8f53ea012dcb8",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "806aa5892b15c640",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "fbc857dd35c08c84",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "510d81e6bbafe677",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "31898779ea4d51f3",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "9e94b62ed558d9d6",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "4279933e298560e0",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "6124032384d2fc14",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "5757412590c4c17b",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "0e0e5ff81a67a045",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "fe9e7ab7e6957f93",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "88aaa510f95c1b09",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "db3b83abf3989c4f",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "40bf0e7cf08de952",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "6ce09e3d77f04247",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "6e8af705f131cbd5",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "4e207855611df709",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "3b915a217d4c5363",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "8c20abb8204d28da",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "b41a92be01657445",
-            "type": "leaf",
-            "state": {
-              "type": "fsrsView",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "插件不再活动"
-            }
-          },
-          {
-            "id": "dabeca161447acda",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "未命名.md"
-              },
-              "icon": "lucide-list",
-              "title": "未命名 的大纲"
-            }
-          },
-          {
-            "id": "e2a4880d71933700",
-            "type": "leaf",
-            "state": {
-              "type": "review-queue-list-view",
-              "state": {},
-              "icon": "SpacedRepIcon",
-              "title": "笔记复习序列"
-            }
-          },
-          {
-            "id": "1893df8c48cc68a2",
+            "id": "e05ff5987c3b4f3e",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -455,7 +144,7 @@
             }
           },
           {
-            "id": "a822e161e21ed8f0",
+            "id": "ee9b9022adddb8a3",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -465,7 +154,7 @@
             }
           },
           {
-            "id": "e9eba39709f66155",
+            "id": "e807862615aa6fa1",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -475,7 +164,7 @@
             }
           },
           {
-            "id": "47c15b56c53cc730",
+            "id": "d945e8425be4f411",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -485,7 +174,7 @@
             }
           },
           {
-            "id": "0c3878c0a6565851",
+            "id": "0cf8a8480ef86344",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -495,7 +184,7 @@
             }
           },
           {
-            "id": "119259c7f2fbd1b5",
+            "id": "d0f5d3ab74f4f332",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -505,7 +194,7 @@
             }
           },
           {
-            "id": "a0674e09263494d3",
+            "id": "9cdc404daa1b1082",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -515,7 +204,7 @@
             }
           },
           {
-            "id": "15eef5d5a4a5f098",
+            "id": "eb479243cfd53207",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -525,7 +214,7 @@
             }
           },
           {
-            "id": "7b2c1e240d11fa50",
+            "id": "6eefe6a68beb40c0",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -535,7 +224,7 @@
             }
           },
           {
-            "id": "f6288dfa8eb09e10",
+            "id": "33035db764baedb1",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -545,7 +234,7 @@
             }
           },
           {
-            "id": "fb12194d4a2fec63",
+            "id": "e19a2a71d2aa8277",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -555,7 +244,7 @@
             }
           },
           {
-            "id": "552bac2965812fc9",
+            "id": "17991943618cc515",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -565,7 +254,7 @@
             }
           },
           {
-            "id": "9857819467a10e7a",
+            "id": "d71db2f23cb1b4dd",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -575,7 +264,7 @@
             }
           },
           {
-            "id": "96a41c4977627df7",
+            "id": "965f3a827888850c",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -585,7 +274,7 @@
             }
           },
           {
-            "id": "27d7335e1923dfa0",
+            "id": "16d041bfeaea033c",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -595,7 +284,7 @@
             }
           },
           {
-            "id": "006d63db648b8bf9",
+            "id": "e5f40bcbe8eb3d5b",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -605,7 +294,7 @@
             }
           },
           {
-            "id": "7092cb7e64e05297",
+            "id": "c631f4b59a3d2558",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -615,7 +304,7 @@
             }
           },
           {
-            "id": "8a516fcbc158a8ad",
+            "id": "8ce2f9720f6f508c",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -625,7 +314,7 @@
             }
           },
           {
-            "id": "73b1dbb5408bfa73",
+            "id": "989a83f44a872d23",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -635,7 +324,7 @@
             }
           },
           {
-            "id": "407f4286ce75b500",
+            "id": "e6891fea51767295",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -645,7 +334,97 @@
             }
           },
           {
-            "id": "64a9fb8f4c54d6c9",
+            "id": "4c125dbf9d2bf670",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "d69734e64929b1b5",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "1247ab02366863ef",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "46b69366b2a79553",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "dd1c8eba2478eaa2",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "8c0ebf43a1d716c4",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "86d25633349130d7",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "068111ccaacc06d9",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "e51a920d4996cc1d",
+            "type": "leaf",
+            "state": {
+              "type": "fsrsView",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "fsrs-panel"
+            }
+          },
+          {
+            "id": "9c9d028a71703956",
             "type": "leaf",
             "state": {
               "type": "fsrsView",
@@ -655,7 +434,7 @@
             }
           }
         ],
-        "currentTab": 51
+        "currentTab": 32
       }
     ],
     "direction": "horizontal",
@@ -673,24 +452,24 @@
       "anquiz:random quiz": false
     }
   },
-  "active": "64a9fb8f4c54d6c9",
+  "active": "9c9d028a71703956",
   "lastOpenFiles": [
+    "皮肤性病学/测试1.md",
     "未命名 1.md",
-    "未命名.md",
+    "完全病历作业.md",
+    "妇产科学/流产/一般流产/不全流产.md",
     "妇产科学/流产/一般流产/难免流产.md",
     "妇产科学/流产/特殊流产/留流产/胎儿窘迫的诊断.md",
     "妇产科学/妊高症的治疗方案选择.md",
     "妇产科学/流产/特殊流产/稽留流产(missed abortion).md",
     "妇产科学/流产/自然流产的临床类型.md",
     "皮肤性病学/头癣的类型及判断.md",
-    "妇产科学/流产/一般流产/不全流产.md",
     "quiz_bank/内科完全病历.md",
     "妇产科学/流产/特殊流产/留流产",
     "妇产科学/流产/特殊流产",
     "先兆流产(threatened abortion).md",
     "妇产科学/流产/未命名.md",
     "妇产科学/流产/一般流产",
-    "完全病历作业.md",
     "妇产科学/流产",
     "pifu/未命名.md",
     "耳鼻喉作业.md",

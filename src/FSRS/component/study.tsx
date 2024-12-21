@@ -60,7 +60,8 @@ const DeckTitle = styled.div`
 `  
 
 export interface sortMethod{
-	newLearnSortMethod: (cards:obCard[])=>obCard[]
+	newLearnSortMethod: (cards:obCard[])=>obCard[];
+	reviewSortMethod: (cards:obCard[])=>obCard[];
 }
 
 export const FsrsStudy: React.FC<{  
@@ -70,9 +71,11 @@ export const FsrsStudy: React.FC<{
 	getFileName: (nid:string)=>Promise<string>;
 	redirect: (nid:string)=>void;
 	submitRate:(obcard:obCard,newCard:Card)=>Promise<obCard|null>;
-	updateSchedule:(deck:string[])=>Promise<schedule>
+	updateSchedule:(deck:string[])=>Promise<schedule>;
+	flashQueue:(deck:string[],lastQueue:obCard[])=>Promise<obCard[]>
 }> = (props) => {  
-    const deckPath = props.deck ? props.deck.route.join(' / ') : '';  
+    const deckPath = props.deck ? props.deck.route.join(' / ') : ''; 
+	// const [queue,setQueue] = useState()
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [schedule,setSchedule] = useState(props.deck?.schedule|| {
 		newLearn: [],  
@@ -89,24 +92,33 @@ export const FsrsStudy: React.FC<{
 	
 	const [currentCard,setCurrentCard] = useState<obCard>(initObCard)
 
-	useEffect(()=>{
-		const next = async()=>{
-			if(props.deck?.route){
-				setSchedule(await props.updateSchedule(props.deck.route))
-			}
-			const sortedNewLearn = props.sortMethod.newLearnSortMethod(schedule.newLearn)
-			// eslint-disable-next-line @typescript-eslint/no-unused-vars
-			const sortedReview = props.sortMethod.newLearnSortMethod(schedule.newLearn)
-			console.table(sortedNewLearn)
-	
-			setCurrentCard(sortedNewLearn[0])// temporary
+	const submitRate = async(obcard:obCard,newCard:Card):Promise<obCard|null>=>{
+		const res = await props.submitRate(obcard,newCard)
+		if(props.deck){
+			setSchedule(await props.updateSchedule(props.deck.route))
 		}
+		return res
+	}
+
+	const next = async()=>{
+		if(props.deck?.route){
+			setSchedule(await props.updateSchedule(props.deck.route))
+			// setQueue(await props.flashQueue(props.deck.route,queue))
+		}
+		const sortedNewLearn = props.sortMethod.newLearnSortMethod(schedule.newLearn)
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		const sortedReview = props.sortMethod.newLearnSortMethod(schedule.newLearn)
+		console.table(sortedNewLearn)
+		setCurrentCard(sortedNewLearn[0])// temporary
+	}
+
+	useEffect(()=>{
 		next()
 	},[props.deck])
 
 	if(currentCard.nid===''){
 		return(<div>
-
+			loading...
 		</div>)
 	}
 
@@ -132,7 +144,7 @@ export const FsrsStudy: React.FC<{
 			</HeadControl> 
 
 			<LearnArea currentCard={currentCard} getFileName={props.getFileName} redirect={props.redirect}  />
-			<RatePanel currentCard={currentCard} submitRate={props.submitRate}/>
+			<RatePanel currentCard={currentCard} submitRate={submitRate}/>
 		</div> 
     )  
 }

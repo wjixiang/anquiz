@@ -2,12 +2,25 @@ import ob_neDB from "src/Obsidian_nedb";
 import { obCard } from './fsrs';
 import Anquiz from "src/main";
 import { Card } from "ts-fsrs";
+import { PluginManifest } from "obsidian";
 
-
+const testManifest:PluginManifest = {
+	id: "anquiz",
+	name: "Anquiz",
+	author: "wjx",
+	version: "0.0.0",
+	minAppVersion: "",
+	description: "test"
+}
 
 export default class fsrsDB extends ob_neDB<obCard> {
-	constructor(plugin:Anquiz){
-		super(plugin.app,plugin.manifest,"fsrsDB")
+	constructor(plugin?:Anquiz){
+		if(plugin){
+			super(plugin.manifest,"fsrsDB",plugin.app)
+		}else{
+			//dev env
+			super(testManifest,"fsrsDB")
+		}
 	}
 
 	async saveCard(

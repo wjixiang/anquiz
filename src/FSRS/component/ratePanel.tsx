@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { obCard } from "../fsrs";
 import { Card, fsrs, generatorParameters, RecordLogItem } from "ts-fsrs";
 import { Notice } from "obsidian";
+import { State } from "ts-fsrs";
 
 
 export interface rateProps {
@@ -34,27 +35,36 @@ const RatePanel:React.FC<rateProps> = (props)=>{
 	const test_params = generatorParameters({ enable_fuzz: true, enable_short_term: false })
 	const f = fsrs(test_params)
 	const scheduling_cards = f.repeat(props.currentCard.card[props.currentCard.card.length-1],new Date())
-	console.log(`log:`, scheduling_cards[1])
+	console.log(`log:`, scheduling_cards)
 
 	return(
 		<div>
-			{Object.values(scheduling_cards).map((schedule:RecordLogItem)=>(
-				<RateButton schedule={schedule} submitRate={rating}/>
+			{Object.entries(scheduling_cards).map(([key,schedule])=>(
+				<RateButton schedule={schedule} submitRate={rating} key={key}/>
 			))}
 		</div>
 	)
 }
 
-
+function parseState(value: string): State | undefined {  
+	return State[parseInt(value)] !== undefined ? parseInt(value) as State : undefined;  
+  } 
 
 const RateButton:React.FC<{
+	key:string;
 	schedule:RecordLogItem;
 	submitRate:(newCard:Card)=>void;
 }> = (props)=>{
 
 
 	return(
-		<RateButtonStyle onClick={()=>props.submitRate(props.schedule.card)}>
+		<RateButtonStyle onClick={()=>{
+			const state = parseState(props.key)
+			if(state){
+				props.schedule.card.state=state
+			}
+			props.submitRate(props.schedule.card)
+			}}>
 			{props.schedule.card.due.toString()}
 		</RateButtonStyle>
 	)
