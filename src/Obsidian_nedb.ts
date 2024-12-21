@@ -12,14 +12,14 @@ export default class ob_neDB<T> {
 	env = 'release'
 
 	constructor(manifest: PluginManifest, dbName:string,app?:App) {
+		this.dbName = dbName
+		this.manifest = manifest
 		if(app){
 			this.app = app
 			this.DBpath = normalizePath(`${this.app.vault.configDir}/plugins/${this.manifest.id}/${this.dbName}.json`)
 		}else{
 			this.env = "dev"
 		}
-		this.manifest = manifest
-		this.dbName = dbName
 	}
 
 	async init() {  

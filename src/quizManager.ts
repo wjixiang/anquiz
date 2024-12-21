@@ -4,7 +4,7 @@ import ob_neDB from './Obsidian_nedb';
 
 export class QuizManager extends ob_neDB<quizinterface.quizModel<quizinterface.quizMode,quizinterface.QAMode>>{  
     constructor(plugin: Anquiz) {  
-		super(plugin.app,plugin.manifest,"quizDB")
+		super(plugin.manifest,"quizDB",plugin.app)
     }  
 
     

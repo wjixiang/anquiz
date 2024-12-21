@@ -16,7 +16,7 @@ import createCardModal from './component/createCardModal';
 
 
 import anquizFSRS from './FSRS/fsrs';
-
+import fsrsView from './FSRS/fsrsView';
 
 
 
@@ -35,7 +35,7 @@ export default class Anquiz extends Plugin {
 		await this.fsrsApp.updateDeckList()
 
 		this.registerView(this.FSRSPANEL,(leaf)=>{
-			return this.fsrsApp.view(leaf);
+			return new fsrsView(leaf,this.fsrsApp);
 		})
 
 		this.activateFSRSpanel()

@@ -67,7 +67,7 @@ export default class anquizFSRS {
 		}
 		
 	}
-
+ 
 	async activateStudypanel() {
 		const { workspace } = this.plugin.app;
 		const viewType = "fsrs-study"
